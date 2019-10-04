@@ -8,7 +8,7 @@ const todos = props => (
                 return <Todo
                     key={'todo' + index}
                     index={index}
-                    todoContent={todo}
+                    todo={todo}
                     deleteHandler={props.deleteHandler}
                     completed={props.completedHandler} />
             })}

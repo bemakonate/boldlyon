@@ -12,26 +12,44 @@ class ToDoList extends Component {
     inputChangedHandler = (event) => {
         if (event.keyCode === 13) {
             const updatedTodos = [...this.state.todos];
-            updatedTodos.push(event.target.value);
+            //Each todo should have the task text, and if it completed
+            const newTodo = { task: event.target.value, isCompleted: false }
 
-            event.target.value = '';
+            updatedTodos.push(newTodo);//Add the new todo the array of todos
+
+            event.target.value = ''; //Reset the element to an empty value
             this.setState({ todos: updatedTodos })
         }
     }
 
     deleteTodoHandler = (index) => {
         const updatedTodos = [...this.state.todos];
+        let tasksCompleted = this.state.tasksCompleted;
+
+        if (updatedTodos[index].isCompleted) {
+            tasksCompleted -= 1;
+        }
+
         updatedTodos.splice(index, 1);
-        this.setState({ todos: updatedTodos });
+
+        this.setState({
+            todos: updatedTodos,
+            tasksCompleted: tasksCompleted,
+        });
     }
 
-    todoCompletedHandler = (event) => {
+    todoCompletedHandler = (index) => {
         let sum = 0;
-        event.target.checked ? sum = 1 : sum = -1;
+        const updatedTodos = [...this.state.todos];
+        const taskCompleted = updatedTodos[index].isCompleted;//See if the task is already completed
+
+        taskCompleted ? sum = -1 : sum = 1; //If clicked when completed then substract 1 from the tasksCompeleted
+        updatedTodos[index].isCompleted = !taskCompleted; //When clicked toggle the state of task completion
 
         this.setState((prevState, props) => {
             return {
-                tasksCompleted: prevState.tasksCompleted + sum
+                tasksCompleted: prevState.tasksCompleted + sum,
+                todos: updatedTodos,
             }
         })
 
