@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import classes from './ToDoInput.css'
 
 const todoListInput = props => (
-    <Fragment>
+    <div className={classes.ToDoInput}>
         <input onKeyDown={props.changed} />
-    </Fragment>
+    </div>
 )
 export default todoListInput;

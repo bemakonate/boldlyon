@@ -1,0 +1,5 @@
+.ToDoInput {
+  display: flex;
+  width: 100%; }
+  .ToDoInput input {
+    flex: 1; }
