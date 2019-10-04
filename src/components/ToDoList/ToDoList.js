@@ -20,10 +20,10 @@ class ToDoList extends Component {
     deleteTodoHandler = (index) => {
         const updatedTodos = [...this.state.todos];
         updatedTodos.splice(index, 1);
-
         this.setState({ todos: updatedTodos });
-
     }
+
+
     render() {
         return (
             <div className='ToDoList'>
