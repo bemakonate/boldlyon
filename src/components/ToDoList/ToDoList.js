@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ToDoInput from './ToDoInput/ToDoInput';
 import Todos from './Todos/Todos';
 import classes from './stylesheets/ToDoList.css';
-import '../../../node_modules/font-awesome/css/font-awesome.min.css';
 
 class ToDoList extends Component {
     state = {
@@ -69,7 +68,6 @@ class ToDoList extends Component {
                     <h3 className={classes.TodoTitle}>Todo List App</h3>
                     <p className={classes.Tracker}>Task Completed: {this.state.tasksCompleted}</p>
                 </div>
-                <i className='far fa-trash-alt'></i>
                 <ToDoInput changed={this.inputChangedHandler} />
                 <div className={classes.Todos}>
                     <Todos
