@@ -1,6 +1,3 @@
-.Container {
-  padding: 0 1em; }
-
 /*!
  * Font Awesome Free 5.11.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -8,7 +5,6 @@
 .fa,
 .fas,
 .trash,
-.Trash,
 .far,
 .fal,
 .fad,
@@ -22,7 +18,7 @@
   text-rendering: auto;
   line-height: 1; }
 
-.twitter, .trash, .Trash {
+.twitter, .trash {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -104,7 +100,6 @@
 .fa.fa-pull-left,
 .fas.fa-pull-left,
 .fa-pull-left.trash,
-.fa-pull-left.Trash,
 .far.fa-pull-left,
 .fal.fa-pull-left,
 .fab.fa-pull-left,
@@ -114,7 +109,6 @@
 .fa.fa-pull-right,
 .fas.fa-pull-right,
 .fa-pull-right.trash,
-.fa-pull-right.Trash,
 .far.fa-pull-right,
 .fal.fa-pull-right,
 .fab.fa-pull-right,
@@ -4400,13 +4394,12 @@ readers do not read off random characters that represent icons */
   font-style: normal;
   font-weight: 900;
   font-display: auto;
-  src: url("../../../../../fonts/webfonts/fa-solid-900.eot");
-  src: url("../../../../../fonts/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../../../../../fonts/webfonts/fa-solid-900.woff2") format("woff2"), url("../../../../../fonts/webfonts/fa-solid-900.woff") format("woff"), url("../../../../../fonts/webfonts/fa-solid-900.ttf") format("truetype"), url("../../../../../fonts/webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
+  src: url("../webfonts/fa-solid-900.eot");
+  src: url("../webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.woff") format("woff"), url("../webfonts/fa-solid-900.ttf") format("truetype"), url("../webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
 
 .fa,
 .fas,
-.trash,
-.Trash {
+.trash {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
 
@@ -4419,8 +4412,8 @@ readers do not read off random characters that represent icons */
   font-style: normal;
   font-weight: normal;
   font-display: auto;
-  src: url("../../../../../fonts/webfonts/fa-brands-400.eot");
-  src: url("../../../../../fonts/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../../../../../fonts/webfonts/fa-brands-400.woff2") format("woff2"), url("../../../../../fonts/webfonts/fa-brands-400.woff") format("woff"), url("../../../../../fonts/webfonts/fa-brands-400.ttf") format("truetype"), url("../../../../../fonts/webfonts/fa-brands-400.svg#fontawesome") format("svg"); }
+  src: url("../webfonts/fa-brands-400.eot");
+  src: url("../webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.woff") format("woff"), url("../webfonts/fa-brands-400.ttf") format("truetype"), url("../webfonts/fa-brands-400.svg#fontawesome") format("svg"); }
 
 
 .fab,
@@ -4430,24 +4423,5 @@ readers do not read off random characters that represent icons */
 .twitter:before {
   content: "\f099"; }
 
-.trash:before, .Trash:before {
+.trash:before {
   content: "\f1f8"; }
-
-.Todo {
-  display: flex;
-  padding: 10px 1em;
-  width: 100%;
-  font-weight: 300; }
-  .Todo:nth-of-type(even) {
-    background: rgba(116, 116, 116, 0.8);
-    color: white; }
-  .Todo:nth-of-type(odd) {
-    background: transparent;
-    color: white; }
-  .Todo.Completed {
-    opacity: .6; }
-  .Todo span {
-    margin-left: auto; }
-
-.Checkbox {
-  margin-right: 10px; }
