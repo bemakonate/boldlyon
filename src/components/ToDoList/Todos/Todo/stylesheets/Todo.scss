@@ -1,5 +1,18 @@
 @import '../../../../../UI/tools/tools.scss';
 
+@import "../../../../../scss/fontawesome.scss";
+@import "../../../../../scss/solid.scss";
+@import "../../../../../scss/brands.scss";
+
+.Trash{
+    @extend %fa-icon;
+    @extend .fab;
+  
+    &:before {
+      content: fa-content($fa-var-twitter);
+    }
+}
+
 .Todo{
     display:flex;
     padding:10px $contain-sides;

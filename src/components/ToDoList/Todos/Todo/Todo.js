@@ -19,6 +19,7 @@ const todo = props => {
                 checked={isTodoCompleted} />
 
             {todoText}
+            <i className={classes.Trash}></i>
             <span onClick={props.deleteHandler.bind(this, props.index)}>X</span>
         </li>
     );
