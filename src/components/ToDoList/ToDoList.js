@@ -5,7 +5,12 @@ import classes from './ToDoList.css';
 
 class ToDoList extends Component {
     state = {
-        todos: [],
+        todos: [
+            { task: 'Pick up sisters', isCompleted: true },
+            { task: 'Start busines', isCompleted: false },
+            { task: 'Go Home', isCompleted: true }
+
+        ],
         tasksCompleted: 0,
     }
 
@@ -24,35 +29,37 @@ class ToDoList extends Component {
 
     deleteTodoHandler = (index) => {
         const updatedTodos = [...this.state.todos];
-        let tasksCompleted = this.state.tasksCompleted;
-
-        if (updatedTodos[index].isCompleted) {
-            tasksCompleted -= 1;
-        }
-
         updatedTodos.splice(index, 1);
 
-        this.setState({
-            todos: updatedTodos,
-            tasksCompleted: tasksCompleted,
+        this.setState({ todos: updatedTodos }, () => {
+            this.trackCompletedHandler();
         });
     }
 
     todoCompletedHandler = (index) => {
-        let sum = 0;
         const updatedTodos = [...this.state.todos];
         const taskCompleted = updatedTodos[index].isCompleted;//See if the task is already completed
-
-        taskCompleted ? sum = -1 : sum = 1; //If clicked when completed then substract 1 from the tasksCompeleted
         updatedTodos[index].isCompleted = !taskCompleted; //When clicked toggle the state of task completion
 
-        this.setState((prevState, props) => {
-            return {
-                tasksCompleted: prevState.tasksCompleted + sum,
-                todos: updatedTodos,
+        this.setState({ todos: updatedTodos }, () => {
+            this.trackCompletedHandler();
+        });
+    }
+
+    trackCompletedHandler = () => {
+        const updatedTodos = [...this.state.todos];
+        let finished = 0;
+
+        updatedTodos.forEach(todo => {
+            if (todo.isCompleted) {
+                finished += 1;
             }
         })
+        this.setState({ tasksCompleted: finished })
+    }
 
+    componentDidMount() {
+        this.trackCompletedHandler();
     }
 
     render() {
