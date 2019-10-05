@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
 import HomeBuilder from '../HomeBuilder/HomeBuilder';
 import Layout from '../Layout/Layout';
-import classes from './App.css'
+import classes from './stylesheets/App.css';
 
 class App extends Component {
   render() {

@@ -2,4 +2,8 @@
   display: flex;
   width: 100%; }
   .ToDoInput input {
-    flex: 1; }
+    flex: 1;
+    outline: none;
+    border: 1px solid gray;
+    font-weight: 300;
+    padding: 4px; }

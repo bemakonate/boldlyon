@@ -1,0 +1,23 @@
+@import '../../../../../UI/tools/tools.scss';
+li{
+    display:flex;
+    padding:10px;
+    width:100%;
+    input[type=checkbox]{
+        margin-right:10px;
+    }
+    &:nth-of-type(even){
+        background:$todo-even-bg-color;
+        color:$todo-even-color;
+    }
+    &:nth-of-type(odd){
+        background:$todo-odd-bg-color;
+        color:$todo-odd-color;
+    }
+    &.Completed{
+        background-color:red;
+    }
+    span{
+        margin-left:auto;
+    }
+}

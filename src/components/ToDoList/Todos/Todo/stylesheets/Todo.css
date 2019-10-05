@@ -1,0 +1,16 @@
+li {
+  display: flex;
+  padding: 10px;
+  width: 100%; }
+  li input[type=checkbox] {
+    margin-right: 10px; }
+  li:nth-of-type(even) {
+    background: gray;
+    color: white; }
+  li:nth-of-type(odd) {
+    background: black;
+    color: white; }
+  li.Completed {
+    background-color: red; }
+  li span {
+    margin-left: auto; }

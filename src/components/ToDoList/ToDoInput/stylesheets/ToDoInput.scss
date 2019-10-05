@@ -1,7 +1,13 @@
+@import '../../../../UI/tools/tools.scss';
+
 .ToDoInput{
     display:flex;
     width:100%;
     input{
         flex:1;
+        outline:none;
+        border:1px solid gray;
+        font-weight:300;
+        padding:4px;
     }
 }
