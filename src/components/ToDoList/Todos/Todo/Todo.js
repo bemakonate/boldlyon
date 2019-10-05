@@ -21,7 +21,9 @@ const todo = props => {
             {todoText}
 
             <span onClick={props.deleteHandler.bind(this, props.index)}>
-                <i className={classes.Trash}></i>
+                <i className="material-icons">delete_sweep</i>
+
+
             </span>
         </li>
     );

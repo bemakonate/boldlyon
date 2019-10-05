@@ -1,13 +1,5 @@
 @import '../../../../../UI/tools/tools.scss';
 
-$fa-font-path: "../../../../../fonts/webfonts";
-@import '../../../../../fonts/fonts.scss';
-
-
-.Trash{
-  @extend .trash;
-}
-
 .Todo{
     display:flex;
     padding:10px $contain-sides;
@@ -32,3 +24,4 @@ $fa-font-path: "../../../../../fonts/webfonts";
 .Checkbox{
     margin-right:10px;
 }
+
