@@ -1,12 +1,10 @@
 @import '../../../../../UI/tools/tools.scss';
 
-li{
+.Todo{
     display:flex;
     padding:10px;
     width:100%;
-    input[type=checkbox]{
-        margin-right:10px;
-    }
+    font-weight:300;
     &:nth-of-type(even){
         background:$todo-even-bg-color;
         color:$todo-even-color;
@@ -16,9 +14,13 @@ li{
         color:$todo-odd-color;
     }
     &.Completed{
-        background-color:red;
+        opacity:.5;
     }
     span{
         margin-left:auto;
     }
+}
+
+.Checkbox{
+    margin-right:10px;
 }

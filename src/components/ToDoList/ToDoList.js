@@ -6,10 +6,9 @@ import classes from './stylesheets/ToDoList.css';
 class ToDoList extends Component {
     state = {
         todos: [
-            { task: 'Pick up sisters', isCompleted: true },
+            { task: 'Pick up sisters', isCompleted: false },
             { task: 'Start busines', isCompleted: false },
-            { task: 'Go Home', isCompleted: true }
-
+            { task: 'Go Home', isCompleted: false }
         ],
         tasksCompleted: 0,
     }
@@ -65,13 +64,19 @@ class ToDoList extends Component {
     render() {
         return (
             <div className={classes.ToDoList}>
-                <div>ToDo Header</div>
+                <div className={classes.TodoHeader}>
+                    <h3 className={classes.TodoTitle}>Todo List App</h3>
+                    <p className={classes.Tracker}>Task Completed: {this.state.tasksCompleted}</p>
+                </div>
+
                 <ToDoInput changed={this.inputChangedHandler} />
-                <p>Task Completed:{this.state.tasksCompleted}</p>
-                <Todos
-                    todos={this.state.todos}
-                    deleteHandler={this.deleteTodoHandler}
-                    completedHandler={this.todoCompletedHandler} />
+                <div className={classes.Todos}>
+                    <Todos
+                        todos={this.state.todos}
+                        deleteHandler={this.deleteTodoHandler}
+                        completedHandler={this.todoCompletedHandler} />
+                </div>
+
             </div>
         );
     }

@@ -1,16 +1,18 @@
-li {
+.Todo {
   display: flex;
   padding: 10px;
-  width: 100%; }
-  li input[type=checkbox] {
-    margin-right: 10px; }
-  li:nth-of-type(even) {
-    background: gray;
+  width: 100%;
+  font-weight: 300; }
+  .Todo:nth-of-type(even) {
+    background: #8E8E8E;
     color: white; }
-  li:nth-of-type(odd) {
-    background: black;
+  .Todo:nth-of-type(odd) {
+    background: #86D7DB;
     color: white; }
-  li.Completed {
-    background-color: red; }
-  li span {
+  .Todo.Completed {
+    opacity: .5; }
+  .Todo span {
     margin-left: auto; }
+
+.Checkbox {
+  margin-right: 10px; }
