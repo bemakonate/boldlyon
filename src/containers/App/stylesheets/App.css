@@ -5,5 +5,5 @@
   font-family: 'Lato',sans-serif;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60") fixed no-repeat center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://images.unsplash.com/photo-1520008457705-fbebb2fe6565?ixlib=rb-1.2.1&auto=format&fit=crop&w=2551&q=80") fixed no-repeat center/cover;
   color: white; }

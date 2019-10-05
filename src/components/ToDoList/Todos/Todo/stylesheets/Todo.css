@@ -3,11 +3,12 @@
 
 .Todo {
   display: flex;
+  align-items: center;
   padding: 10px 1em;
   width: 100%;
   font-weight: 300; }
   .Todo:nth-of-type(even) {
-    background: rgba(116, 116, 116, 0.8);
+    background: rgba(61, 61, 61, 0.8);
     color: white; }
   .Todo:nth-of-type(odd) {
     background: transparent;

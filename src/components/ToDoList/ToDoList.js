@@ -66,8 +66,7 @@ class ToDoList extends Component {
             <div className={classes.ToDoList}>
                 <div className={classes.TodoHeader}>
                     <h3 className={classes.TodoTitle}>Todo List App</h3>
-                    <p className={classes.Tracker}>Task Completed: {this.state.tasksCompleted}</p>
-
+                    <p className={classes.Tracker}>Task(s) Completed: {this.state.tasksCompleted}</p>
                 </div>
                 <ToDoInput changed={this.inputChangedHandler} />
                 <div className={classes.Todos}>
