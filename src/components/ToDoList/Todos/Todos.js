@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import Todo from './Todo/Todo';
+import classes from './Todos.css'
 
 const todos = props => (
     <Fragment>
-        <ul>
+        <ul className={classes.Todos}>
             {props.todos.map((todo, index) => {
                 return <Todo
                     key={'todo' + index}

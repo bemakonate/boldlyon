@@ -1,0 +1,16 @@
+.Todos {
+  padding-left: 0;
+  display: flex;
+  flex-direction: column; }
+  .Todos li {
+    display: flex;
+    padding: 10px; }
+    .Todos li input[type=checkbox] {
+      margin-right: 10px; }
+    .Todos li:nth-of-type(even) {
+      background: white; }
+    .Todos li:nth-of-type(odd) {
+      background: #494949;
+      color: white; }
+    .Todos li span {
+      margin-left: auto; }
