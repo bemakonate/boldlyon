@@ -1,6 +1,9 @@
+.Container {
+  padding: 0 1em; }
+
 .Todo {
   display: flex;
-  padding: 10px;
+  padding: 10px 1em;
   width: 100%;
   font-weight: 300; }
   .Todo:nth-of-type(even) {

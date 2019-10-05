@@ -12,7 +12,6 @@ const todo = props => {
     const isTodoCompleted = props.todo.isCompleted;
     return (
         <li className={todoClasses.join(' ')}>
-
             <input
                 className={classes.Checkbox}
                 type='checkbox'
