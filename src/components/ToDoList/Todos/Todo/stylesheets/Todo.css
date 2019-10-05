@@ -4,13 +4,13 @@
   width: 100%;
   font-weight: 300; }
   .Todo:nth-of-type(even) {
-    background: rgba(183, 183, 183, 0.7);
+    background: rgba(116, 116, 116, 0.8);
     color: white; }
   .Todo:nth-of-type(odd) {
-    background: #86D7DB;
+    background: transparent;
     color: white; }
   .Todo.Completed {
-    opacity: .5; }
+    opacity: .6; }
   .Todo span {
     margin-left: auto; }
 

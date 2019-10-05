@@ -1,3 +1,9 @@
+@import '../../../UI/tools/tools.scss';
 .App {
   font-family: 'Lato',sans-serif;
+  width:100vw;
+  height:100vh;
+  background:linear-gradient($body-bg-overlay), url($body-bg-url) fixed no-repeat center/cover;
+  color:$base-color;
+   
 }

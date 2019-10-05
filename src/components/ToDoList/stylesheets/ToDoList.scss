@@ -1,3 +1,4 @@
+@import '../../../UI/tools/tools.scss';
 .ToDoList{
     width:100%;
 }
@@ -6,7 +7,7 @@
 }
 
 .TodoHeader{
-    background:#299ED0;
+    background:$todo-header-color;
     color:white;
     padding:10px;
 }
