@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import Todo from './Todo/Todo';
-import classes from './Todos.css'
+import classes from './stylesheets/Todos.css';
 
 const todos = props => (
     <Fragment>

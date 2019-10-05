@@ -1,0 +1,54 @@
+//Media Queries
+@mixin mq($break){
+    $value:map-get($breakpoints,$break);
+    $sm:map-get($breakpoints,'sm');
+    @if $value <= $sm {
+        @media(max-width:$value){
+            @content;
+        }
+    }
+    @else if $value > $sm{
+        @media(min-width:$value){
+            @content;
+        }
+    }
+}
+@mixin flex(
+    $just:null,
+    $align:null,
+    $dir:null,
+    $wrap:null,
+    $center:null,
+    $disp:flex){
+    display:$disp;
+    justify-content:$just;
+    align-items:$align;
+    flex-direction:$dir;
+    flex-wrap:$wrap;
+    @if $center == center{
+        align-items:$center;
+        justify-content: $center;
+    }
+}
+//Grid
+@mixin grid(
+    $flow:row,
+    $grid-cols:null,
+    $gap:null,
+    $grid-rows:null){
+    display:grid;
+    grid-auto-flow:$flow;
+    grid-template-columns:$grid-cols;
+    grid-template-rows:$grid-rows;
+    grid-gap:$gap;
+}
+
+//Height and width
+@mixin square($dim){
+    height:$dim;
+    width:$dim; 
+}
+@mixin rounded($dim){
+    @include square($dim);
+    border-radius:50%;
+}

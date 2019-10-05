@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './ToDoInput.css'
+import classes from './stylesheets/ToDoInput.css'
 
 const todoListInput = props => (
     <div className={classes.ToDoInput}>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ToDoInput from './ToDoInput/ToDoInput';
 import Todos from './Todos/Todos';
-import classes from './ToDoList.css';
+import classes from './stylesheets/ToDoList.css';
 
 class ToDoList extends Component {
     state = {

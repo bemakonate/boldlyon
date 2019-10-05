@@ -10,7 +10,7 @@
     .Todos li:nth-of-type(even) {
       background: white; }
     .Todos li:nth-of-type(odd) {
-      background: #494949;
+      background: black;
       color: white; }
     .Todos li span {
       margin-left: auto; }

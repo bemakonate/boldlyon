@@ -1,7 +1,8 @@
+@import '../../../UI/tools/tools.scss';
+
 .Todos{
     padding-left:0;
-    display:flex;
-    flex-direction: column;
+    @include flex($dir:column);
     li{
         display:flex;
         padding:10px;
@@ -12,7 +13,7 @@
             background:white;
         }
         &:nth-of-type(odd){
-            background:rgb(73, 73, 73);
+            background:$base-color;
             color:white;
         }
         span{
