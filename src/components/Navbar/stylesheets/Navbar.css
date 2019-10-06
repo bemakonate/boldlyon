@@ -11,4 +11,46 @@
   z-index: 500; }
 
 .Menu {
-  font-size: 35px; }
+  font-size: 35px;
+  border: 1px solid white;
+  background: rgba(0, 0, 0, 0.3); }
+
+.SideDrawer {
+  width: 60vw;
+  transition: .5s ease-out;
+  position: relative;
+  transform: translateX(-100%);
+  padding: 70px 1em;
+  height: 100vh;
+  background: #1C1C1C;
+  position: fixed;
+  z-index: 500; }
+  .SideDrawer ul {
+    list-style: none;
+    padding-left: 0; }
+    .SideDrawer ul li {
+      display: block;
+      font-size: 18px;
+      padding: 10px;
+      font-weight: 300; }
+  .SideDrawer .SideBrand {
+    font-weight: 700; }
+
+.Close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 100%; }
+
+.ShowSideDrawer {
+  transform: translateX(0); }
+
+.AppImg {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 40px; }
