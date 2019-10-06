@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import classes from './stylesheets/Navbar.css';
-import appImg from '../../assets/mountains.jpeg';
+import classes from './stylesheets/SideNav.css';
+import appImg from '../../../assets/mountains.jpeg';
 
-const navbar = props => {
+const sideNav = props => {
     const menuIconClasses = ["material-icons", classes.Menu].join(' ');
     const closeIconClasses = ["material-icons", classes.Close].join(' ');
     const sideDrawerClasses = [classes.SideDrawer];
@@ -26,15 +26,8 @@ const navbar = props => {
                     </li>
                 </ul>
             </nav>
-
-            {/*Regular Nav*/}
-            <nav className={classes.Navbar}>
-                <ul>
-                    <li><a href='/' className={classes.NavbarBrand}>Todo List App</a></li>
-                    <li><a href='/'>Home</a></li>
-                </ul>
-            </nav>
         </Fragment>
     );
+
 }
-export default navbar;
+export default sideNav;

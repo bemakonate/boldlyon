@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import Navbar from '../../components/Navbar/Navbar';
+import Navigation from '../../components/Navigation/Navigation';
 
 class Layout extends Component {
     state = {
@@ -14,7 +14,7 @@ class Layout extends Component {
     render() {
         return (
             <Fragment>
-                <Navbar
+                <Navigation
                     showSideNav={this.state.showSideNav}
                     openSideNav={this.openSideNavHandler}
                     closeSideNav={this.closeSideNavHandler} />
