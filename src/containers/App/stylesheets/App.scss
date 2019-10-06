@@ -5,5 +5,9 @@
   background:linear-gradient($body-bg-overlay), url($body-bg-url) fixed no-repeat center/cover;
   color:$base-color;
   @include flex($dir:column);
-   
+
+  main{
+    flex:1;
+    @include flex($center:center);
+  }
 }

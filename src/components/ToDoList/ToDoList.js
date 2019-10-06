@@ -6,23 +6,11 @@ import classes from './stylesheets/ToDoList.css';
 class ToDoList extends Component {
     state = {
         todos: [
-            { task: 'Pick up sisters', isCompleted: false },
+            { task: 'Pick up sisters', isCompleted: true },
             { task: 'Start busines', isCompleted: false },
-            { task: 'Go Home', isCompleted: false },
-            { task: 'Pick up sisters', isCompleted: false },
-            { task: 'Start busines', isCompleted: false },
-            { task: 'Go Home', isCompleted: false },
-            { task: 'Pick up sisters', isCompleted: false },
-            { task: 'Start busines', isCompleted: false },
-            { task: 'Go Home', isCompleted: false },
-            { task: 'Pick up sisters', isCompleted: false },
-            { task: 'Start busines', isCompleted: false },
-            { task: 'Go Home', isCompleted: false },
-            { task: 'Pick up sisters', isCompleted: false },
-            { task: 'Start busines', isCompleted: false },
-            { task: 'Go Home', isCompleted: false },
         ],
         tasksCompleted: 0,
+        totalTasks: 0,
     }
 
     inputChangedHandler = (event) => {
@@ -60,13 +48,19 @@ class ToDoList extends Component {
     trackCompletedHandler = () => {
         const updatedTodos = [...this.state.todos];
         let finished = 0;
+        let totalTasks = 0;
 
         updatedTodos.forEach(todo => {
             if (todo.isCompleted) {
                 finished += 1;
             }
+            totalTasks += 1;
         })
-        this.setState({ tasksCompleted: finished })
+
+        this.setState({
+            tasksCompleted: finished,
+            totalTasks: totalTasks
+        })
     }
 
     componentDidMount() {
@@ -78,7 +72,9 @@ class ToDoList extends Component {
             <div className={classes.ToDoList}>
                 <div className={classes.TodoHeader}>
                     <h3 className={classes.TodoTitle}>Todo List App</h3>
-                    <p className={classes.Tracker}>Task(s) Completed: {this.state.tasksCompleted}</p>
+                    <p className={classes.Tracker}>
+                        Task(s) Completed: {this.state.tasksCompleted}/{this.state.totalTasks}
+                    </p>
                 </div>
                 <ToDoInput changed={this.inputChangedHandler} />
                 <div className={classes.Todos}>

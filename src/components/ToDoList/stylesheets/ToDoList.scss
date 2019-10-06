@@ -1,6 +1,7 @@
 @import '../../../UI/tools/tools.scss';
 .ToDoList{
     width:100%;
+    margin-bottom:40px;
 }
 .Todos{
     width:100%;
@@ -10,16 +11,15 @@
     background:$todo-header-color;
     color:white;
     padding:10px $contain-sides;
-}
-
-.TodoTitle{
-    margin:0;
-    margin-bottom:6px;
-}
-
-.Tracker{
-    margin:0;
-    font-weight:300;
+    .TodoTitle{
+        margin:0;
+        margin-bottom:6px;
+    }
+    
+    .Tracker{
+        margin:0;
+        font-weight:300;
+    }
 }
 @include mq('med'){
     .ToDoList{
@@ -28,7 +28,8 @@
     }
 }
 @include mq('large'){
-    .ToDoLIst{
+    .ToDoList{
         width:50%;
+        max-width:600px;
     }
 }

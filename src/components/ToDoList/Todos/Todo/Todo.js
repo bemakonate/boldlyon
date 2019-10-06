@@ -12,28 +12,20 @@ const todo = props => {
     const isTodoCompleted = props.todo.isCompleted;
     return (
         <li className={todoClasses.join(' ')}>
-            {/* <input
-                className={classes.Checkbox}
-                type='checkbox'
-                onChange={() => props.completedHandler(props.index)}
-                checked={isTodoCompleted} /> */}
-
-
+            <p className={classes.Index}>{props.index + 1}.</p>
             <label>
                 <input
                     className={classes.Checkbox}
                     type='checkbox'
                     onChange={() => props.completedHandler(props.index)}
                     checked={isTodoCompleted} />
-                {todoText}
+                <div className={classes.TodoText}>{todoText}</div>
             </label>
-            {/* {todoText} */}
 
             <span onClick={props.deleteHandler.bind(this, props.index)}>
                 <i className="material-icons">delete_sweep</i>
-
-
             </span>
+
         </li>
     );
 }

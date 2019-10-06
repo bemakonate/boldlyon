@@ -2,7 +2,8 @@
   padding: 0 1em; }
 
 .ToDoList {
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 40px; }
 
 .Todos {
   width: 100%; }
@@ -11,20 +12,19 @@
   background: #5B5B5B;
   color: white;
   padding: 10px 1em; }
+  .TodoHeader .TodoTitle {
+    margin: 0;
+    margin-bottom: 6px; }
+  .TodoHeader .Tracker {
+    margin: 0;
+    font-weight: 300; }
 
-.TodoTitle {
-  margin: 0;
-  margin-bottom: 6px; }
-
-.Tracker {
-  margin: 0;
-  font-weight: 300; }
-
-@media (min-width: 661px) {
+@media (min-width: 510px) {
   .ToDoList {
     width: 60%;
     margin: 0 auto; } }
 
 @media (min-width: 1000px) {
-  .ToDoLIst {
-    width: 50%; } }
+  .ToDoList {
+    width: 50%;
+    max-width: 600px; } }

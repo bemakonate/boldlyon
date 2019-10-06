@@ -4,6 +4,7 @@
     display:flex;
     align-items:center;
     padding:0 $contain-sides;
+    flex:0 0 56px;
     width:100%;
     font-weight:300;
     &:nth-of-type(even){
@@ -14,17 +15,31 @@
         background:$todo-odd-bg-color;
         color:$todo-odd-color;
     }
+    .Index{
+        margin-right:10px;
+    }
     span{
         margin-left:auto;
         color:rgb(247, 103, 127);
-    }
+        padding-left:10px;
 
+    }
+}
+
+label{
+    flex:1;
+    align-self:stretch;
+    display:flex;
+    align-items:center;
+    .TodoText{
+        flex: 1;
+        word-wrap:break-word;
+    }
 }
 
 .Checkbox{
     position:relative;
     @include square(20px);
-    top:4px;
     margin-right:10px;
     -webkit-appearance: none;
     outline:none;
@@ -34,10 +49,6 @@
     }
 }
 
-label{
-    flex:1;
-    padding:10px 0;
-}
 
 .Checkbox:before{
     position:absolute;
