@@ -12,16 +12,26 @@ const navbar = props => {
     }
     return (
         <Fragment>
-            <nav className={classes.Navbar}>
+            <div className={classes.MenuContainer}>
                 <i onClick={props.openSideNav} className={menuIconClasses}>menu</i>
-            </nav>
+            </div>
             {/*SideNav */}
             <nav className={sideDrawerClasses.join(' ')}>
                 <i onClick={props.closeSideNav} className={closeIconClasses}>close</i>
                 <img className={classes.AppImg} src={appImg} alt="The mountains" />
                 <ul>
                     <li className={classes.SideBrand}>Todo List App</li>
-                    <li onClick={props.closeSideNav}>Home</li>
+                    <li onClick={props.closeSideNav}>
+                        <a href='/'>Home</a>
+                    </li>
+                </ul>
+            </nav>
+
+            {/*Regular Nav*/}
+            <nav className={classes.Navbar}>
+                <ul>
+                    <li><a href='/' className={classes.NavbarBrand}>Todo List App</a></li>
+                    <li><a href='/'>Home</a></li>
                 </ul>
             </nav>
         </Fragment>

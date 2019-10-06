@@ -1,5 +1,8 @@
 @import '../../../UI/tools/tools.scss';
-.Navbar{
+.Hide{
+    display:none;
+}
+.MenuContainer{
     background:transparent;
     position:fixed;
     width:100%;
@@ -39,8 +42,8 @@
 }
 .Close{
     position: absolute;
-    top:10px;
-    right:10px;
+    top:20px;
+    right:15px;
     font-size:20px;
     padding:5px;
     border:1px solid white;
@@ -53,4 +56,51 @@
     @include rounded(100px);
     display:block;
     margin:0 auto 40px;
+}
+
+@include mq('med'){
+    .MenuContainer,
+    .SideDrawer{
+        display:none;
+    }
+}
+//Regular Navbar
+.Navbar{
+    display:none;
+}
+@include mq('med'){
+    .Navbar{
+        display:block;
+        padding:0 $contain-sides;
+        height:60px;
+        ul{
+            display:flex;
+            height:100%;
+            width:56%;
+            list-style:none;
+            padding-left:0;
+            margin:0;
+        }
+        li{
+            // border:1px solid white;
+            @include flex($center:center);
+            flex:1;
+            text-decoration:underline;
+            font-size:18px;
+            font-weight:300;
+        }
+        .NavbarBrand{
+            font-size:22px;
+            font-weight:700;
+            text-decoration-color:transparent;
+        }
+    }
+}
+
+@include mq('large'){
+    .Navbar{
+        ul{
+            width:40%;
+        }
+    }
 }
