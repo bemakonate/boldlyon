@@ -8,7 +8,19 @@ class ToDoList extends Component {
         todos: [
             { task: 'Pick up sisters', isCompleted: false },
             { task: 'Start busines', isCompleted: false },
-            { task: 'Go Home', isCompleted: false }
+            { task: 'Go Home', isCompleted: false },
+            { task: 'Pick up sisters', isCompleted: false },
+            { task: 'Start busines', isCompleted: false },
+            { task: 'Go Home', isCompleted: false },
+            { task: 'Pick up sisters', isCompleted: false },
+            { task: 'Start busines', isCompleted: false },
+            { task: 'Go Home', isCompleted: false },
+            { task: 'Pick up sisters', isCompleted: false },
+            { task: 'Start busines', isCompleted: false },
+            { task: 'Go Home', isCompleted: false },
+            { task: 'Pick up sisters', isCompleted: false },
+            { task: 'Start busines', isCompleted: false },
+            { task: 'Go Home', isCompleted: false },
         ],
         tasksCompleted: 0,
     }

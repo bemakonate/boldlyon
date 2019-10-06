@@ -21,3 +21,14 @@
     margin:0;
     font-weight:300;
 }
+@include mq('med'){
+    .ToDoList{
+        width:60%;
+        margin:0 auto;
+    }
+}
+@include mq('large'){
+    .ToDoLIst{
+        width:50%;
+    }
+}

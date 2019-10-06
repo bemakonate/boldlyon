@@ -19,3 +19,12 @@
 .Tracker {
   margin: 0;
   font-weight: 300; }
+
+@media (min-width: 661px) {
+  .ToDoList {
+    width: 60%;
+    margin: 0 auto; } }
+
+@media (min-width: 1000px) {
+  .ToDoLIst {
+    width: 50%; } }

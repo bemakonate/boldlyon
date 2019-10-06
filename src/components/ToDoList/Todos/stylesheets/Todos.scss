@@ -4,4 +4,6 @@
     padding-left:0;
     margin-top:0;
     @include flex($dir:column);
+    height:50vh;
+    overflow:scroll;
 }

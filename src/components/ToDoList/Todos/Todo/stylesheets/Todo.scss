@@ -3,7 +3,7 @@
 .Todo{
     display:flex;
     align-items:center;
-    padding:10px $contain-sides;
+    padding:0 $contain-sides;
     width:100%;
     font-weight:300;
     &:nth-of-type(even){
@@ -14,52 +14,50 @@
         background:$todo-odd-bg-color;
         color:$todo-odd-color;
     }
-    &.Completed{
-        opacity:.6;
-    }
     span{
         margin-left:auto;
+        color:rgb(247, 103, 127);
     }
+
 }
 
 .Checkbox{
-    margin-right:10px;
-}
-
-input[type=checkbox]{
     position:relative;
+    @include square(20px);
     top:4px;
-    width:20px;
-    height:20px;
+    margin-right:10px;
     -webkit-appearance: none;
     outline:none;
     transition: .5s;
-    margin-right:10px;
+    &:checked{
+        margin-right:18px;
+    }
 }
 
-
-input[type=checkbox]:before{
-   content:'';
-   position:absolute;
-   top:0;
-   left:0;
-   width:100%;
-   height:100%;
-   border:1px solid white;
-   box-sizing:border-box;
-   transition:.5s;
-}
-
-input:checked[type=checkbox]:before{
-  border-left:none;
-  border-top:none;
-  width:10px;
-  border-color:white;
-  transform:rotate(45deg) translate(5px,-10px);
-}
- 
 label{
     flex:1;
+    padding:10px 0;
+}
+
+.Checkbox:before{
+    position:absolute;
+    @include square(100%);
+    top:0;
+    left:0;
+    content:'';
+    border:1px solid white;
+    border-radius:2px;
+    transition:.5s;
+}
+
+.Checkbox:checked:before{
+    border-left:none;
+    border-top:none;
+    width:10px;
+    border-color:rgb(23, 185, 235);
+    border-width:2px;
+    border-radius:0 0 2px 0;
+    transform:rotate(37deg) translate(5px,-10px);
 }
 
 

@@ -20,7 +20,12 @@ const todo = props => {
 
 
             <label>
-                <input type='checkbox' /> {todoText}
+                <input
+                    className={classes.Checkbox}
+                    type='checkbox'
+                    onChange={() => props.completedHandler(props.index)}
+                    checked={isTodoCompleted} />
+                {todoText}
             </label>
             {/* {todoText} */}
 
