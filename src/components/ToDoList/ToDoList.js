@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ToDoInput from './ToDoInput/ToDoInput';
 import Todos from './Todos/Todos';
 import classes from './stylesheets/ToDoList.css';
+import TodoHeader from './TodoHeader/TodoHeader';
 
 class ToDoList extends Component {
     state = {
@@ -22,7 +23,9 @@ class ToDoList extends Component {
             updatedTodos.push(newTodo);//Add the new todo the array of todos
 
             event.target.value = ''; //Reset the element to an empty value
-            this.setState({ todos: updatedTodos })
+            this.setState({ todos: updatedTodos }, () => {
+                this.trackCompletedHandler();
+            })
         }
     }
 
@@ -66,16 +69,13 @@ class ToDoList extends Component {
     componentDidMount() {
         this.trackCompletedHandler();
     }
-
     render() {
         return (
             <div className={classes.ToDoList}>
-                <div className={classes.TodoHeader}>
-                    <h3 className={classes.TodoTitle}>Todo List App</h3>
-                    <p className={classes.Tracker}>
-                        Task(s) Completed: {this.state.tasksCompleted}/{this.state.totalTasks}
-                    </p>
-                </div>
+                <TodoHeader
+                    tasksCompleted={this.state.tasksCompleted}
+                    totalTasks={this.state.totalTasks} />
+
                 <ToDoInput changed={this.inputChangedHandler} />
                 <div className={classes.Todos}>
                     <Todos

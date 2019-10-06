@@ -1,0 +1,16 @@
+@import '../../../../UI/tools/tools.scss';
+
+.TodoHeader{
+    background:$todo-header-color;
+    color:white;
+    padding:10px $contain-sides;
+    .TodoTitle{
+        margin:0;
+        margin-bottom:6px;
+    }
+    
+    .Tracker{
+        margin:0;
+        font-weight:300;
+    }
+}

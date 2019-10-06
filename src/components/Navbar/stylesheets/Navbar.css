@@ -1,0 +1,14 @@
+.Container {
+  padding: 0 1em; }
+
+.Navbar {
+  background: transparent;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  z-index: 500; }
+
+.Menu {
+  font-size: 35px; }

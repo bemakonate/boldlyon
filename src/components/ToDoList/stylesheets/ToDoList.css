@@ -8,17 +8,6 @@
 .Todos {
   width: 100%; }
 
-.TodoHeader {
-  background: #5B5B5B;
-  color: white;
-  padding: 10px 1em; }
-  .TodoHeader .TodoTitle {
-    margin: 0;
-    margin-bottom: 6px; }
-  .TodoHeader .Tracker {
-    margin: 0;
-    font-weight: 300; }
-
 @media (min-width: 510px) {
   .ToDoList {
     width: 60%;
