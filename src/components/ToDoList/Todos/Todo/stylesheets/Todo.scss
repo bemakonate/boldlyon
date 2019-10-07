@@ -20,7 +20,7 @@
     }
     span{
         margin-left:auto;
-        color:rgb(247, 103, 127);
+        color:$todo-delete-color;
         padding-left:10px;
 
     }
@@ -56,7 +56,7 @@ label{
     top:0;
     left:0;
     content:'';
-    border:1px solid white;
+    border:1px solid $white;
     border-radius:2px;
     transition:.5s;
 }
@@ -65,7 +65,7 @@ label{
     border-left:none;
     border-top:none;
     width:10px;
-    border-color:rgb(23, 185, 235);
+    border-color:$todo-checked-color;
     border-width:2px;
     border-radius:0 0 2px 0;
     transform:rotate(37deg) translate(5px,-10px);

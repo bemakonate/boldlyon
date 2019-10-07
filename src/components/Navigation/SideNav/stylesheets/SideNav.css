@@ -12,11 +12,10 @@
   left: 0;
   padding: 10px;
   z-index: 500; }
-
-.Menu {
-  font-size: 35px;
-  border: 1px solid white;
-  background: rgba(0, 0, 0, 0.3); }
+  .MenuContainer .Menu {
+    font-size: 35px;
+    border: 1px solid white;
+    background: rgba(0, 0, 0, 0.3); }
 
 .SideDrawer {
   width: 60vw;
@@ -34,8 +33,7 @@
     .SideDrawer ul li {
       display: block;
       font-size: 18px;
-      padding: 10px;
-      font-weight: 300; }
+      padding: 10px; }
   .SideDrawer .SideBrand {
     font-weight: 700; }
 
