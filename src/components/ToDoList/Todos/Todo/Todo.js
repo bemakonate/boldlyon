@@ -19,7 +19,10 @@ const todo = props => {
                     type='checkbox'
                     onChange={() => props.completedHandler(props.index)}
                     checked={isTodoCompleted} />
-                <div className={classes.TodoText}>{todoText}</div>
+
+                <div className={classes.TodoText}>
+                    <p>{todoText}</p>
+                </div>
             </label>
 
             <span onClick={props.deleteHandler.bind(this, props.index)}>

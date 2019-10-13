@@ -28,13 +28,17 @@ label {
   align-items: center; }
   label .TodoText {
     flex: 1;
-    word-wrap: break-word; }
+    height: 100%;
+    overflow: scroll;
+    word-break: break-all; }
+    label .TodoText p {
+      margin: 19px 0; }
 
 .Checkbox {
   position: relative;
   height: 20px;
   width: 20px;
-  margin-right: 10px;
+  margin-right: 15px;
   -webkit-appearance: none;
   outline: none;
   transition: .5s; }
