@@ -12,40 +12,7 @@ class ToDoList extends Component {
         ],
         tasksCompleted: 0,
         totalTasks: 0,
-    }
-
-    inputChangedHandler = (event) => {
-        if (event.keyCode === 13) {
-            const updatedTodos = [...this.state.todos];
-            //Each todo should have the task text, and if it completed
-            const newTodo = { task: event.target.value, isCompleted: false }
-
-            updatedTodos.push(newTodo);//Add the new todo the array of todos
-
-            event.target.value = ''; //Reset the element to an empty value
-            this.setState({ todos: updatedTodos }, () => {
-                this.trackCompletedHandler();
-            })
-        }
-    }
-
-    deleteTodoHandler = (index) => {
-        const updatedTodos = [...this.state.todos];
-        updatedTodos.splice(index, 1);
-
-        this.setState({ todos: updatedTodos }, () => {
-            this.trackCompletedHandler();
-        });
-    }
-
-    todoCompletedHandler = (index) => {
-        const updatedTodos = [...this.state.todos];
-        const taskCompleted = updatedTodos[index].isCompleted;//See if the task is already completed
-        updatedTodos[index].isCompleted = !taskCompleted; //When clicked toggle the state of task completion
-
-        this.setState({ todos: updatedTodos }, () => {
-            this.trackCompletedHandler();
-        });
+        todoInput: '',
     }
 
     trackCompletedHandler = () => {
@@ -66,9 +33,50 @@ class ToDoList extends Component {
         })
     }
 
+    //INPUT handlers
+    inputChangedHandler = (event) => {
+        this.setState({ todoInput: event.target.value })
+    }
+
+    inputSubmitedHandler = (event) => {
+        if (event.keyCode === 13) {
+            const updatedTodos = [...this.state.todos];
+            //Each todo should have the task text, and if it completed
+            const newTodo = { task: event.target.value, isCompleted: false }
+
+            updatedTodos.push(newTodo);//Add the new todo the array of todos
+
+            //Reset the element to an empty value
+            this.setState({ todos: updatedTodos, todoInput: '' }, () => {
+                this.trackCompletedHandler();
+            })
+        }
+    }
+
+    //TODOS handlers
+    todoCompletedHandler = (index) => {
+        const updatedTodos = [...this.state.todos];
+        const taskCompleted = updatedTodos[index].isCompleted;//See if the task is already completed
+        updatedTodos[index].isCompleted = !taskCompleted; //When clicked toggle the state of task completion
+
+        this.setState({ todos: updatedTodos }, () => {
+            this.trackCompletedHandler();
+        });
+    }
+
+    deleteTodoHandler = (index) => {
+        const updatedTodos = [...this.state.todos];
+        updatedTodos.splice(index, 1);
+
+        this.setState({ todos: updatedTodos }, () => {
+            this.trackCompletedHandler();
+        });
+    }
+
     componentDidMount() {
         this.trackCompletedHandler();
     }
+
     render() {
         return (
             <div className={classes.ToDoList}>
@@ -76,7 +84,11 @@ class ToDoList extends Component {
                     tasksCompleted={this.state.tasksCompleted}
                     totalTasks={this.state.totalTasks} />
 
-                <ToDoInput changed={this.inputChangedHandler} />
+                <ToDoInput
+                    changed={this.inputChangedHandler}
+                    inputValue={this.state.todoInput}
+                    submitted={this.inputSubmitedHandler} />
+
                 <div className={classes.Todos}>
                     <Todos
                         todos={this.state.todos}
