@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import classes from './stylesheets/SideNav.css';
 import appImg from '../../../assets/mountains.jpeg';
+import PropTypes from 'prop-types';
 
 const sideNav = props => {
     const menuIconClasses = ["material-icons", classes.Menu].join(' ');
@@ -29,5 +30,11 @@ const sideNav = props => {
         </Fragment>
     );
 
+}
+
+sideNav.propTypes = {
+    showSideNav: PropTypes.bool,
+    openSideNav: PropTypes.func,
+    closeSideNav: PropTypes.func,
 }
 export default sideNav;

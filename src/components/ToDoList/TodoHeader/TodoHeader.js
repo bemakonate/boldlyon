@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './stylesheets/TodoHeader.css';
+import PropTypes from 'prop-types';
 
 const todoHeader = props => {
     return (
@@ -11,5 +12,11 @@ const todoHeader = props => {
         </div>
     )
 }
+
+todoHeader.propTypes = {
+    tasksCompleted: PropTypes.number,
+    totalTasks: PropTypes.number,
+}
+
 
 export default todoHeader;

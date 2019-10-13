@@ -1,6 +1,7 @@
 import React from 'react';
 import Todo from './Todo/Todo';
 import classes from './stylesheets/Todos.css';
+import PropTypes from 'prop-types'
 
 const todos = props => (
     <ul className={classes.Todos}>
@@ -14,5 +15,11 @@ const todos = props => (
         })}
     </ul>
 );
+
+todos.propTypes = {
+    todos: PropTypes.array,
+    deleteHandler: PropTypes.func,
+    completedHandler: PropTypes.func,
+}
 
 export default todos;
