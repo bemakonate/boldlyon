@@ -8,3 +8,7 @@
   flex-direction: column;
   height: 50vh;
   overflow: scroll; }
+
+.DisableTodos {
+  opacity: .6;
+  overflow: hidden; }

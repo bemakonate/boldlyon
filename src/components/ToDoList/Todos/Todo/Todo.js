@@ -13,8 +13,15 @@ const todo = props => {
     const isTodoCompleted = props.todo.isCompleted;
     const todoIndex = props.index;
 
-    const editFunc = !props.editingState ? props.editingHandler.bind(this, todoIndex) : null;
-    const deleteFunc = !props.editingState ? props.deleteHandler.bind(this, todoIndex) : null;
+    let editFunc = props.editingHandler.bind(this, todoIndex);
+    let deleteFunc = props.deleteHandler.bind(this, todoIndex);
+    let completedFunc = () => props.completedHandler(todoIndex)
+
+    if (props.editingState) {
+        editFunc = null;
+        deleteFunc = null;
+        completedFunc = null;
+    }
     return (
         <li className={todoClasses.join(' ')}>
             <p className={classes.Index}>{todoIndex + 1}.</p>
@@ -22,7 +29,7 @@ const todo = props => {
                 <input
                     className={classes.Checkbox}
                     type='checkbox'
-                    onChange={() => props.completedHandler(todoIndex)}
+                    onChange={completedFunc}
                     checked={isTodoCompleted} />
 
                 <div className={classes.TodoText}>
