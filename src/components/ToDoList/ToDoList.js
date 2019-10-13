@@ -13,6 +13,8 @@ class ToDoList extends Component {
         tasksCompleted: 0,
         totalTasks: 0,
         todoInput: '',
+        editing: false,
+        editingIndex: null,
     }
 
     trackCompletedHandler = () => {
@@ -39,10 +41,20 @@ class ToDoList extends Component {
     }
 
     inputSubmitedHandler = (event) => {
-        if (event.keyCode === 13) {
+        if (event.keyCode === 13 && this.state.editing) {
+            const updatedTodos = [...this.state.todos];
+            updatedTodos[this.state.editingIndex].task = this.state.todoInput;
+
+            this.setState({
+                editing: false,
+                todoInput: '',
+                todos: updatedTodos,
+                editingIndex: null,
+            })
+        } else if (event.keyCode === 13) {
             const updatedTodos = [...this.state.todos];
             //Each todo should have the task text, and if it completed
-            const newTodo = { task: event.target.value, isCompleted: false }
+            const newTodo = { task: this.state.todoInput, isCompleted: false }
 
             updatedTodos.push(newTodo);//Add the new todo the array of todos
 
@@ -51,6 +63,7 @@ class ToDoList extends Component {
                 this.trackCompletedHandler();
             })
         }
+
     }
 
     //TODOS handlers
@@ -73,6 +86,20 @@ class ToDoList extends Component {
         });
     }
 
+    editTodoHandler = (index) => {
+        this.setState({
+            editing: true,
+            editingIndex: index,
+            todoInput: this.state.todos[index].task
+        });
+    }
+    cancelEditingHandler = () => {
+        this.setState({
+            editing: false,
+            editingIndex: null,
+            todoInput: '',
+        })
+    }
     componentDidMount() {
         this.trackCompletedHandler();
     }
@@ -82,7 +109,10 @@ class ToDoList extends Component {
             <div className={classes.ToDoList}>
                 <TodoHeader
                     tasksCompleted={this.state.tasksCompleted}
-                    totalTasks={this.state.totalTasks} />
+                    totalTasks={this.state.totalTasks}
+                    editing={this.state.editing}
+                    editingIndex={this.state.editingIndex}
+                    cancelEdit={this.cancelEditingHandler} />
 
                 <ToDoInput
                     changed={this.inputChangedHandler}
@@ -93,7 +123,8 @@ class ToDoList extends Component {
                     <Todos
                         todos={this.state.todos}
                         deleteHandler={this.deleteTodoHandler}
-                        completedHandler={this.todoCompletedHandler} />
+                        completedHandler={this.todoCompletedHandler}
+                        editingHandler={this.editTodoHandler} />
                 </div>
 
             </div>

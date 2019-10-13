@@ -11,3 +11,16 @@
         margin:0;
     }
 }
+.EditHeader{
+    background-color:$todo-edit-header-color;
+    padding:6px $contain-sides;
+    font-weight:400;
+    display:flex;
+    align-items:center;
+    p{
+        margin:0;
+    }
+    .CloseIcon{
+        margin-left:auto;
+    }
+}

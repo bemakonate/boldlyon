@@ -11,7 +11,8 @@ const todos = props => (
                 index={index}
                 todo={todo}
                 deleteHandler={props.deleteHandler}
-                completedHandler={props.completedHandler} />
+                completedHandler={props.completedHandler}
+                editingHandler={props.editingHandler} />
         })}
     </ul>
 );

@@ -27,8 +27,11 @@ const todo = props => {
                     <p>{todoText}</p>
                 </div>
             </label>
+            <span className={classes.EditIcon} onClick={props.editingHandler.bind(this, todoIndex)}>
+                <i className="material-icons">edit</i>
+            </span>
 
-            <span onClick={props.deleteHandler.bind(this, todoIndex)}>
+            <span className={classes.DeleteIcon} onClick={props.deleteHandler.bind(this, todoIndex)}>
                 <i className="material-icons">delete_sweep</i>
             </span>
 

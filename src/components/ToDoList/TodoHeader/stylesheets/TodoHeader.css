@@ -9,3 +9,14 @@
     margin-bottom: 6px; }
   .TodoHeader .Tracker {
     margin: 0; }
+
+.EditHeader {
+  background-color: #51bd6a;
+  padding: 6px 1em;
+  font-weight: 400;
+  display: flex;
+  align-items: center; }
+  .EditHeader p {
+    margin: 0; }
+  .EditHeader .CloseIcon {
+    margin-left: auto; }

@@ -18,8 +18,12 @@
     margin-right: 10px; }
   .Todo span {
     margin-left: auto;
-    color: #f7677f;
     padding-left: 10px; }
+    .Todo span.DeleteIcon {
+      color: #f7677f; }
+    .Todo span.EditIcon {
+      color: #bfbfbf;
+      margin-right: 5px; }
 
 label {
   flex: 1;

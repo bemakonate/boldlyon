@@ -14,7 +14,7 @@ $base-color:$white;
 
 //Body
 $overlay-color:rgba(#000,.4);
-$body-bg-overlay: $overlay-color ,$overlay-color;
+$body-bg-overlay: $overlay-color,$overlay-color;
 
 //Navbar
 $menu-nav-color:rgba(black,.3);
@@ -22,8 +22,11 @@ $sideDrawer-bg-color:#1C1C1C;
 
 //Todo List
 $todo-header-color:#5B5B5B;
+$todo-edit-header-color:#51bd6a;
+
 $todo-checked-color:rgb(23, 185, 235);
 $todo-delete-color:rgb(247, 103, 127);
+$todo-edit-color:#bfbfbf;
 
 
 $todo-odd-bg-color:transparent;

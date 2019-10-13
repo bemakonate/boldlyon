@@ -20,9 +20,15 @@
     }
     span{
         margin-left:auto;
-        color:$todo-delete-color;
         padding-left:10px;
-
+        &.DeleteIcon{
+            color:$todo-delete-color;
+        }
+    
+        &.EditIcon{
+            color:$todo-edit-color;
+            margin-right:5px;
+        }
     }
 }
 
