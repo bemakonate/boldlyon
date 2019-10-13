@@ -4,6 +4,7 @@ import classes from './stylesheets/Todos.css';
 import PropTypes from 'prop-types'
 
 const todos = props => (
+
     <ul className={classes.Todos}>
         {props.todos.map((todo, index) => {
             return <Todo
@@ -12,7 +13,8 @@ const todos = props => (
                 todo={todo}
                 deleteHandler={props.deleteHandler}
                 completedHandler={props.completedHandler}
-                editingHandler={props.editingHandler} />
+                editingHandler={props.editingHandler}
+                editingState={props.editingState} />
         })}
     </ul>
 );

@@ -13,6 +13,8 @@ const todo = props => {
     const isTodoCompleted = props.todo.isCompleted;
     const todoIndex = props.index;
 
+    const editFunc = !props.editingState ? props.editingHandler.bind(this, todoIndex) : null;
+    const deleteFunc = !props.editingState ? props.deleteHandler.bind(this, todoIndex) : null;
     return (
         <li className={todoClasses.join(' ')}>
             <p className={classes.Index}>{todoIndex + 1}.</p>
@@ -27,11 +29,11 @@ const todo = props => {
                     <p>{todoText}</p>
                 </div>
             </label>
-            <span className={classes.EditIcon} onClick={props.editingHandler.bind(this, todoIndex)}>
+            <span className={classes.EditIcon} onClick={editFunc}>
                 <i className="material-icons">edit</i>
             </span>
 
-            <span className={classes.DeleteIcon} onClick={props.deleteHandler.bind(this, todoIndex)}>
+            <span className={classes.DeleteIcon} onClick={deleteFunc}>
                 <i className="material-icons">delete_sweep</i>
             </span>
 

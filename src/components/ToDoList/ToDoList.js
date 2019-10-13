@@ -124,6 +124,7 @@ class ToDoList extends Component {
                         todos={this.state.todos}
                         deleteHandler={this.deleteTodoHandler}
                         completedHandler={this.todoCompletedHandler}
+                        editingState={this.state.editing}
                         editingHandler={this.editTodoHandler} />
                 </div>
 
