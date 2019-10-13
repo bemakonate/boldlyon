@@ -103,7 +103,13 @@ class ToDoList extends Component {
     componentDidMount() {
         this.trackCompletedHandler();
     }
-
+    componentDidUpdate() {
+        if (this.state.editing) {
+            if (this.deleteTodoHandler !== null) {
+                this.deleteTodoHandler = () => { };
+            }
+        }
+    }
     render() {
         return (
             <div className={classes.ToDoList}>
@@ -125,7 +131,8 @@ class ToDoList extends Component {
                         deleteHandler={this.deleteTodoHandler}
                         completedHandler={this.todoCompletedHandler}
                         editingState={this.state.editing}
-                        editingHandler={this.editTodoHandler} />
+                        editingHandler={this.editTodoHandler}
+                        state={this.state} />
                 </div>
 
             </div>

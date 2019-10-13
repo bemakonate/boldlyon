@@ -14,7 +14,8 @@ const todos = props => (
                 deleteHandler={props.deleteHandler}
                 completedHandler={props.completedHandler}
                 editingHandler={props.editingHandler}
-                editingState={props.editingState} />
+                editingState={props.editingState}
+                state={props.state} />
         })}
     </ul>
 );
