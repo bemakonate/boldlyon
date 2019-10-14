@@ -13,7 +13,7 @@ class ToDoList extends Component {
         ],
         tasksCompleted: 0,
         totalTasks: 0,
-        todoInput: null,
+        todoInput: '',
         editing: false,
         editingIndex: null,
         empty: false,
@@ -43,32 +43,39 @@ class ToDoList extends Component {
     }
 
     inputSubmitedHandler = (event) => {
-        if (this.state.todoInput === '') {
-            return this.setState({ empty: true })
+        const enteredDefaultState = {
+            empty: false,
+            todoInput: '',
         }
 
+        //If the input is entered
         if (event.keyCode === 13) {
+            //If input is empty don't accept
+            if (this.state.todoInput === '') {
+                return this.setState({ empty: true })
+            }
+
+            //if editing find todo and change it
             if (this.state.editing) {
                 const updatedTodos = [...this.state.todos];
                 updatedTodos[this.state.editingIndex].task = this.state.todoInput;
 
                 return this.setState({
-                    editing: false,
-                    todoInput: null,
                     todos: updatedTodos,
+                    editing: false,
                     editingIndex: null,
-                    empty: false,
+                    ...enteredDefaultState,
                 })
             }
 
+            //Add a new todo 
             const updatedTodos = [...this.state.todos];
-            //Each todo should have the task text, and if it completed
-            const newTodo = { task: this.state.todoInput, isCompleted: false }
+            const newTodo = { task: this.state.todoInput, isCompleted: false } //Each todo should have the task text, and if it completed
 
-            updatedTodos.push(newTodo);//Add the new todo the array of todos
+            updatedTodos.push(newTodo);
 
-            //Reset the element to an empty value
-            this.setState({ todos: updatedTodos, todoInput: null, empty: false }, () => {
+
+            this.setState({ todos: updatedTodos, ...enteredDefaultState }, () => {
                 this.trackCompletedHandler();
             })
 
@@ -106,13 +113,15 @@ class ToDoList extends Component {
     cancelEditingHandler = () => {
         this.setState({
             editing: false,
-            editingIndex: null,
             todoInput: '',
+            editingIndex: null,
+            empty: false,
         })
     }
     emptyMsgReceivedHandler = () => {
         this.setState({ empty: false })
     }
+
     componentDidMount() {
         this.trackCompletedHandler();
     }

@@ -1,28 +1,31 @@
 import React, { Fragment } from 'react';
 import classes from './stylesheets/TodoHeader.css';
+import TodoMsg from '../../../UI/todoMsg/todoMsg';
+
 import PropTypes from 'prop-types';
 
 const todoHeader = props => {
-    const closeIconClasses = ["material-icons", classes.CloseIcon].join(' ')
     let editHeader = null;
     let emptyHeader = null;
+    //If we are editing a todo
     if (props.editing) {
         editHeader = (
-            <div className={classes.EditHeader}>
-                <p>Continue editing todo #{props.editingIndex + 1}... </p>
-                <i onClick={props.cancelEdit} className={closeIconClasses}>close</i>
-            </div>
+            <TodoMsg
+                styles={classes.EditHeader}
+                message={`Continue editing todo #${props.editingIndex + 1}... `}
+                close={props.cancelEdit} />
         );
     }
+    //If the todo sumbitted is empty
     if (props.empty) {
         emptyHeader = (
-            <div className={classes.EmptyHeader}>
-                {!props.editing ? <p>Please enter something to submit</p> :
-                    <p>Please replace the previous todo</p>}
-                <i onClick={props.emptyMsgReceived} className={closeIconClasses}>close</i>
-            </div>
+            <TodoMsg
+                styles={classes.EmptyHeader}
+                message={!props.editing ? 'Please enter something to submit' : 'Please replace the previous todo'}
+                close={props.emptyMsgReceived} />
         );
     }
+
     return (
         <Fragment>
             <div className={classes.TodoHeader}>

@@ -11,23 +11,7 @@
     margin: 0; }
 
 .EditHeader {
-  background-color: #51bd6a;
-  padding: 6px 1em;
-  font-weight: 400;
-  display: flex;
-  align-items: center; }
-  .EditHeader p {
-    margin: 0; }
-  .EditHeader .CloseIcon {
-    margin-left: auto; }
+  background-color: #51bd6a; }
 
 .EmptyHeader {
-  background-color: red;
-  padding: 6px 1em;
-  font-weight: 400;
-  display: flex;
-  align-items: center; }
-  .EmptyHeader p {
-    margin: 0; }
-  .EmptyHeader .CloseIcon {
-    margin-left: auto; }
+  background-color: #bd5151; }

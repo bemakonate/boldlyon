@@ -1,0 +1,12 @@
+.Container {
+  padding: 0 1em; }
+
+.TodoMsg {
+  padding: 6px 1em;
+  font-weight: 400;
+  display: flex;
+  align-items: center; }
+  .TodoMsg p {
+    margin: 0; }
+  .TodoMsg .CloseIcon {
+    margin-left: auto; }
