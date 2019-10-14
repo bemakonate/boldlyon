@@ -18,7 +18,10 @@ class ToDoList extends Component {
         editingIndex: null,
         empty: false,
     }
-
+    constructor(props) {
+        super(props);
+        this.inputElementRef = React.createRef();
+    }
     trackCompletedHandler = () => {
         const updatedTodos = [...this.state.todos];
         let finished = 0;
@@ -39,7 +42,7 @@ class ToDoList extends Component {
 
     //INPUT handlers
     inputChangedHandler = (event) => {
-        this.setState({ todoInput: event.target.value })
+        this.setState({ todoInput: this.inputElementRef.current.value })
     }
 
     inputSubmitedHandler = (event) => {
@@ -108,6 +111,8 @@ class ToDoList extends Component {
             editingIndex: index,
             todoInput: this.state.todos[index].task,
             empty: false,
+        }, () => {
+            this.inputElementRef.current.focus();
         });
     }
     cancelEditingHandler = () => {
@@ -124,6 +129,7 @@ class ToDoList extends Component {
 
     componentDidMount() {
         this.trackCompletedHandler();
+        this.inputElementRef.current.focus();
     }
 
     render() {
@@ -141,7 +147,8 @@ class ToDoList extends Component {
                 <ToDoInput
                     changed={this.inputChangedHandler}
                     inputValue={this.state.todoInput}
-                    submitted={this.inputSubmitedHandler} />
+                    submitted={this.inputSubmitedHandler}
+                    inputRef={this.inputElementRef} />
 
                 <TodoContext.Provider value={{
                     delete: this.deleteTodoHandler,
