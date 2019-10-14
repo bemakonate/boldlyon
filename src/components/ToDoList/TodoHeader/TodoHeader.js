@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 const todoHeader = props => {
     const closeIconClasses = ["material-icons", classes.CloseIcon].join(' ')
     let editHeader = null;
+    let emptyHeader = null;
     if (props.editing) {
         editHeader = (
             <div className={classes.EditHeader}>
@@ -13,7 +14,14 @@ const todoHeader = props => {
             </div>
         );
     }
-
+    if (props.empty) {
+        emptyHeader = (
+            <div className={classes.EmptyHeader}>
+                <p>Please enter something to submit</p>
+                <i onClick={props.emptyMsgReceived} className={closeIconClasses}>close</i>
+            </div>
+        );
+    }
     return (
         <Fragment>
             <div className={classes.TodoHeader}>
@@ -23,6 +31,7 @@ const todoHeader = props => {
                 </p>
             </div>
             {editHeader}
+            {emptyHeader}
         </Fragment>
     )
 }

@@ -16,6 +16,7 @@ class ToDoList extends Component {
         todoInput: '',
         editing: false,
         editingIndex: null,
+        empty: false,
     }
 
     trackCompletedHandler = () => {
@@ -51,8 +52,14 @@ class ToDoList extends Component {
                 todoInput: '',
                 todos: updatedTodos,
                 editingIndex: null,
+                empty: false,
             })
         } else if (event.keyCode === 13) {
+            if (this.state.todoInput.length === 0) {
+                return this.setState({
+                    empty: true,
+                })
+            }
             const updatedTodos = [...this.state.todos];
             //Each todo should have the task text, and if it completed
             const newTodo = { task: this.state.todoInput, isCompleted: false }
@@ -60,7 +67,7 @@ class ToDoList extends Component {
             updatedTodos.push(newTodo);//Add the new todo the array of todos
 
             //Reset the element to an empty value
-            this.setState({ todos: updatedTodos, todoInput: '' }, () => {
+            this.setState({ todos: updatedTodos, todoInput: '', empty: false }, () => {
                 this.trackCompletedHandler();
             })
         }
@@ -91,7 +98,8 @@ class ToDoList extends Component {
         this.setState({
             editing: true,
             editingIndex: index,
-            todoInput: this.state.todos[index].task
+            todoInput: this.state.todos[index].task,
+            empty: false,
         });
     }
     cancelEditingHandler = () => {
@@ -100,6 +108,9 @@ class ToDoList extends Component {
             editingIndex: null,
             todoInput: '',
         })
+    }
+    emptyMsgReceivedHandler = () => {
+        this.setState({ empty: false })
     }
     componentDidMount() {
         this.trackCompletedHandler();
@@ -113,7 +124,9 @@ class ToDoList extends Component {
                     totalTasks={this.state.totalTasks}
                     editing={this.state.editing}
                     editingIndex={this.state.editingIndex}
-                    cancelEdit={this.cancelEditingHandler} />
+                    cancelEdit={this.cancelEditingHandler}
+                    empty={this.state.empty}
+                    emptyMsgReceived={this.emptyMsgReceivedHandler} />
 
                 <ToDoInput
                     changed={this.inputChangedHandler}
