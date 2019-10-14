@@ -3,6 +3,7 @@ import ToDoInput from './ToDoInput/ToDoInput';
 import Todos from './Todos/Todos';
 import classes from './stylesheets/ToDoList.css';
 import TodoHeader from './TodoHeader/TodoHeader';
+import TodoContext from '../../context/TodoContext';
 
 class ToDoList extends Component {
     state = {
@@ -119,14 +120,16 @@ class ToDoList extends Component {
                     inputValue={this.state.todoInput}
                     submitted={this.inputSubmitedHandler} />
 
-                <div className={classes.Todos}>
-                    <Todos
-                        todos={this.state.todos}
-                        deleteHandler={this.deleteTodoHandler}
-                        completedHandler={this.todoCompletedHandler}
-                        editingState={this.state.editing}
-                        editingHandler={this.editTodoHandler} />
-                </div>
+                <TodoContext.Provider value={{
+                    delete: this.deleteTodoHandler,
+                    edit: this.editTodoHandler,
+                    complete: this.todoCompletedHandler,
+                    editState: this.state.editing,
+                }}>
+                    <div className={classes.Todos}>
+                        <Todos todos={this.state.todos} />
+                    </div>
+                </TodoContext.Provider>
 
             </div>
         );

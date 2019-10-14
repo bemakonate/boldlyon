@@ -1,8 +1,7 @@
 @import '../../../../../UI/tools/tools.scss';
 
 .Todo{
-    display:flex;
-    align-items:center;
+    @include flex($center:center);
     padding:0 $contain-sides;
     flex:0 0 56px;
     width:100%;
@@ -15,6 +14,7 @@
         background:$todo-odd-bg-color;
         color:$todo-odd-color;
     }
+
     .Index{
         margin-right:10px;
     }
@@ -30,6 +30,10 @@
             margin-right:5px;
         }
     }
+}
+.DisabledTodo{
+    opacity:.6;
+    overflow:hidden;
 }
 
 label{

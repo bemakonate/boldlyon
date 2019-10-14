@@ -13,6 +13,7 @@ const todoHeader = props => {
             </div>
         );
     }
+
     return (
         <Fragment>
             <div className={classes.TodoHeader}>

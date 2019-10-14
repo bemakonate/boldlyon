@@ -1,27 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './stylesheets/Todo.css';
 import PropTypes from 'prop-types';
+import TodoContext from '../../../../context/TodoContext';
 
 const todo = props => {
+    const todoContext = useContext(TodoContext);
     //Add the default todo class, and if completed add the completed class also
     let todoClasses = [classes.Todo];
     if (props.todo.isCompleted) {
         todoClasses.push(classes.Completed);
     }
-
+    //PROPS 
     const todoText = props.todo.task;
     const isTodoCompleted = props.todo.isCompleted;
     const todoIndex = props.index;
 
-    let editFunc = props.editingHandler.bind(this, todoIndex);
-    let deleteFunc = props.deleteHandler.bind(this, todoIndex);
-    let completedFunc = () => props.completedHandler(todoIndex)
+    //FUNCTIONS to run when clicked
+    let editFunc = todoContext.edit.bind(this, props.index);
+    let deleteFunc = todoContext.delete.bind(this, props.index);
+    let completedFunc = todoContext.complete.bind(this, props.index);
 
-    if (props.editingState) {
+    //If we are editing a todo
+    if (todoContext.editState) {
+        todoClasses.push(classes.DisabledTodo);
         editFunc = null;
         deleteFunc = null;
         completedFunc = null;
     }
+
     return (
         <li className={todoClasses.join(' ')}>
             <p className={classes.Index}>{todoIndex + 1}.</p>
@@ -36,6 +42,7 @@ const todo = props => {
                     <p>{todoText}</p>
                 </div>
             </label>
+
             <span className={classes.EditIcon} onClick={editFunc}>
                 <i className="material-icons">edit</i>
             </span>
@@ -45,14 +52,13 @@ const todo = props => {
             </span>
 
         </li>
+
     );
 }
 
 todo.propTypes = {
     todo: PropTypes.object,
     index: PropTypes.number,
-    completedHandler: PropTypes.func,
-    deleteHandler: PropTypes.func,
 }
 
 export default todo;

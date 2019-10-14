@@ -4,6 +4,7 @@
 .Todo {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0 1em;
   flex: 0 0 56px;
   width: 100%;
@@ -24,6 +25,10 @@
     .Todo span.EditIcon {
       color: #bfbfbf;
       margin-right: 5px; }
+
+.DisabledTodo {
+  opacity: .6;
+  overflow: hidden; }
 
 label {
   flex: 1;
