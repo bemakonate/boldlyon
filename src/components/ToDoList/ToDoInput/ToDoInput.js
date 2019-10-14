@@ -8,7 +8,7 @@ const todoListInput = props => (
             onChange={props.changed}
             onKeyDown={props.submitted}
             placeholder='Enter a todo task'
-            value={props.inputValue} />
+            value={props.inputValue ? props.inputValue : ''} />
     </div>
 )
 

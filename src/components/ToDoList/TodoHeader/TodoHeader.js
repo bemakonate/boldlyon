@@ -17,7 +17,8 @@ const todoHeader = props => {
     if (props.empty) {
         emptyHeader = (
             <div className={classes.EmptyHeader}>
-                <p>Please enter something to submit</p>
+                {!props.editing ? <p>Please enter something to submit</p> :
+                    <p>Please replace the previous todo</p>}
                 <i onClick={props.emptyMsgReceived} className={closeIconClasses}>close</i>
             </div>
         );

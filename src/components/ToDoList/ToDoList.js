@@ -13,7 +13,7 @@ class ToDoList extends Component {
         ],
         tasksCompleted: 0,
         totalTasks: 0,
-        todoInput: '',
+        todoInput: null,
         editing: false,
         editingIndex: null,
         empty: false,
@@ -43,23 +43,24 @@ class ToDoList extends Component {
     }
 
     inputSubmitedHandler = (event) => {
-        if (event.keyCode === 13 && this.state.editing) {
-            const updatedTodos = [...this.state.todos];
-            updatedTodos[this.state.editingIndex].task = this.state.todoInput;
+        if (this.state.todoInput === '') {
+            return this.setState({ empty: true })
+        }
 
-            this.setState({
-                editing: false,
-                todoInput: '',
-                todos: updatedTodos,
-                editingIndex: null,
-                empty: false,
-            })
-        } else if (event.keyCode === 13) {
-            if (this.state.todoInput.length === 0) {
+        if (event.keyCode === 13) {
+            if (this.state.editing) {
+                const updatedTodos = [...this.state.todos];
+                updatedTodos[this.state.editingIndex].task = this.state.todoInput;
+
                 return this.setState({
-                    empty: true,
+                    editing: false,
+                    todoInput: null,
+                    todos: updatedTodos,
+                    editingIndex: null,
+                    empty: false,
                 })
             }
+
             const updatedTodos = [...this.state.todos];
             //Each todo should have the task text, and if it completed
             const newTodo = { task: this.state.todoInput, isCompleted: false }
@@ -67,11 +68,11 @@ class ToDoList extends Component {
             updatedTodos.push(newTodo);//Add the new todo the array of todos
 
             //Reset the element to an empty value
-            this.setState({ todos: updatedTodos, todoInput: '', empty: false }, () => {
+            this.setState({ todos: updatedTodos, todoInput: null, empty: false }, () => {
                 this.trackCompletedHandler();
             })
-        }
 
+        }
     }
 
     //TODOS handlers
