@@ -29,10 +29,14 @@ const todoHeader = props => {
     return (
         <Fragment>
             <div className={classes.TodoHeader}>
-                <h3 className={classes.TodoTitle}>Todo List App</h3>
-                <p className={classes.Tracker}>
-                    Task(s) Completed: {props.tasksCompleted}/{props.totalTasks}
-                </p>
+                <div>
+                    <h3 className={classes.TodoTitle}>Todo List App</h3>
+                    <p className={classes.Tracker}>
+                        Task(s) Completed: {props.tasksCompleted}/{props.totalTasks}
+                    </p>
+                </div>
+
+                <button onClick={props.saveChanges} className={classes.SaveButton}>Save Changes</button>
             </div>
             {editHeader}
             {emptyHeader}

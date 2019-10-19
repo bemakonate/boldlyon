@@ -127,6 +127,9 @@ class ToDoList extends Component {
         this.setState({ empty: false })
     }
 
+    saveChangesHandler = () => {
+
+    }
     componentDidMount() {
         this.trackCompletedHandler();
         this.inputElementRef.current.focus();
@@ -142,7 +145,8 @@ class ToDoList extends Component {
                     editingIndex={this.state.editingIndex}
                     cancelEdit={this.cancelEditingHandler}
                     empty={this.state.empty}
-                    emptyMsgReceived={this.emptyMsgReceivedHandler} />
+                    emptyMsgReceived={this.emptyMsgReceivedHandler}
+                    saveChanges={this.saveChangesHandler} />
 
                 <ToDoInput
                     changed={this.inputChangedHandler}

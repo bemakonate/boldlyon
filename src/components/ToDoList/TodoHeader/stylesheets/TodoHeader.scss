@@ -3,12 +3,25 @@
 .TodoHeader{
     background:$todo-header-color;
     padding:10px $contain-sides;
+    @include flex($just:space-between,$align:center);
     .TodoTitle{
         margin:0;
         margin-bottom:6px;
     }
     .Tracker{
         margin:0;
+    }
+}
+.SaveButton{
+    outline:none;
+    border:1px solid $white;
+    color:$white;
+    background:$todo-save-bg;
+    @include rounded(82px);
+    &:hover{
+        background:$todo-save-hover-bg;
+        color:$todo-save-hover-color;
+        border-color:$todo-save-hover-color;
     }
 }
 .EditHeader{
