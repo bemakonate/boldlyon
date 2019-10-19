@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import classes from './stylesheets/SideNav.css';
 import appImg from '../../../assets/mountains.jpeg';
+import Backdrop from '../../../containers/Layout/Backdrop/Backdrop'
 import PropTypes from 'prop-types';
 
 const sideNav = props => {
@@ -13,6 +14,7 @@ const sideNav = props => {
     }
     return (
         <Fragment>
+            <Backdrop show={props.showSideNav} click={props.closeSideNav} />
             <div className={classes.MenuContainer}>
                 <i onClick={props.openSideNav} className={menuIconClasses}>menu</i>
             </div>

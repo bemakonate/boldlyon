@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ToDoInput from './ToDoInput/ToDoInput';
 import Todos from './Todos/Todos';
 import classes from './stylesheets/ToDoList.css';
 import TodoHeader from './TodoHeader/TodoHeader';
 import TodoContext from '../../context/TodoContext';
+import axios from '../../axios-todos';
+import Backdrop from '../../containers/Layout/Backdrop/Backdrop';
 
 class ToDoList extends Component {
     state = {
-        todos: [
-            { task: 'Pick up sisters', isCompleted: true },
-            { task: 'Start busines', isCompleted: false },
-        ],
+        todos: null,
         tasksCompleted: 0,
         totalTasks: 0,
         todoInput: '',
         editing: false,
         editingIndex: null,
         empty: false,
+        loading: false,
     }
     constructor(props) {
         super(props);
@@ -128,44 +128,64 @@ class ToDoList extends Component {
     }
 
     saveChangesHandler = () => {
-
+        axios.get('/')
+            .then(res => {
+                console.log(res.data);
+            })
     }
     componentDidMount() {
-        this.trackCompletedHandler();
-        this.inputElementRef.current.focus();
+        this.setState({ loading: true })
+        axios.get('/5dab6d2d88361f4e61325063')
+            .then(res => {
+                return this.setState({ todos: res.data.todos });
+            })
+            .then(result => {
+                this.setState({ loading: false })
+                this.inputElementRef.current.focus();
+                this.trackCompletedHandler();
+            })
     }
 
     render() {
+        let todoSection = <div> Loading...</div>
+        if (this.state.todos) {
+            todoSection = (
+                <div className={classes.ToDoList}>
+                    <TodoHeader
+                        tasksCompleted={this.state.tasksCompleted}
+                        totalTasks={this.state.totalTasks}
+                        editing={this.state.editing}
+                        editingIndex={this.state.editingIndex}
+                        cancelEdit={this.cancelEditingHandler}
+                        empty={this.state.empty}
+                        emptyMsgReceived={this.emptyMsgReceivedHandler}
+                        saveChanges={this.saveChangesHandler} />
+
+                    <ToDoInput
+                        changed={this.inputChangedHandler}
+                        inputValue={this.state.todoInput}
+                        submitted={this.inputSubmitedHandler}
+                        inputRef={this.inputElementRef} />
+
+                    <TodoContext.Provider value={{
+                        delete: this.deleteTodoHandler,
+                        edit: this.editTodoHandler,
+                        complete: this.todoCompletedHandler,
+                        editState: this.state.editing,
+                    }}>
+                        <div className={classes.Todos}>
+                            <Todos todos={this.state.todos} />
+                        </div>
+                    </TodoContext.Provider>
+                </div>
+            )
+        }
+
         return (
-            <div className={classes.ToDoList}>
-                <TodoHeader
-                    tasksCompleted={this.state.tasksCompleted}
-                    totalTasks={this.state.totalTasks}
-                    editing={this.state.editing}
-                    editingIndex={this.state.editingIndex}
-                    cancelEdit={this.cancelEditingHandler}
-                    empty={this.state.empty}
-                    emptyMsgReceived={this.emptyMsgReceivedHandler}
-                    saveChanges={this.saveChangesHandler} />
-
-                <ToDoInput
-                    changed={this.inputChangedHandler}
-                    inputValue={this.state.todoInput}
-                    submitted={this.inputSubmitedHandler}
-                    inputRef={this.inputElementRef} />
-
-                <TodoContext.Provider value={{
-                    delete: this.deleteTodoHandler,
-                    edit: this.editTodoHandler,
-                    complete: this.todoCompletedHandler,
-                    editState: this.state.editing,
-                }}>
-                    <div className={classes.Todos}>
-                        <Todos todos={this.state.todos} />
-                    </div>
-                </TodoContext.Provider>
-
-            </div>
+            <Fragment>
+                <Backdrop />
+                {todoSection}
+            </Fragment>
         );
     }
 }
