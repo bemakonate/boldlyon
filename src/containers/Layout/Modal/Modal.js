@@ -10,14 +10,15 @@ const modal = props => {
     }
     return (
         <Fragment>
-            <Backdrop show={props.show} click={props.click} />
-            <div className={modalClasses.join(' ')}>
-                <i onClick={props.click} className={closeClasses.join(' ')}>close</i>
-                <div className={classes.ModalHeader}>
-                    <p>The Header</p>
+            <Backdrop show={props.show} click={props.click} styles={classes.Backdrop}>
+                <div className={modalClasses.join(' ')}>
+                    <i onClick={props.click} className={closeClasses.join(' ')}>close</i>
+                    <div className={classes.ModalHeader}>
+                        <h3>The Header</h3>
+                    </div>
+                    {props.children}
                 </div>
-                {props.children}
-            </div>
+            </Backdrop>
         </Fragment>
     )
 }

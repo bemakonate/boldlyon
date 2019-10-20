@@ -5,7 +5,6 @@ import classes from './stylesheets/ToDoList.css';
 import TodoHeader from './TodoHeader/TodoHeader';
 import TodoContext from '../../context/TodoContext';
 import axios from '../../axios-todos';
-import Modal from '../../containers/Layout/Modal/Modal';
 
 class ToDoList extends Component {
     state = {
@@ -17,7 +16,6 @@ class ToDoList extends Component {
         editingIndex: null,
         empty: false,
         loading: false,
-        showModal: true,
     }
     constructor(props) {
         super(props);
@@ -129,7 +127,7 @@ class ToDoList extends Component {
     }
 
     saveChangesHandler = () => {
-        this.setState({ showModal: true })
+
     }
     componentDidMount() {
         this.setState({ loading: true })
@@ -181,9 +179,9 @@ class ToDoList extends Component {
 
         return (
             <Fragment>
-                <Modal
+                {/* <Modal
                     show={this.state.showModal}
-                    click={() => this.setState({ showModal: false })}> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Modal>
+                    click={() => this.setState({ showModal: false })}> Lorem i</Modal> */}
                 {todoSection}
             </Fragment>
         );

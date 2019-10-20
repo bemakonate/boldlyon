@@ -3,6 +3,7 @@
 
 .ToDoList {
   width: 100%;
+  margin-top: 80px;
   margin-bottom: 40px; }
 
 .Todos {
@@ -11,7 +12,7 @@
 @media (min-width: 510px) {
   .ToDoList {
     width: 60%;
-    margin: 0 auto; } }
+    margin: 40px auto 0; } }
 
 @media (min-width: 1000px) {
   .ToDoList {
