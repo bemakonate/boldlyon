@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import classes from './stylesheets/Modal.css'
-import Backdrop from '../Backdrop/Backdrop'
+import Backdrop from '../Backdrop/Backdrop';
 
 const modal = props => {
     let modalClasses = [classes.Modal]

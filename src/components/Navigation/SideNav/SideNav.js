@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import classes from './stylesheets/SideNav.css';
 import appImg from '../../../assets/mountains.jpeg';
-import Backdrop from '../../../containers/Layout/Backdrop/Backdrop'
+import Backdrop from '../../../UI/Backdrop/Backdrop'
 import PropTypes from 'prop-types';
 
 const sideNav = props => {

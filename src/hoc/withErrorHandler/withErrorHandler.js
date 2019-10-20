@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import Modal from '../../containers/Layout/Modal/Modal';
+import Modal from '../../UI/Modal/Modal';
 
 const withErrorHandler = (WrappedComponent, axios) => {
     return class extends Component {
