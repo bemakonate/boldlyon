@@ -5,7 +5,7 @@ import classes from './stylesheets/ToDoList.css';
 import TodoHeader from './TodoHeader/TodoHeader';
 import TodoContext from '../../context/TodoContext';
 import axios from '../../axios-todos';
-
+import WithErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 class ToDoList extends Component {
     state = {
         todos: null,
@@ -15,6 +15,7 @@ class ToDoList extends Component {
         editing: false,
         editingIndex: null,
         empty: false,
+        error: false,
     }
     constructor(props) {
         super(props);
@@ -137,10 +138,13 @@ class ToDoList extends Component {
                 this.inputElementRef.current.focus();
                 this.trackCompletedHandler();
             })
+            .catch(err => {
+                this.setState({ error: true })
+            })
     }
 
     render() {
-        let todoSection = <div> Loading...</div>
+        let todoSection = this.state.error ? <p>Resource can't be loaded</p> : <div> Loading...</div>;
         if (this.state.todos) {
             todoSection = (
                 <div className={classes.ToDoList}>
@@ -184,4 +188,4 @@ class ToDoList extends Component {
         );
     }
 }
-export default ToDoList;
+export default WithErrorHandler(ToDoList, axios);
