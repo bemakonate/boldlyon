@@ -6,9 +6,6 @@
   color:$base-color;
   @include flex($dir:column);
   font-weight: 300;
-  main{
-    flex:1;
-  }
   a{
     text-decoration: none;
     color:inherit;

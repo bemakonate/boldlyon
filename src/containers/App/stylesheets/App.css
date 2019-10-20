@@ -9,8 +9,6 @@
   display: flex;
   flex-direction: column;
   font-weight: 300; }
-  .App main {
-    flex: 1; }
   .App a {
     text-decoration: none;
     color: inherit; }

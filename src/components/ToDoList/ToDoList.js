@@ -15,7 +15,6 @@ class ToDoList extends Component {
         editing: false,
         editingIndex: null,
         empty: false,
-        loading: false,
     }
     constructor(props) {
         super(props);
@@ -130,13 +129,11 @@ class ToDoList extends Component {
 
     }
     componentDidMount() {
-        this.setState({ loading: true })
         axios.get('/5dab6d2d88361f4e61325063')
             .then(res => {
                 return this.setState({ todos: res.data.todos });
             })
             .then(result => {
-                this.setState({ loading: false })
                 this.inputElementRef.current.focus();
                 this.trackCompletedHandler();
             })
