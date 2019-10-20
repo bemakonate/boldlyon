@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './stylesheets/ToDoInput.css';
+import classes from './stylesheets/TodoInput.css';
 import PropTypes from 'prop-types';
 
 const todoListInput = props => (

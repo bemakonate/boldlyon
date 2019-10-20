@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import classes from './stylesheets/TodoList.css';
-import ToDoInput from '../../components/ToDoList/ToDoInput/ToDoInput';
-import Todos from '../../components/ToDoList/Todos/Todos';
-import TodoHeader from '../../components/ToDoList/TodoHeader/TodoHeader';
+import ToDoInput from '../../components/TodoList/TodoInput/TodoInput';
+import Todos from '../../components/TodoList/Todos/Todos';
+import TodoHeader from '../../components/TodoList/TodoHeader/TodoHeader';
 import TodoContext from '../../context/TodoContext';
 import axios from '../../axios-todos';
 import WithErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
