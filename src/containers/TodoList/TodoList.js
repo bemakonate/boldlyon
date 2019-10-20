@@ -6,6 +6,7 @@ import TodoHeader from '../../components/TodoList/TodoHeader/TodoHeader';
 import TodoContext from '../../context/TodoContext';
 import axios from '../../axios-todos';
 import WithErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+import Spinner from '../../UI/Spinner/Spinner';
 
 class TodoList extends Component {
     state = {
@@ -145,7 +146,7 @@ class TodoList extends Component {
     }
 
     render() {
-        let todoSection = this.state.error ? <p>Resource can't be loaded</p> : <div> Loading...</div>;
+        let todoSection = this.state.error ? <p>Resource can't be loaded</p> : <Spinner />;
         if (this.state.todos) {
             todoSection = (
                 <div className={classes.TodoList}>
