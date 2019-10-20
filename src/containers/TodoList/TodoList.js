@@ -1,12 +1,13 @@
 import React, { Component, Fragment } from 'react';
-import ToDoInput from './ToDoInput/ToDoInput';
-import Todos from './Todos/Todos';
-import classes from './stylesheets/ToDoList.css';
-import TodoHeader from './TodoHeader/TodoHeader';
+import classes from './stylesheets/TodoList.css';
+import ToDoInput from '../../components/ToDoList/ToDoInput/ToDoInput';
+import Todos from '../../components/ToDoList/Todos/Todos';
+import TodoHeader from '../../components/ToDoList/TodoHeader/TodoHeader';
 import TodoContext from '../../context/TodoContext';
 import axios from '../../axios-todos';
 import WithErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
-class ToDoList extends Component {
+
+class TodoList extends Component {
     state = {
         todos: null,
         tasksCompleted: 0,
@@ -147,7 +148,7 @@ class ToDoList extends Component {
         let todoSection = this.state.error ? <p>Resource can't be loaded</p> : <div> Loading...</div>;
         if (this.state.todos) {
             todoSection = (
-                <div className={classes.ToDoList}>
+                <div className={classes.TodoList}>
                     <TodoHeader
                         tasksCompleted={this.state.tasksCompleted}
                         totalTasks={this.state.totalTasks}
@@ -180,12 +181,9 @@ class ToDoList extends Component {
 
         return (
             <Fragment>
-                {/* <Modal
-                    show={this.state.showModal}
-                    click={() => this.setState({ showModal: false })}> Lorem i</Modal> */}
                 {todoSection}
             </Fragment>
         );
     }
 }
-export default WithErrorHandler(ToDoList, axios);
+export default WithErrorHandler(TodoList, axios);

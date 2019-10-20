@@ -1,6 +1,6 @@
 @import '../../../UI/tools/tools.scss';
 
-.ToDoList{
+.TodoList{
     width:100%;
     margin-top:80px;
     margin-bottom:40px;
@@ -9,13 +9,13 @@
     width:100%;
 }
 @include mq('med'){
-    .ToDoList{
+    .TodoList{
         width:60%;
         margin:40px auto 0;
     }
 }
 @include mq('large'){
-    .ToDoList{
+    .TodoList{
         width:50%;
         max-width:600px;
     }

@@ -1,7 +1,7 @@
 .Container {
   padding: 0 1em; }
 
-.ToDoList {
+.TodoList {
   width: 100%;
   margin-top: 80px;
   margin-bottom: 40px; }
@@ -10,11 +10,11 @@
   width: 100%; }
 
 @media (min-width: 510px) {
-  .ToDoList {
+  .TodoList {
     width: 60%;
     margin: 40px auto 0; } }
 
 @media (min-width: 1000px) {
-  .ToDoList {
+  .TodoList {
     width: 50%;
     max-width: 600px; } }

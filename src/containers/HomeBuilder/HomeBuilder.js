@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import ToDoList from '../../components/ToDoList/ToDoList';
+import TodoList from '../TodoList/TodoList';
 
 class HomeBuilder extends Component {
     render() {
         return (
-            <ToDoList />
+            <TodoList />
         );
     }
 }
