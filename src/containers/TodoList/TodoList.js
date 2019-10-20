@@ -18,6 +18,7 @@ class TodoList extends Component {
         editingIndex: null,
         empty: false,
         error: false,
+        loading: false,
     }
     constructor(props) {
         super(props);
@@ -129,8 +130,14 @@ class TodoList extends Component {
     }
 
     saveChangesHandler = () => {
-
+        const data = { todos: this.state.todos };
+        this.setState({ loading: true })
+        axios.put('/5dab6d2d88361f4e61325063', data)
+            .then(res => {
+                this.setState({ loading: false })
+            })
     }
+
     componentDidMount() {
         axios.get('/5dab6d2d88361f4e61325063')
             .then(res => {
@@ -182,6 +189,7 @@ class TodoList extends Component {
 
         return (
             <Fragment>
+                {this.state.loading ? <Spinner /> : null}
                 {todoSection}
             </Fragment>
         );
