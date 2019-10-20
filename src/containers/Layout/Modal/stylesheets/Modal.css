@@ -1,0 +1,25 @@
+.Modal {
+  min-height: 200px;
+  width: 80%;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-100vh);
+  z-index: 600;
+  position: fixed;
+  background: #353434;
+  padding: 10px;
+  display: flex;
+  flex-direction: column; }
+  .Modal .Close {
+    margin-left: auto;
+    font-size: 28px; }
+
+.ModalHeader {
+  border-bottom: 1px solid white;
+  margin-bottom: 12px; }
+  .ModalHeader p {
+    margin: 10px 0 4px; }
+
+.ShowModal {
+  transform: translate(-50%, -50%); }

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Navigation from '../../components/Navigation/Navigation';
 import Footer from '../../components/Footer/Footer';
+import Modal from './Modal/Modal';
 
 class Layout extends Component {
     state = {
