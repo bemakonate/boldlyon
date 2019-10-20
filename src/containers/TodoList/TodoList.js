@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import classes from './stylesheets/TodoList.css';
-import ToDoInput from '../../components/TodoList/TodoInput/TodoInput';
+import TodoInput from '../../components/TodoList/TodoInput/TodoInput';
 import Todos from '../../components/TodoList/Todos/Todos';
 import TodoHeader from '../../components/TodoList/TodoHeader/TodoHeader';
 import TodoContext from '../../context/TodoContext';
@@ -159,7 +159,7 @@ class TodoList extends Component {
                         emptyMsgReceived={this.emptyMsgReceivedHandler}
                         saveChanges={this.saveChangesHandler} />
 
-                    <ToDoInput
+                    <TodoInput
                         changed={this.inputChangedHandler}
                         inputValue={this.state.todoInput}
                         submitted={this.inputSubmitedHandler}

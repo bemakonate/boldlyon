@@ -3,7 +3,7 @@ import classes from './stylesheets/TodoInput.css';
 import PropTypes from 'prop-types';
 
 const todoListInput = props => (
-    <div className={classes.ToDoInput}>
+    <div className={classes.TodoInput}>
         <input
             onChange={props.changed}
             onKeyDown={props.submitted}

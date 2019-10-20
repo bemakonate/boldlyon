@@ -1,10 +1,7 @@
-.Container {
-  padding: 0 1em; }
-
-.ToDoInput {
+.TodoInput {
   display: flex;
   width: 100%; }
-  .ToDoInput input {
+  .TodoInput input {
     flex: 1;
     outline: none;
     border: 0px;
