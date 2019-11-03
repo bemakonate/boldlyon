@@ -11,9 +11,11 @@
     margin: 0; }
 
 .SaveButton {
-  font-size: 40px; }
-  .SaveButton:hover {
-    color: #17b9eb; }
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.3); }
+
+.ShowToSave {
+  color: #17b9eb; }
 
 .EditHeader {
   background-color: #51bd6a; }

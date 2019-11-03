@@ -25,7 +25,10 @@ const todoHeader = props => {
                 close={props.emptyMsgReceived} />
         );
     }
-
+    const saveButtonClasses = ["material-icons", classes.SaveButton];
+    if (!props.state.savedChanges) {
+        saveButtonClasses.push(classes.ShowToSave);
+    }
     return (
         <Fragment>
             <div className={classes.TodoHeader}>
@@ -37,7 +40,7 @@ const todoHeader = props => {
                 </div>
 
                 {/* <button className={classes.SaveButton}>Save Changes</button> */}
-                <i onClick={props.saveChanges} className={["material-icons", classes.SaveButton].join(' ')}>
+                <i onClick={props.saveChanges} className={saveButtonClasses.join(' ')}>
                     save
                 </i>
             </div>

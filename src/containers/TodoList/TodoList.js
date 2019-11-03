@@ -19,6 +19,7 @@ class TodoList extends Component {
         empty: false,
         error: false,
         loading: false,
+        savedChanges: true,
     }
 
     constructor(props) {
@@ -131,6 +132,9 @@ class TodoList extends Component {
     }
 
     saveChangesHandler = () => {
+        if (this.state.savedChanges) {
+            return null;
+        }
         this.setState({ loading: true })
         //Transform the data to the wanted format
         const todosState = [...this.state.todos];
@@ -141,7 +145,9 @@ class TodoList extends Component {
 
         axios.put('/5dbed690b47c9423c8865727', data)
             .then(res => {
-                this.setState({ loading: false })
+                this.setState((prevState, props) => {
+                    return { loading: false, lastSavedTodos: this.state.todos, savedChanges: true }
+                })
             })
             .catch(err => {
                 this.setState({ error: true })
@@ -149,13 +155,13 @@ class TodoList extends Component {
     }
 
     componentDidMount() {
+        console.log('component mounted')
         axios.get('/5dbed690b47c9423c8865727')
             .then(res => {
                 //Transform the data into the format needed for the app
                 const todos = res.data.tasks.map(task => {
                     return { task: task.title, isCompleted: task.isCompleted }
                 })
-
                 return this.setState({ todos: todos, lastSavedTodos: todos });
             })
             .then(result => {
@@ -167,6 +173,16 @@ class TodoList extends Component {
             })
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.todos !== this.state.todos) {
+            console.log('component updated')
+            if (this.state.todos !== this.state.lastSavedTodos) {
+                this.setState({ savedChanges: false });
+            } else {
+                this.setState({ savedChanges: true })
+            }
+        }
+    }
 
     render() {
         let todoSection = this.state.error ? <p>Resource can't be loaded</p> : <Spinner />;
