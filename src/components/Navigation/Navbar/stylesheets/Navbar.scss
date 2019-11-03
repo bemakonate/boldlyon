@@ -17,10 +17,8 @@
             margin:0;
         }
         li{
-            // border:1px solid white;
             @include flex($center:center);
-            flex:1;
-            text-decoration:underline;
+            flex:18px;
             font-size:18px;
             font-weight:300;
         }

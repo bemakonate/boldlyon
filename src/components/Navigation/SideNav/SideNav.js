@@ -3,6 +3,7 @@ import classes from './stylesheets/SideNav.css';
 import appImg from '../../../assets/mountains.jpeg';
 import Backdrop from '../../../UI/Backdrop/Backdrop'
 import PropTypes from 'prop-types';
+import NavigationItems from '../NavigationItems/NavigationItems';
 
 const sideNav = props => {
     const menuIconClasses = ["material-icons", classes.Menu].join(' ');
@@ -22,12 +23,7 @@ const sideNav = props => {
             <nav className={sideDrawerClasses.join(' ')}>
                 <i onClick={props.closeSideNav} className={closeIconClasses}>close</i>
                 <img className={classes.AppImg} src={appImg} alt="The mountains" />
-                <ul>
-                    <li className={classes.SideBrand}>Todo List App</li>
-                    <li onClick={props.closeSideNav}>
-                        <a href='/'>Home</a>
-                    </li>
-                </ul>
+                <NavigationItems click={props.closeSideNav} brandStyles={classes.SideBrand} />
             </nav>
         </Fragment>
     );
