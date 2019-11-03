@@ -36,7 +36,10 @@ const todoHeader = props => {
                     </p>
                 </div>
 
-                <button onClick={props.saveChanges} className={classes.SaveButton}>Save Changes</button>
+                {/* <button className={classes.SaveButton}>Save Changes</button> */}
+                <i onClick={props.saveChanges} className={["material-icons", classes.SaveButton].join(' ')}>
+                    save
+                </i>
             </div>
             {editHeader}
             {emptyHeader}

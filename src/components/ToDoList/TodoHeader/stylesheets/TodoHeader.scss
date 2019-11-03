@@ -12,16 +12,23 @@
         margin:0;
     }
 }
+// .SaveButton{
+//     outline:none;
+//     border:1px solid $white;
+//     color:$white;
+//     background:$todo-save-bg;
+//     @include rounded(82px);
+//     &:hover{
+//         background:$todo-save-hover-bg;
+//         color:$todo-save-hover-color;
+//         border-color:$todo-save-hover-color;
+//     }
+// }
+
 .SaveButton{
-    outline:none;
-    border:1px solid $white;
-    color:$white;
-    background:$todo-save-bg;
-    @include rounded(82px);
+    font-size:40px;
     &:hover{
-        background:$todo-save-hover-bg;
         color:$todo-save-hover-color;
-        border-color:$todo-save-hover-color;
     }
 }
 .EditHeader{

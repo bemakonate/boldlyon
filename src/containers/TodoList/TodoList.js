@@ -62,7 +62,7 @@ class TodoList extends Component {
                 return this.setState({ empty: true })
             }
 
-            //if editing find todo and change it
+            //if editing, find the todo and change it
             if (this.state.editing) {
                 const updatedTodos = [...this.state.todos];
                 updatedTodos[this.state.editingIndex].task = this.state.todoInput;
@@ -115,6 +115,8 @@ class TodoList extends Component {
         }, () => {
             this.inputElementRef.current.focus();
         });
+
+
     }
     cancelEditingHandler = () => {
         this.setState({
@@ -154,7 +156,7 @@ class TodoList extends Component {
                     return { task: task.title, isCompleted: task.isCompleted }
                 })
 
-                return this.setState({ todos: todos });
+                return this.setState({ todos: todos, lastSavedTodos: todos });
             })
             .then(result => {
                 this.inputElementRef.current.focus();
@@ -164,6 +166,7 @@ class TodoList extends Component {
                 this.setState({ error: true })
             })
     }
+
 
     render() {
         let todoSection = this.state.error ? <p>Resource can't be loaded</p> : <Spinner />;
