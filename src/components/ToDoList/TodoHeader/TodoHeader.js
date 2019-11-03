@@ -8,20 +8,20 @@ const todoHeader = props => {
     let editHeader = null;
     let emptyHeader = null;
     //If we are editing a todo
-    if (props.editing) {
+    if (props.state.editing) {
         editHeader = (
             <TodoMsg
                 styles={classes.EditHeader}
-                message={`Continue editing todo #${props.editingIndex + 1}... `}
+                message={`Continue editing todo #${props.state.editingIndex + 1}... `}
                 close={props.cancelEdit} />
         );
     }
     //If the todo sumbitted is empty
-    if (props.empty) {
+    if (props.state.empty) {
         emptyHeader = (
             <TodoMsg
                 styles={classes.EmptyHeader}
-                message={!props.editing ? 'Please enter something to submit' : 'Please replace the previous todo'}
+                message={!props.state.editing ? 'Please enter something to submit' : 'Please replace the previous todo'}
                 close={props.emptyMsgReceived} />
         );
     }
@@ -32,7 +32,7 @@ const todoHeader = props => {
                 <div>
                     <h3 className={classes.TodoTitle}>Todo List App</h3>
                     <p className={classes.Tracker}>
-                        Task(s) Completed: {props.tasksCompleted}/{props.totalTasks}
+                        Task(s) Completed: {props.state.tasksCompleted}/{props.state.totalTasks}
                     </p>
                 </div>
 

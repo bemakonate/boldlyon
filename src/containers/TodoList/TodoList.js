@@ -20,10 +20,12 @@ class TodoList extends Component {
         error: false,
         loading: false,
     }
+
     constructor(props) {
         super(props);
         this.inputElementRef = React.createRef();
     }
+
     trackCompletedHandler = () => {
         const updatedTodos = [...this.state.todos];
         let finished = 0;
@@ -48,7 +50,7 @@ class TodoList extends Component {
     }
 
     inputSubmitedHandler = (event) => {
-        const enteredDefaultState = {
+        const enteredDefaultStates = {
             empty: false,
             todoInput: '',
         }
@@ -69,18 +71,15 @@ class TodoList extends Component {
                     todos: updatedTodos,
                     editing: false,
                     editingIndex: null,
-                    ...enteredDefaultState,
+                    ...enteredDefaultStates,
                 })
             }
-
             //Add a new todo 
             const updatedTodos = [...this.state.todos];
-            const newTodo = { task: this.state.todoInput, isCompleted: false } //Each todo should have the task text, and if it completed
+            const newTodo = { task: this.state.todoInput, isCompleted: false } //Each todo should have the task text, and if it's completed
 
             updatedTodos.push(newTodo);
-
-
-            this.setState({ todos: updatedTodos, ...enteredDefaultState }, () => {
+            this.setState({ todos: updatedTodos, ...enteredDefaultStates }, () => {
                 this.trackCompletedHandler();
             })
 
@@ -130,18 +129,32 @@ class TodoList extends Component {
     }
 
     saveChangesHandler = () => {
-        const data = { todos: this.state.todos };
         this.setState({ loading: true })
-        axios.put('/5dab6d2d88361f4e61325063', data)
+        //Transform the data to the wanted format
+        const todosState = [...this.state.todos];
+        const updatedTodos = todosState.map(todo => {
+            return { title: todo.task, isCompleted: todo.isCompleted }
+        })
+        const data = { tasks: updatedTodos };
+
+        axios.put('/5dbed690b47c9423c8865727', data)
             .then(res => {
                 this.setState({ loading: false })
+            })
+            .catch(err => {
+                this.setState({ error: true })
             })
     }
 
     componentDidMount() {
-        axios.get('/5dab6d2d88361f4e61325063')
+        axios.get('/5dbed690b47c9423c8865727')
             .then(res => {
-                return this.setState({ todos: res.data.todos });
+                //Transform the data into the format needed for the app
+                const todos = res.data.tasks.map(task => {
+                    return { task: task.title, isCompleted: task.isCompleted }
+                })
+
+                return this.setState({ todos: todos });
             })
             .then(result => {
                 this.inputElementRef.current.focus();
@@ -158,12 +171,8 @@ class TodoList extends Component {
             todoSection = (
                 <div className={classes.TodoList}>
                     <TodoHeader
-                        tasksCompleted={this.state.tasksCompleted}
-                        totalTasks={this.state.totalTasks}
-                        editing={this.state.editing}
-                        editingIndex={this.state.editingIndex}
+                        state={{ ...this.state }}
                         cancelEdit={this.cancelEditingHandler}
-                        empty={this.state.empty}
                         emptyMsgReceived={this.emptyMsgReceivedHandler}
                         saveChanges={this.saveChangesHandler} />
 
