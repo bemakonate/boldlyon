@@ -22,19 +22,19 @@ $sideDrawer-bg-color:#1C1C1C;
 
 //Todo List
 $todo-header-color:#5B5B5B;
+$todo-header-color:#2c2c2c;
 $todo-edit-header-color:#51bd6a;
 
-$todo-save-bg: rgba(black,.3);
-$todo-save-hover-color: rgb(23, 185, 235);
-$todo-save-hover-bg: rgba(black,.6);
+
+$todo-save-color: rgb(21, 165, 212);
 
 $todo-checked-color:rgb(23, 185, 235);
 $todo-delete-color:rgb(247, 103, 127);
-$todo-edit-color:#bfbfbf;
+$todo-edit-color:white;
 
 
 $todo-odd-bg-color:transparent;
 $todo-odd-color:$white;
 
-$todo-even-bg-color:rgba(61, 61, 61, 0.8);
+$todo-even-bg-color:rgba(#2c2c2c, 0.8);
 $todo-even-color:$white;

@@ -11,7 +11,8 @@ const todos = props => {
                 return <Todo
                     key={'todo' + index}
                     index={index}
-                    todo={todo} />
+                    todo={todo}
+                    editingState={props.editingState} />
             })}
         </ul>
     );

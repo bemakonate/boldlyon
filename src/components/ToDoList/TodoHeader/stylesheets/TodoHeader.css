@@ -1,5 +1,5 @@
 .TodoHeader {
-  background: #5B5B5B;
+  background: #2c2c2c;
   padding: 10px 1em;
   display: flex;
   justify-content: space-between;
@@ -15,7 +15,7 @@
   color: rgba(255, 255, 255, 0.3); }
 
 .ShowToSave {
-  color: #17b9eb; }
+  color: #15a5d4; }
 
 .EditHeader {
   background-color: #51bd6a; }

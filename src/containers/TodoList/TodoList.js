@@ -155,7 +155,6 @@ class TodoList extends Component {
     }
 
     componentDidMount() {
-        console.log('component mounted')
         axios.get('/5dbed690b47c9423c8865727')
             .then(res => {
                 //Transform the data into the format needed for the app
@@ -175,7 +174,6 @@ class TodoList extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.todos !== this.state.todos) {
-            console.log('component updated')
             if (this.state.todos !== this.state.lastSavedTodos) {
                 this.setState({ savedChanges: false });
             } else {
@@ -183,6 +181,7 @@ class TodoList extends Component {
             }
         }
     }
+
 
     render() {
         let todoSection = this.state.error ? <p>Resource can't be loaded</p> : <Spinner />;
@@ -208,7 +207,7 @@ class TodoList extends Component {
                         editState: this.state.editing,
                     }}>
                         <div className={classes.Todos}>
-                            <Todos todos={this.state.todos} />
+                            <Todos todos={this.state.todos} editingState={this.state.editing} />
                         </div>
                     </TodoContext.Provider>
                 </div>

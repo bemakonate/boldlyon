@@ -12,25 +12,13 @@
         margin:0;
     }
 }
-// .SaveButton{
-//     outline:none;
-//     border:1px solid $white;
-//     color:$white;
-//     background:$todo-save-bg;
-//     @include rounded(82px);
-//     &:hover{
-//         background:$todo-save-hover-bg;
-//         color:$todo-save-hover-color;
-//         border-color:$todo-save-hover-color;
-//     }
-// }
 
 .SaveButton{
     font-size:40px;
     color: rgba(255, 255, 255, 0.3);
 }
 .ShowToSave{
-    color:$todo-save-hover-color;
+    color:$todo-save-color;
 }
 .EditHeader{
     background-color:$todo-edit-header-color;
