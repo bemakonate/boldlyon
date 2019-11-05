@@ -27,6 +27,35 @@ class TodoList extends Component {
         this.inputElementRef = React.createRef();
     }
 
+    componentDidMount() {
+        axios.get('/5dbed690b47c9423c8865727')
+            .then(res => {
+                //Transform the data into the format needed for the app
+                const todos = res.data.tasks.map(task => {
+                    return { task: task.title, isCompleted: task.isCompleted }
+                })
+                return this.setState({ todos: todos, lastSavedTodos: todos });
+            })
+            .then(result => {
+                this.inputElementRef.current.focus();
+                this.trackCompletedHandler();
+            })
+            .catch(err => {
+                this.setState({ error: true })
+            })
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.todos !== this.state.todos) {
+            if (this.state.todos !== this.state.lastSavedTodos) {
+                this.setState({ savedChanges: false });
+            } else {
+                this.setState({ savedChanges: true })
+            }
+        }
+    }
+
+
     trackCompletedHandler = () => {
         const updatedTodos = [...this.state.todos];
         let finished = 0;
@@ -153,35 +182,6 @@ class TodoList extends Component {
                 this.setState({ error: true })
             })
     }
-
-    componentDidMount() {
-        axios.get('/5dbed690b47c9423c8865727')
-            .then(res => {
-                //Transform the data into the format needed for the app
-                const todos = res.data.tasks.map(task => {
-                    return { task: task.title, isCompleted: task.isCompleted }
-                })
-                return this.setState({ todos: todos, lastSavedTodos: todos });
-            })
-            .then(result => {
-                this.inputElementRef.current.focus();
-                this.trackCompletedHandler();
-            })
-            .catch(err => {
-                this.setState({ error: true })
-            })
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.todos !== this.state.todos) {
-            if (this.state.todos !== this.state.lastSavedTodos) {
-                this.setState({ savedChanges: false });
-            } else {
-                this.setState({ savedChanges: true })
-            }
-        }
-    }
-
 
     render() {
         let todoSection = this.state.error ? <p>Resource can't be loaded</p> : <Spinner />;
