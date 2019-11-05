@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import TodosBuilder from '../TodosBuilder/TodosBuilder';
+import HomeBuilder from '../HomeBuilder/HomeBuilder';
 import Layout from '../Layout/Layout';
 import classes from './stylesheets/App.css';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, withRouter, Switch } from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -12,11 +13,17 @@ class App extends Component {
         appClasses.push(classes.TodosBuilder)
         break;
       default:
+        appClasses.push(classes.HomeBuilder);
+      //Set the default styling of app here
     }
+
     return (
       <div className={appClasses.join(' ')}>
         <Layout>
-          <Route path="/todos" exact component={TodosBuilder} />
+          <Switch>
+            <Route path="/todos" exact component={TodosBuilder} />
+            <Route path="/" component={HomeBuilder} />
+          </Switch>
         </Layout>
       </div>
     );

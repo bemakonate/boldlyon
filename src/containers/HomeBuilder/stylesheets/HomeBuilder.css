@@ -1,0 +1,7 @@
+.HomeBuilder {
+  color: black;
+  margin-top: 40px; }
+
+@media (min-width: 510px) {
+  .HomeBuilder {
+    margin-top: 60px; } }

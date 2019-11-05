@@ -1,0 +1,12 @@
+@import '../../../UI/tools/tools.scss';
+
+.HomeBuilder{
+    color: black;
+    margin-top:40px;
+}
+
+@include mq('med'){
+    .HomeBuilder{
+        margin-top:60px;
+    }
+}

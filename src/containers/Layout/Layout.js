@@ -19,9 +19,7 @@ class Layout extends Component {
                     showSideNav={this.state.showSideNav}
                     openSideNav={this.openSideNavHandler}
                     closeSideNav={this.closeSideNavHandler} />
-                <main>
-                    {this.props.children}
-                </main>
+                {this.props.children}
                 <Footer />
             </Fragment>
         );
