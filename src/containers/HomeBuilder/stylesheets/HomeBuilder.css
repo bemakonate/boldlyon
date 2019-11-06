@@ -1,5 +1,13 @@
+.HomeBuilder .Organized:after, .HomeBuilder .Workout:after, .HomeBuilder .Stories:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.Container {
+  padding: 2px 1rem; }
+
 .HomeBuilder .header {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1500468756762-a401b6f17b46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60") fixed no-repeat center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1500468756762-a401b6f17b46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60") no-repeat center top/cover;
   padding-top: 40px;
   padding: 1px;
   height: 50vh;
@@ -19,8 +27,47 @@
     color: white; }
 
 .HomeBuilder .AboutVideo {
-  background-color: #B3B3B3;
-  padding: 1px; }
+  background-color: #B3B3B3; }
+  .HomeBuilder .AboutVideo .VideoDescrip {
+    border-left: 5px solid #95E3D1;
+    padding: 5px 0 5px 10px;
+    font-weight: 400; }
+
+.HomeBuilder .Organized {
+  background: #373737;
+  padding: 1px 2rem 40px; }
+  .HomeBuilder .Organized .Highlight {
+    color: #6EA89E; }
+  .HomeBuilder .Organized .Text {
+    margin: 50px 0 50px 10%; }
+  .HomeBuilder .Organized .CalendarIcon {
+    color: white;
+    width: 100px;
+    float: right; }
+
+.HomeBuilder .Workout {
+  padding: 1px 2rem 40px;
+  color: black; }
+  .HomeBuilder .Workout h2 {
+    text-align: right; }
+  .HomeBuilder .Workout .Text {
+    margin: 50px 10% 50px 0; }
+  .HomeBuilder .Workout .Highlight {
+    color: #6EA89E; }
+  .HomeBuilder .Workout .WorkoutIcon {
+    width: 100px;
+    transform: rotate(135deg); }
+
+.HomeBuilder .Stories {
+  background: #6EA89E;
+  padding: 1px 2rem 40px; }
+  .HomeBuilder .Stories .Highlight {
+    color: black; }
+  .HomeBuilder .Stories .Text {
+    margin: 50px 0 50px 10%; }
+  .HomeBuilder .Stories .BooksIcon {
+    width: 100px;
+    float: right; }
 
 .IframeContainer {
   position: relative;
@@ -38,7 +85,3 @@
   .IframeContainer iframe {
     width: 100%;
     height: 100%; }
-
-.video-text {
-  text-align: center;
-  flex: 1; }
