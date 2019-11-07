@@ -54,7 +54,6 @@ class HomeBuilder extends Component {
                                 sectionClass={classes.Workout}
                                 imgSrc={workoutSvg}
                                 iconClass={classes.WorkoutIcon}
-                                contentAlign='left'
                                 header={
                                     <React.Fragment>
                                         Train Like <br />a <span className={classes.Highlight}>Bold Lion</span>
