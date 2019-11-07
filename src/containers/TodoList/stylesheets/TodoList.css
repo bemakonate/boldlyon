@@ -6,7 +6,7 @@
 .Todos {
   width: 100%; }
 
-@media (min-width: 510px) {
+@media (min-width: 650px) {
   .TodoList {
     width: 60%;
     margin: 40px auto 0; } }

@@ -23,6 +23,6 @@
   .ModalHeader h3 {
     margin: 10px 0 4px; }
 
-@media (min-width: 510px) {
+@media (min-width: 650px) {
   .Modal {
     margin: 0 auto 40vh; } }

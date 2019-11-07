@@ -9,10 +9,12 @@
         padding:0 $contain-sides;
         height:60px;
         background: transparent;
+        z-index:100;
         position:fixed;
         top:0;
         left:0;
         width:100%;
+        transition: .5s;
         ul{
             display:flex;
             height:100%;
@@ -31,6 +33,16 @@
             font-size:22px;
             font-weight:700;
             text-decoration-color:transparent;
+            font-family:'Permanent Marker';
+        }
+    }
+    .Sticky{
+        background: #1f1e1e;
+        padding:0;
+        color:white;
+        height:55px;
+        .NavbarBrand{
+            color:#6EA89E;
         }
     }
 }

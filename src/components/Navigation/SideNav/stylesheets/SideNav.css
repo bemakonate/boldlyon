@@ -53,7 +53,7 @@
   display: block;
   margin: 0 auto 40px; }
 
-@media (min-width: 510px) {
+@media (min-width: 650px) {
   .MenuContainer,
   .SideDrawer {
     display: none; } }

@@ -1,16 +1,18 @@
 .Navbar {
   display: none; }
 
-@media (min-width: 510px) {
+@media (min-width: 650px) {
   .Navbar {
     display: block;
     padding: 0 1em;
     height: 60px;
     background: transparent;
+    z-index: 100;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; }
+    width: 100%;
+    transition: .5s; }
     .Navbar ul {
       display: flex;
       height: 100%;
@@ -28,7 +30,15 @@
     .Navbar .NavbarBrand {
       font-size: 22px;
       font-weight: 700;
-      text-decoration-color: transparent; } }
+      text-decoration-color: transparent;
+      font-family: 'Permanent Marker'; }
+  .Sticky {
+    background: #1f1e1e;
+    padding: 0;
+    color: white;
+    height: 55px; }
+    .Sticky .NavbarBrand {
+      color: #6EA89E; } }
 
 @media (min-width: 1000px) {
   .Navbar ul {
