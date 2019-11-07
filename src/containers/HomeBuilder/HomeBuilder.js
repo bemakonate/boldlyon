@@ -3,6 +3,7 @@ import classes from './stylesheets/HomeBuilder.css';
 import calendarSvg from '../../assets/calendar.svg';
 import workoutSvg from '../../assets/workout.svg';
 import booksSvg from '../../assets/books.svg';
+import Feature from '../../components/Feature/Feature';
 
 
 class HomeBuilder extends Component {
@@ -37,24 +38,42 @@ class HomeBuilder extends Component {
                     <div className={[classes.FeatureGroup].join(' ')}>
                         <div className={classes.FeatureContainer}>
                             {/* Staying Organized */}
-                            <section className={classes.Organized}>
-                                <h2>Stay <br /><span className={classes.Highlight}>Organized</span></h2>
-                                <p className={classes.Text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Iaculis nunc sed augue lacus. Morbi enim nunc faucibus a pellentesque sit amet porttitor. </p>
-                                <img className={classes.CalendarIcon} src={calendarSvg} alt='Calander' />
-                            </section>
+                            <Feature
+                                sectionClass={classes.Organized}
+                                imgSrc={calendarSvg}
+                                contentAlign='right'
+                                header={
+                                    <React.Fragment>
+                                        Stay <br /><span className={classes.Highlight}>Organized</span>
+                                    </React.Fragment>
+                                }
+                                featureText='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Iaculis nunc sed augue lacus. Morbi enim nunc faucibus a pellentesque sit amet porttitor. ' />
 
                             {/* Workout */}
-                            <section className={classes.Workout}>
-                                <h2>Train Like <br />a<span className={classes.Highlight}> Bold Lion</span></h2>
-                                <p className={classes.Text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Euismod in pellentesque massa placerat duis ultricies lacus sed. Leo integer malesuada nunc vel risus commodo viverra maecenas.</p>
-                                <img className={classes.WorkoutIcon} src={workoutSvg} alt="Dumbell" />
-                            </section>
+                            <Feature
+                                sectionClass={classes.Workout}
+                                imgSrc={workoutSvg}
+                                iconClass={classes.WorkoutIcon}
+                                contentAlign='left'
+                                header={
+                                    <React.Fragment>
+                                        Train Like <br />a <span className={classes.Highlight}>Bold Lion</span>
+                                    </React.Fragment>
+                                }
+                                featureText='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Euismod in pellentesque massa placerat duis ultricies lacus sed. Leo integer malesuada nunc vel risus commodo viverra maecenas' />
 
-                            <section className={classes.Stories}>
-                                <h2>Motivational <br /><span className={classes.Highlight}>Stories</span></h2>
-                                <p className={classes.Text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Euismod in pellentesque massa placerat duis ultricies lacus sed. Leo integer malesuada nunc vel risus commodo viverra maecenas.</p>
-                                <img className={classes.BooksIcon} src={booksSvg} alt="Books" />
-                            </section>
+
+                            {/* Stories */}
+                            <Feature
+                                sectionClass={classes.Stories}
+                                imgSrc={booksSvg}
+                                contentAlign='right'
+                                header={
+                                    <React.Fragment>
+                                        Motivational <br /><span className={classes.Highlight}>Stories</span>
+                                    </React.Fragment>
+                                }
+                                featureText='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Euismod in pellentesque massa placerat duis ultricies lacus sed. Leo integer malesuada nunc vel risus commodo viverra maecenas.' />
                         </div>
                     </div>
 
