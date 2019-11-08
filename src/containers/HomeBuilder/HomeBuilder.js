@@ -4,16 +4,9 @@ import calendarSvg from '../../assets/calendar.svg';
 import workoutSvg from '../../assets/workout.svg';
 import booksSvg from '../../assets/books.svg';
 import Feature from '../../components/Feature/Feature';
-import sal from 'sal.js'
+
 
 class HomeBuilder extends Component {
-    componentDidMount() {
-        const script = document.createElement("script");
-        script.src = "./node_modules/sal.js/dist/sal.js";
-        document.body.appendChild(script);
-        script.async = true;
-        sal();
-    }
     render() {
         return (
             <div className={classes.HomeBuilder}>
@@ -27,7 +20,7 @@ class HomeBuilder extends Component {
                 <main>
                     {/* About Them */}
                     <section className={[classes.AboutVideo].join(' ')}>
-                        <div className={classes.Container} id="section">
+                        <div className={classes.Container}>
                             <h2>This is us</h2>
                             <div className={classes.AboutContent}>
                                 <div className={classes.IframeContainer}>
@@ -42,7 +35,7 @@ class HomeBuilder extends Component {
                         </div>
                     </section>
 
-                    <div data-sal="slide-down" className={[classes.FeatureGroup].join(' ')}>
+                    <div className={[classes.FeatureGroup].join(' ')}>
                         <div className={classes.FeatureContainer}>
                             {/* Staying Organized */}
                             <Feature
