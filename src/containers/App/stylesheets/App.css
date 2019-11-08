@@ -306,6 +306,9 @@ template {
 * {
   box-sizing: border-box; }
 
+body {
+  line-height: 1.1; }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Permanent Marker',sans-serif,cursive; }
 
@@ -320,6 +323,10 @@ h2 {
 h3 {
   font-size: 1.333em;
   line-height: 1.2; }
+
+@media (min-width: 650px) {
+  h1 {
+    font-size: 3.157em; } }
 
 .App {
   font-family: 'Lato',sans-serif;

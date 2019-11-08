@@ -29,7 +29,7 @@ class HomeBuilder extends Component {
                                     </div>
                                 </div>
                                 <div className={classes.VideoDescripContainer}>
-                                    <p className={classes.VideoDescrip}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</p>
+                                    <p className={classes.VideoDescrip} data-sal="slide-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</p>
                                 </div>
                             </div>
                         </div>
@@ -77,7 +77,6 @@ class HomeBuilder extends Component {
                     </div>
 
                 </main >
-
             </div >
         )
     }
