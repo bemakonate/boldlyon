@@ -1,4 +1,5 @@
 @import '../../../UI/tools/tools.scss';
+@import '../../../UI/tools/variables/homeVars/homeVars.scss';
 
 .Container{
     padding: 2px $contain-sides-home-mb;
@@ -6,8 +7,7 @@
 
 .HomeBuilder{
     .header{
-        background:linear-gradient($body-bg-overlay), 
-        url('https://images.unsplash.com/photo-1500468756762-a401b6f17b46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')no-repeat center top/cover;
+        background:linear-gradient($body-bg-overlay), url($header-bg-url)no-repeat center top/cover;
         padding-top:40px;
         padding:1px;
         height:50vh;
@@ -21,33 +21,32 @@
             padding:8px 40px;
             border-radius:6px;
             font-size:20px;
-            background:#6EA89E;
-            color:white;
+            background:$header-btn-bg;
+            color:$header-btn-color;
         }
-    
     }
    
     .AboutVideo{
-        background-color:#B3B3B3;
+        background-color:$about-video-bg;
         .VideoDescrip{
-            border-left:5px solid #95E3D1;
+            border-left:5px solid $about-video-border-color;
             padding:5px 0 5px 10px;
             font-weight:400;
         }
     }
 
     .Organized{
-        background:#373737;
+        background:$organized-bg;
         .Highlight{
-            color: #6EA89E;
+            color: $organized-keyword-color;
         }
     }
 
     .Workout{
-        color:black;
-        background:white;
+        color:$workout-color;
+        background:$workout-bg;
         .Highlight{
-            color:#6EA89E;
+            color:$workout-keyword-color;
         }
         .WorkoutIcon{
             transform:rotate(135deg);
@@ -55,29 +54,10 @@
     }
 
     .Stories{
-        background:#6EA89E;
+        background:$stories-bg;
         .Highlight{
-            color:black;
+            color:$stories-keyword-color;
         }
-    }
-}
-.IframeContainer{
-    position: relative;
-    width: 100%;
-    margin-bottom:10px;
-    &:after {
-        content: "";
-        display: block;
-        padding-bottom: 56.4%;
-    }
-    .IframeBox{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-    }
-    iframe{
-        width:100%;
-        height:100%;
     }
 }
 
@@ -106,7 +86,7 @@
 @include mq('large'){
     .FeatureGroup{
         padding:30px 0;
-        background:rgb(87, 87, 87);
+        background:$featured-group-color;
         section{
             border-radius:3px;
             min-height:300px;
@@ -132,13 +112,11 @@
         grid-template-columns:70% 30%;
         grid-gap:30px;
         .VideoDescripContainer{
-            display:flex;
-            align-items:center;
+            @include flex($align:center);
             margin-bottom:40px;
         }
         .VideoDescrip{
-           display:flex;
-           align-items:center;
+           @include flex($align:center);
            padding:20px 0 20px 10px;
         }
     }

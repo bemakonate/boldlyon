@@ -4,6 +4,7 @@ import calendarSvg from '../../assets/calendar.svg';
 import workoutSvg from '../../assets/workout.svg';
 import booksSvg from '../../assets/books.svg';
 import Feature from '../../components/Feature/Feature';
+import Iframe from '../../UI/Iframe/Iframe';
 
 
 class HomeBuilder extends Component {
@@ -23,11 +24,7 @@ class HomeBuilder extends Component {
                         <div className={classes.Container}>
                             <h2>This is us</h2>
                             <div className={classes.AboutContent}>
-                                <div className={classes.IframeContainer}>
-                                    <div className={classes.IframeBox}>
-                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/b60xOKjrmPE" frameBorder="0" allowFullScreen title="videoFrame"></iframe>
-                                    </div>
-                                </div>
+                                <Iframe src="https://www.youtube.com/embed/b60xOKjrmPE" />
                                 <div className={classes.VideoDescripContainer}>
                                     <p className={classes.VideoDescrip} data-sal="slide-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</p>
                                 </div>

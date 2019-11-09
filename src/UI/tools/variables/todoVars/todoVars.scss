@@ -1,0 +1,18 @@
+@import '../variables.scss';
+
+$todo-header-color:rgb(92, 92, 92);
+$todo-edit-header-color:#51bd6a;
+$todo-overlay-color: rgba(128, 128, 128, 0.644);
+
+$todo-save-color: rgb(21, 165, 212);
+
+$todo-checked-color:rgb(23, 235, 200);
+$todo-delete-color:rgb(247, 103, 127);
+$todo-edit-color:white;
+
+
+$todo-odd-bg-color:transparent;
+$todo-odd-color:$white;
+
+$todo-even-bg-color:rgba(#7c7c7c, 0.8);
+$todo-even-color:$white;

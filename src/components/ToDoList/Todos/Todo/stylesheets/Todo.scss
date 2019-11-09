@@ -1,13 +1,13 @@
 @import '../../../../../UI/tools/tools.scss';
+@import '../../../../../UI/tools/variables/todoVars/todoVars.scss';
 
 .Todo{
     @include flex($center:center);
     position:relative;
-    overflow:hidden;
     padding:0 0 0 $contain-sides;
-    flex:0 0 56px;
+    flex:0 0 auto;
     width:100%;
-    font-weight:300;
+    overflow:hidden;
     &:nth-of-type(even){
         background:$todo-even-bg-color;
         color:$todo-even-color;
@@ -27,7 +27,7 @@
         top:0;
         left:0;
         z-index:200;
-        background-color:rgba(128, 128, 128, 0.644);
+        background-color:$todo-overlay-color;
     }
     .ChangeButtons{
         @include flex();
@@ -37,11 +37,6 @@
         transition:all .8s ease-in-out;
     }
 
-    .ShowChangeButtons{
-        background:transparent;
-        height:100%;
-        width:8vh;
-    }
     .SlideChangeButtons{
         width:88px;
     }
@@ -50,74 +45,33 @@
         &.DeleteIcon{
             color:$white;
             height:100%;
+            padding:0 10px;
             background:$todo-delete-color;
             @include flex($center:center);
-            padding:0 10px;
         }
-
-    
+        
         &.EditIcon{
             color:$todo-edit-color;
             height:100%;
             padding:0 10px;
-            @include flex($center:center);
             background:#51bd6a;
+            @include flex($center:center);
         }
     }
 }
 .DisabledTodo{
     opacity:.6;
-    overflow:hidden;
 }
 
 label{
+    @include flex($align:center);
     align-self:stretch;
-    display:inline-flex;
-    align-items:center;
 }
 
 .TodoText{
     flex: 1;
     height:100%;
-    overflow:scroll;
     word-break: break-all;
-    p{
-        margin:19px 0;
-    }
+    padding-right:10px;
 }
-
-.Checkbox{
-    position:relative;
-    @include square(20px);
-    margin-right:15px;
-    -webkit-appearance: none;
-    outline:none;
-    transition: .5s;
-    &:checked{
-        margin-right:18px;
-    }
-}
-
-
-.Checkbox:before{
-    position:absolute;
-    @include square(100%);
-    top:0;
-    left:0;
-    content:'';
-    border:1px solid $white;
-    border-radius:2px;
-    transition:.5s;
-}
-
-.Checkbox:checked:before{
-    border-left:none;
-    border-top:none;
-    width:10px;
-    border-color:$todo-checked-color;
-    border-width:2px;
-    border-radius:0 0 2px 0;
-    transform:rotate(37deg) translate(5px,-10px);
-}
-
 

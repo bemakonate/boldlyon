@@ -46,22 +46,6 @@
   .HomeBuilder .Stories .Highlight {
     color: black; }
 
-.IframeContainer {
-  position: relative;
-  width: 100%;
-  margin-bottom: 10px; }
-  .IframeContainer:after {
-    content: "";
-    display: block;
-    padding-bottom: 56.4%; }
-  .IframeContainer .IframeBox {
-    position: absolute;
-    width: 100%;
-    height: 100%; }
-  .IframeContainer iframe {
-    width: 100%;
-    height: 100%; }
-
 @media (min-width: 650px) {
   .FeatureContainer {
     display: grid;

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import classes from './stylesheets/Todo.css';
 import PropTypes from 'prop-types';
 import TodoContext from '../../../../context/TodoContext';
+import Checkbox from '../../../../UI/Checkbox/Checkbox';
 
 const todo = props => {
     const todoContext = useContext(TodoContext);
@@ -11,7 +12,9 @@ const todo = props => {
     })
 
     const toggleChangeButtons = () => {
-        setButtonsState({ showChangeButtons: !buttonsState.showChangeButtons })
+        if (!todoContext.editState) {
+            setButtonsState({ showChangeButtons: !buttonsState.showChangeButtons })
+        }
     }
 
     //Add the default todo class, and if completed add the completed class also
@@ -21,25 +24,14 @@ const todo = props => {
     //PROPS 
     const todoText = props.todo.task;
     const isTodoCompleted = props.todo.isCompleted;
-    const todoIndex = props.index;
-
 
     let todoOverlay = null;
-    //FUNCTIONS to run when clicked
-    let editFunc = todoContext.edit.bind(this, props.index);
-    let deleteFunc = todoContext.delete.bind(this, props.index);
     let completedFunc = todoContext.complete.bind(this, props.index);
-
-    if (props.todo.isCompleted) {
-        todoClasses.push(classes.Completed);
-    }
 
     // //If we are editing a todo
     if (todoContext.editState) {
         todoClasses.push(classes.DisabledTodo);
-        editFunc = () => null;
-        deleteFunc = () => null;
-        completedFunc = () => null;
+        completedFunc = null;
     }
 
     if (buttonsState.showChangeButtons) {
@@ -48,24 +40,18 @@ const todo = props => {
     }
 
     function runEditButton() {
-        editFunc();
+        todoContext.edit(props.index);
         toggleChangeButtons();
     }
 
     function runDeleteButton() {
-        deleteFunc();
+        todoContext.delete(props.index);
         toggleChangeButtons();
     }
     return (
         <li className={todoClasses.join(' ')}>
-            <p className={classes.Index}>{todoIndex + 1}.</p>
-            <label>
-                <input
-                    className={classes.Checkbox}
-                    type='checkbox'
-                    onChange={completedFunc}
-                    checked={isTodoCompleted} />
-            </label>
+            <p className={classes.Index}>{props.index + 1}.</p>
+            <Checkbox checked={isTodoCompleted} changed={completedFunc} />
 
             <div className={classes.TodoText} onClick={toggleChangeButtons}>
                 <p>{todoText}</p>

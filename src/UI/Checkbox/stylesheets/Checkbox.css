@@ -1,0 +1,30 @@
+.Checkbox {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  margin-right: 15px;
+  -webkit-appearance: none;
+  outline: none;
+  transition: .5s; }
+  .Checkbox:checked {
+    margin-right: 18px; }
+
+.Checkbox:before {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  content: '';
+  border: 1px solid white;
+  border-radius: 2px;
+  transition: .5s; }
+
+.Checkbox:checked:before {
+  border-left: none;
+  border-top: none;
+  width: 10px;
+  border-color: #17ebc8;
+  border-width: 2px;
+  border-radius: 0 0 2px 0;
+  transform: rotate(37deg) translate(5px, -10px); }
