@@ -33,7 +33,7 @@ const todoHeader = props => {
         <Fragment>
             <div className={classes.TodoHeader}>
                 <div>
-                    <h3 className={classes.TodoTitle}>Todo List App</h3>
+                    <h3 className={classes.TodoTitle}>bold lyon</h3>
                     <p className={classes.Tracker}>
                         Task(s) Completed: {props.state.tasksCompleted}/{props.state.totalTasks}
                     </p>

@@ -31,7 +31,7 @@ class Navbar extends Component {
         return (
             <React.Fragment>
                 <nav className={navClasses.join(' ')} id="navbar">
-                    <NavigationItems brandStyles={classes.NavbarBrand} />
+                    <NavigationItems brandStyles={classes.NavbarBrand} activeClass={classes.active} />
                 </nav>
 
             </React.Fragment>

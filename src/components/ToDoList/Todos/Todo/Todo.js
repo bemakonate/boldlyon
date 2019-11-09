@@ -24,7 +24,7 @@ const todo = props => {
     const todoIndex = props.index;
 
 
-    let todoOverlay = <div className={classes.ShowChangeButtons} onClick={toggleChangeButtons}></div>;
+    let todoOverlay = null;
     //FUNCTIONS to run when clicked
     let editFunc = todoContext.edit.bind(this, props.index);
     let deleteFunc = todoContext.delete.bind(this, props.index);
@@ -65,12 +65,11 @@ const todo = props => {
                     type='checkbox'
                     onChange={completedFunc}
                     checked={isTodoCompleted} />
-
-                <div className={classes.TodoText}>
-                    <p>{todoText}</p>
-                </div>
             </label>
 
+            <div className={classes.TodoText} onClick={toggleChangeButtons}>
+                <p>{todoText}</p>
+            </div>
             {todoOverlay}
             <div className={changeButtonsClasses.join(' ')}>
                 <span className={classes.EditIcon} onClick={runEditButton}>

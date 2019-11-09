@@ -71,18 +71,18 @@
 }
 
 label{
-    flex:1;
     align-self:stretch;
     display:inline-flex;
     align-items:center;
-    .TodoText{
-        flex: 1;
-        height:100%;
-        overflow:scroll;
-        word-break: break-all;
-        p{
-            margin:19px 0;
-        }
+}
+
+.TodoText{
+    flex: 1;
+    height:100%;
+    overflow:scroll;
+    word-break: break-all;
+    p{
+        margin:19px 0;
     }
 }
 

@@ -4,6 +4,7 @@
     background:$todo-header-color;
     padding:10px $contain-sides;
     @include flex($just:space-between,$align:center);
+    border-radius: 6px 6px 0 0;
     .TodoTitle{
         margin:0;
         margin-bottom:6px;
