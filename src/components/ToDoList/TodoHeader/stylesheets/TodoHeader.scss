@@ -1,5 +1,5 @@
 @import '../../../../UI/tools/tools.scss';
-
+@import '../../../../UI/tools/variables/todoVars/todoVars.scss';
 .TodoHeader{
     background:$todo-header-color;
     padding:10px $contain-sides;

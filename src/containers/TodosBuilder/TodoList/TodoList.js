@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import classes from './stylesheets/TodoList.css';
-import TodoInput from '../../components/TodoList/TodoInput/TodoInput';
-import Todos from '../../components/TodoList/Todos/Todos';
-import TodoHeader from '../../components/TodoList/TodoHeader/TodoHeader';
-import TodoContext from '../../context/TodoContext';
-import axios from '../../axios-todos';
-import WithErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
-import Spinner from '../../UI/Spinner/Spinner';
+import TodoInput from '../../../components/TodoList/TodoInput/TodoInput';
+import Todos from '../../../components/TodoList/Todos/Todos';
+import TodoHeader from '../../../components/TodoList/TodoHeader/TodoHeader';
+import TodoContext from '../../../context/TodoContext';
+import axios from '../../../axios-todos';
+import WithErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
+import Spinner from '../../../UI/Spinner/Spinner';
 
 class TodoList extends Component {
     state = {
@@ -32,7 +32,7 @@ class TodoList extends Component {
             .then(res => {
                 //Transform the data into the format needed for the app
                 const todos = res.data.tasks.map(task => {
-                    return { task: task.title, isCompleted: task.isCompleted }
+                    return { task: task.title, isCompleted: task.isCompleted, clicked: false }
                 })
                 return this.setState({ todos: todos, lastSavedTodos: todos });
             })
@@ -106,7 +106,7 @@ class TodoList extends Component {
             }
             //Add a new todo 
             const updatedTodos = [...this.state.todos];
-            const newTodo = { task: this.state.todoInput, isCompleted: false } //Each todo should have the task text, and if it's completed
+            const newTodo = { task: this.state.todoInput, isCompleted: false, clicked: false } //Each todo should have the task text, and if it's completed
 
             updatedTodos.push(newTodo);
             this.setState({ todos: updatedTodos, ...enteredDefaultStates }, () => {
@@ -183,6 +183,20 @@ class TodoList extends Component {
             })
     }
 
+    todoClickedHandler = (index) => {
+        if (!this.state.editing) {
+            const updatedTodosArray = [...this.state.todos];
+            const updatedTodos = updatedTodosArray.map((todo, i) => {
+                if (index !== i) {
+                    todo.clicked = false;
+                }
+                return todo;
+            })
+            updatedTodos[index].clicked = !this.state.todos[index].clicked;
+            this.setState({ todos: updatedTodos })
+        }
+    }
+
     render() {
         let todoSection = this.state.error ? <p>Resource can't be loaded</p> : <Spinner />;
         if (this.state.todos) {
@@ -204,10 +218,12 @@ class TodoList extends Component {
                         delete: this.deleteTodoHandler,
                         edit: this.editTodoHandler,
                         complete: this.todoCompletedHandler,
-                        editState: this.state.editing,
+                        editState: this.state.editing
                     }}>
                         <div className={classes.Todos}>
-                            <Todos todos={this.state.todos} editingState={this.state.editing} />
+                            <Todos
+                                todos={this.state.todos}
+                                clicked={this.todoClickedHandler} />
                         </div>
                     </TodoContext.Provider>
                 </div>

@@ -15,6 +15,7 @@
         font-size:35px;
         border:1px solid $white;
         background:$menu-nav-color;
+        border-radius:2px;
     }
 }
 
@@ -28,6 +29,7 @@
     background:$sideDrawer-bg-color;
     position:fixed;
     z-index:500;
+    border-radius:0 $sideDrawer-brdr $sideDrawer-brdr 0;
     ul{
         list-style:none;
         padding-left:0;
@@ -35,6 +37,9 @@
             display:block;
             font-size:18px;
             padding:10px;
+            a{
+               display:block;
+            }
         }
     }
     .SideBrand{
@@ -53,6 +58,7 @@
 .ShowSideDrawer{
     transform:translateX(0);
 }
+
 .AppImg{
     @include rounded(100px);
     display:block;

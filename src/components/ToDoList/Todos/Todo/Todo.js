@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import classes from './stylesheets/Todo.css';
 import PropTypes from 'prop-types';
 import TodoContext from '../../../../context/TodoContext';
@@ -6,25 +6,14 @@ import Checkbox from '../../../../UI/Checkbox/Checkbox';
 
 const todo = props => {
     const todoContext = useContext(TodoContext);
-    //STATE
-    const [buttonsState, setButtonsState] = useState({
-        showChangeButtons: false,
-    })
-
-    const toggleChangeButtons = () => {
-        if (!todoContext.editState) {
-            setButtonsState({ showChangeButtons: !buttonsState.showChangeButtons })
-        }
-    }
-
-    //Add the default todo class, and if completed add the completed class also
+    //Classes
     let todoClasses = [classes.Todo];
     let changeButtonsClasses = [classes.ChangeButtons];
 
     //PROPS 
     const todoText = props.todo.task;
     const isTodoCompleted = props.todo.isCompleted;
-
+    const isTodoClicked = props.todo.clicked;
     let todoOverlay = null;
     let completedFunc = todoContext.complete.bind(this, props.index);
 
@@ -34,26 +23,26 @@ const todo = props => {
         completedFunc = null;
     }
 
-    if (buttonsState.showChangeButtons) {
+    if (isTodoClicked) {
         changeButtonsClasses.push(classes.SlideChangeButtons);
-        todoOverlay = <div className={classes.Overlay} onClick={toggleChangeButtons}></div>;
+        todoOverlay = <div className={classes.Overlay} onClick={props.toggleChangeButtons}></div>;
     }
 
     function runEditButton() {
         todoContext.edit(props.index);
-        toggleChangeButtons();
+        props.toggleChangeButtons();
     }
 
     function runDeleteButton() {
         todoContext.delete(props.index);
-        toggleChangeButtons();
     }
+
     return (
         <li className={todoClasses.join(' ')}>
             <p className={classes.Index}>{props.index + 1}.</p>
             <Checkbox checked={isTodoCompleted} changed={completedFunc} />
 
-            <div className={classes.TodoText} onClick={toggleChangeButtons}>
+            <div className={classes.TodoText} onClick={props.toggleChangeButtons}>
                 <p>{todoText}</p>
             </div>
             {todoOverlay}
