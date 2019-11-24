@@ -9,7 +9,7 @@ import TodoContext from '../../../context/TodoContext';
 import axios from '../../../axios-todos';
 import WithErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
 import Spinner from '../../../UI/Spinner/Spinner';
-import * as actionTypes from '../../../store/actionTypes';
+import * as actionCreators from '../../../store/actions';
 
 class TodoList extends Component {
     state = {
@@ -210,7 +210,10 @@ class TodoList extends Component {
                         state={{ ...this.state }}
                         cancelEdit={this.cancelEditingHandler}
                         emptyMsgReceived={this.emptyMsgReceivedHandler}
-                        saveChanges={this.saveChangesHandler} />
+                        saveChanges={this.saveChangesHandler}
+                        editingTodo={this.props.editingTodo}
+                        editingTodoIndex={this.props.editingTodoIndex}
+                        isInputEmpty={this.props.emptyInput} />
 
                     <TodoInput
                         changed={this.props.onInputChanged}
@@ -219,15 +222,15 @@ class TodoList extends Component {
                         inputRef={this.inputElementRef} />
 
                     <TodoContext.Provider value={{
-                        delete: this.deleteTodoHandler,
-                        edit: this.editTodoHandler,
+                        delete: this.props.onDeleteTodo,
+                        edit: this.props.onEditTodo,
                         complete: this.props.onTodoCheckClicked,
-                        editState: this.state.editing
+                        editState: this.props.editing
                     }}>
                         <div className={classes.Todos}>
                             <Todos
                                 todos={this.props.todos}
-                                clicked={this.todoClickedHandler} />
+                                clicked={this.props.onTodoClicked} />
                         </div>
                     </TodoContext.Provider>
                 </div>
@@ -247,14 +250,20 @@ const mapStateToProps = state => {
     return {
         todos: state.todos,
         todoInput: state.todoInput,
+        editingTodo: state.editing,
+        editingTodoIndex: state.editingIndex,
+        emptyInput: state.emptyInput,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onInputSubmitted: (inputEl) => dispatch({ type: actionTypes.INPUT_SUBMITTED, inputEl: inputEl }),
-        onInputChanged: (inputEl) => dispatch({ type: actionTypes.INPUT_CHANGED, inputEl: inputEl }),
-        onTodoCheckClicked: (index) => dispatch({ type: actionTypes.TODO_CHECK_CLICKED, index: index })
+        onInputSubmitted: (inputEl) => dispatch(actionCreators.submitInput(inputEl)),
+        onInputChanged: (inputEl) => dispatch(actionCreators.changeInput(inputEl)),
+        onTodoCheckClicked: (index) => dispatch(actionCreators.changeTodoCheck(index)),
+        onTodoClicked: (index) => dispatch(actionCreators.clickTodo(index)),
+        onEditTodo: (index) => dispatch(actionCreators.editTodo(index)),
+        onDeleteTodo: (index) => dispatch(actionCreators.deleteTodo(index))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(WithErrorHandler(TodoList, axios));

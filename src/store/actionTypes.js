@@ -1,3 +1,6 @@
 export const INPUT_SUBMITTED = 'INPUT_SUBMITTED';
 export const INPUT_CHANGED = 'INPUT_CHANGED';
 export const TODO_CHECK_CLICKED = 'TODO_CHECK_CLICKED';
+export const TODO_CLICKED = 'TODO_CLICKED';
+export const EDIT_TODO = 'EDIT_TODO';
+export const DELETE_TODO = 'DELETE_TODO';

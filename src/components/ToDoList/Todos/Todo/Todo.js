@@ -14,6 +14,7 @@ const todo = props => {
     const todoText = props.todo.task;
     const isTodoCompleted = props.todo.isCompleted;
     const isTodoClicked = props.todo.clicked;
+
     let todoOverlay = null;
     let completedFunc = todoContext.complete.bind(this, props.index);
 
