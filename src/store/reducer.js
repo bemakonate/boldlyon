@@ -1,13 +1,13 @@
 import * as actionTypes from './actionTypes';
 const initialState = {
-    todos: [
-        { task: "I am so nice at this shit", isCompleted: false, clicked: false },
-        { task: "You are doing a good job", isCompleted: true, clicked: false }
-    ],
+    todos: null,
     todoInput: '',
     editing: false,
     editingIndex: null,
     emptyInput: false,
+    error: false,
+    lastSavedTodos: null,
+    savedChanges: false,
 }
 
 const reducer = (state = initialState, action) => {
@@ -54,6 +54,16 @@ const reducer = (state = initialState, action) => {
                 todos: updatedTodos,
             }
         case (actionTypes.TODO_CLICKED):
+            if (state.editing) {
+                const updatedTodosArray = [...state.todos].map(todo => {
+                    return { ...todo, clicked: false }
+                })
+                return {
+                    ...state,
+                    todos: updatedTodosArray,
+                }
+            }
+
             const updatedTodosArray = [...state.todos].map(todo => {
                 return { ...todo, clicked: false }
             })
@@ -75,6 +85,34 @@ const reducer = (state = initialState, action) => {
                 todos: state.todos.filter((todo, index) => {
                     return action.index !== index;
                 })
+            }
+        case (actionTypes.EMPTY_MSG_RECEIVED):
+            return {
+                ...state,
+                emptyInput: false,
+            }
+        case (actionTypes.CANCEL_EDIT_TODO):
+            return {
+                ...state,
+                editingIndex: null,
+                editing: false,
+                todoInput: '',
+                emptyInput: false,
+            }
+        case (actionTypes.FETCH_TODOS_PASSED):
+            return {
+                ...state,
+                todos: action.todos,
+            }
+        case (actionTypes.FETCH_TODOS_FAILED):
+            return {
+                ...state,
+                error: true,
+            }
+        case (actionTypes.SAVED_CHANGES_SUCCESS):
+            return {
+                ...state,
+                savedChanges: true,
             }
         default:
             return state

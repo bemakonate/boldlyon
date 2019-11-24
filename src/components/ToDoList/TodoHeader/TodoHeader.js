@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
+
 import classes from './stylesheets/TodoHeader.css';
 import TodoMsg from '../../../UI/todoMsg/todoMsg';
 
@@ -29,18 +31,29 @@ const todoHeader = props => {
     if (!props.state.savedChanges) {
         saveButtonClasses.push(classes.ShowToSave);
     }
+
+    //Determine how many tasks are completed and how much in total
+    let todosCompleted = 0;
+    let totalTasks = 0;
+    props.todos.forEach(todo => {
+        if (todo.isCompleted) {
+            todosCompleted += 1;
+        }
+        totalTasks += 1;
+    })
+
     return (
         <Fragment>
             <div className={classes.TodoHeader}>
                 <div>
                     <h3 className={classes.TodoTitle}>bold lyon</h3>
                     <p className={classes.Tracker}>
-                        Task(s) Completed: {props.state.tasksCompleted}/{props.state.totalTasks}
+                        Task(s) Completed: {todosCompleted}/{totalTasks}
                     </p>
                 </div>
 
                 {/* <button className={classes.SaveButton}>Save Changes</button> */}
-                <i onClick={props.saveChanges} className={saveButtonClasses.join(' ')}>
+                <i onClick={() => props.saveChanges(props.todos)} className={saveButtonClasses.join(' ')}>
                     save
                 </i>
             </div>
@@ -55,5 +68,9 @@ todoHeader.propTypes = {
     totalTasks: PropTypes.number,
 }
 
-
-export default todoHeader;
+const mapStateToProps = state => {
+    return {
+        todos: state.todos,
+    }
+}
+export default connect(mapStateToProps)(todoHeader);
