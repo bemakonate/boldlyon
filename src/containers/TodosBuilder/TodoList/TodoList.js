@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+
 import classes from './stylesheets/TodoList.css';
 import TodoInput from '../../../components/TodoList/TodoInput/TodoInput';
 import Todos from '../../../components/TodoList/Todos/Todos';
@@ -7,6 +9,7 @@ import TodoContext from '../../../context/TodoContext';
 import axios from '../../../axios-todos';
 import WithErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
 import Spinner from '../../../UI/Spinner/Spinner';
+import * as actionTypes from '../../../store/actionTypes';
 
 class TodoList extends Component {
     state = {
@@ -28,21 +31,22 @@ class TodoList extends Component {
     }
 
     componentDidMount() {
-        axios.get('/5dbed690b47c9423c8865727')
-            .then(res => {
-                //Transform the data into the format needed for the app
-                const todos = res.data.tasks.map(task => {
-                    return { task: task.title, isCompleted: task.isCompleted, clicked: false }
-                })
-                return this.setState({ todos: todos, lastSavedTodos: todos });
-            })
-            .then(result => {
-                this.inputElementRef.current.focus();
-                this.trackCompletedHandler();
-            })
-            .catch(err => {
-                this.setState({ error: true })
-            })
+        // axios.get('/5dbed690b47c9423c8865727')
+        //     .then(res => {
+        //         //Transform the data into the format needed for the app
+        //         const todos = res.data.tasks.map(task => {
+        //             return { task: task.title, isCompleted: task.isCompleted, clicked: false }
+        //         })
+        //         return this.setState({ todos: todos, lastSavedTodos: todos });
+        //     })
+        //     .then(result => {
+        //         this.inputElementRef.current.focus();
+        //         this.trackCompletedHandler();
+        //         console.log(this.state.todos);
+        //     })
+        //     .catch(err => {
+        //         this.setState({ error: true })
+        //     })
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -199,7 +203,7 @@ class TodoList extends Component {
 
     render() {
         let todoSection = this.state.error ? <p>Resource can't be loaded</p> : <Spinner />;
-        if (this.state.todos) {
+        if (this.props.todos) {
             todoSection = (
                 <div className={classes.TodoList}>
                     <TodoHeader
@@ -209,20 +213,20 @@ class TodoList extends Component {
                         saveChanges={this.saveChangesHandler} />
 
                     <TodoInput
-                        changed={this.inputChangedHandler}
-                        inputValue={this.state.todoInput}
-                        submitted={this.inputSubmitedHandler}
+                        changed={this.props.onInputChanged}
+                        inputValue={this.props.todoInput}
+                        submitted={this.props.onInputSubmitted}
                         inputRef={this.inputElementRef} />
 
                     <TodoContext.Provider value={{
                         delete: this.deleteTodoHandler,
                         edit: this.editTodoHandler,
-                        complete: this.todoCompletedHandler,
+                        complete: this.props.onTodoCheckClicked,
                         editState: this.state.editing
                     }}>
                         <div className={classes.Todos}>
                             <Todos
-                                todos={this.state.todos}
+                                todos={this.props.todos}
                                 clicked={this.todoClickedHandler} />
                         </div>
                     </TodoContext.Provider>
@@ -238,4 +242,19 @@ class TodoList extends Component {
         );
     }
 }
-export default WithErrorHandler(TodoList, axios);
+
+const mapStateToProps = state => {
+    return {
+        todos: state.todos,
+        todoInput: state.todoInput,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onInputSubmitted: (inputEl) => dispatch({ type: actionTypes.INPUT_SUBMITTED, inputEl: inputEl }),
+        onInputChanged: (inputEl) => dispatch({ type: actionTypes.INPUT_CHANGED, inputEl: inputEl }),
+        onTodoCheckClicked: (index) => dispatch({ type: actionTypes.TODO_CHECK_CLICKED, index: index })
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(WithErrorHandler(TodoList, axios));

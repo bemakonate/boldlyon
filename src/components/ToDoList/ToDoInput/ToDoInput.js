@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 const todoListInput = props => (
     <div className={classes.TodoInput}>
         <input
-            onChange={props.changed}
-            onKeyDown={props.submitted}
+            onChange={(event) => props.changed(event)}
+            onKeyDown={(event) => props.submitted(event)}
             placeholder='Enter a todo task'
             value={props.inputValue}
             ref={props.inputRef} />
