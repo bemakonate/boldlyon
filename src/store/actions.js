@@ -1,6 +1,7 @@
 import * as actionTypes from './actionTypes';
 
 export const submitInput = (inputEl) => {
+    inputEl.persist();
     return {
         type: actionTypes.INPUT_SUBMITTED,
         inputEl: inputEl,
@@ -8,6 +9,7 @@ export const submitInput = (inputEl) => {
 }
 
 export const changeInput = (inputEl) => {
+    inputEl.persist();
     return {
         type: actionTypes.INPUT_CHANGED,
         inputEl: inputEl,
