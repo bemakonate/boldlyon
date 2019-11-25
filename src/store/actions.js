@@ -107,6 +107,11 @@ export const saveChangedTodos = (todos) => {
             .catch(err => {
                 dispatch(fetchTodosFailed(err))
             })
+    }
+}
 
+export const todoSavedChanged = () => {
+    return {
+        type: actionTypes.TODO_SAVED_CHANGED,
     }
 }

@@ -28,36 +28,11 @@ class TodoList extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.todos !== this.state.todos) {
-            if (this.state.todos !== this.state.lastSavedTodos) {
-                this.setState({ savedChanges: false });
-            } else {
-                this.setState({ savedChanges: true })
+        if (prevProps.todos !== this.props.todos) {
+            if (this.props.todos !== this.props.lastSavedTodos) {
+                this.props.onTodoSavedChanged();
             }
         }
-    }
-
-    saveChangesHandler = () => {
-        if (this.state.savedChanges) {
-            return null;
-        }
-        this.setState({ loading: true })
-        //Transform the data to the wanted format
-        const todosState = [...this.state.todos];
-        const updatedTodos = todosState.map(todo => {
-            return { title: todo.task, isCompleted: todo.isCompleted }
-        })
-        const data = { tasks: updatedTodos };
-
-        axios.put('/5dbed690b47c9423c8865727', data)
-            .then(res => {
-                this.setState((prevState, props) => {
-                    return { loading: false, lastSavedTodos: this.state.todos, savedChanges: true }
-                })
-            })
-            .catch(err => {
-                this.setState({ error: true })
-            })
     }
     render() {
         let todoSection = this.props.error ? <p>Resource can't be loaded</p> : <Spinner />;
@@ -112,6 +87,7 @@ const mapStateToProps = state => {
         editingTodoIndex: state.editingIndex,
         emptyInput: state.emptyInput,
         error: state.error,
+        lastSavedTodos: state.lastSavedTodos,
     }
 }
 
@@ -127,6 +103,7 @@ const mapDispatchToProps = dispatch => {
         onCancelEditTodo: () => dispatch(actionCreators.cancelEditTodo()),
         onLoadTodos: () => dispatch(actionCreators.loadTodos()),
         onSaveTodos: (todos) => dispatch(actionCreators.saveChangedTodos(todos)),
+        onTodoSavedChanged: () => dispatch(actionCreators.todoSavedChanged())
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(WithErrorHandler(TodoList, axios));

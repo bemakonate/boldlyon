@@ -7,7 +7,7 @@ const initialState = {
     emptyInput: false,
     error: false,
     lastSavedTodos: null,
-    savedChanges: false,
+    savedChanges: true,
 }
 
 const reducer = (state = initialState, action) => {
@@ -103,6 +103,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 todos: action.todos,
+                lastSavedTodos: action.todos,
             }
         case (actionTypes.FETCH_TODOS_FAILED):
             return {
@@ -113,6 +114,12 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 savedChanges: true,
+                lastSavedTodos: state.todos,
+            }
+        case (actionTypes.TODO_SAVED_CHANGED):
+            return {
+                ...state,
+                savedChanges: false,
             }
         default:
             return state

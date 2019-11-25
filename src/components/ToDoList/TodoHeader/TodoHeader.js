@@ -28,7 +28,7 @@ const todoHeader = props => {
         );
     }
     const saveButtonClasses = ["material-icons", classes.SaveButton];
-    if (!props.state.savedChanges) {
+    if (!props.savedChanges) {
         saveButtonClasses.push(classes.ShowToSave);
     }
 
@@ -71,6 +71,7 @@ todoHeader.propTypes = {
 const mapStateToProps = state => {
     return {
         todos: state.todos,
+        savedChanges: state.savedChanges,
     }
 }
 export default connect(mapStateToProps)(todoHeader);
