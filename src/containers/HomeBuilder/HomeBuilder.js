@@ -20,11 +20,11 @@ class HomeBuilder extends Component {
 
                 <main>
                     {/* About Them */}
-                    <section className={[classes.AboutVideo].join(' ')}>
+                    <section className={classes.AboutVideo}>
                         <div className={classes.Container}>
                             <h2>This is us</h2>
                             <div className={classes.AboutContent}>
-                                <Iframe src="https://www.youtube.com/embed/b60xOKjrmPE" />
+                                <Iframe src="https://www.youtube.com/embed/v52Xt7ODNSY" />
                                 <div className={classes.VideoDescripContainer}>
                                     <p className={classes.VideoDescrip} data-sal="slide-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</p>
                                 </div>
@@ -38,7 +38,7 @@ class HomeBuilder extends Component {
                             <Feature
                                 sectionClass={classes.Organized}
                                 imgSrc={calendarSvg}
-                                contentAlign='right'
+                                contentAlign='left'
                                 header={
                                     <React.Fragment>
                                         Stay <br /><span className={classes.Highlight}>Organized</span>
@@ -63,7 +63,7 @@ class HomeBuilder extends Component {
                             <Feature
                                 sectionClass={classes.Stories}
                                 imgSrc={booksSvg}
-                                contentAlign='right'
+                                contentAlign='left'
                                 header={
                                     <React.Fragment>
                                         Motivational <br /><span className={classes.Highlight}>Stories</span>
@@ -72,7 +72,6 @@ class HomeBuilder extends Component {
                                 featureText='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Euismod in pellentesque massa placerat duis ultricies lacus sed. Leo integer malesuada nunc vel risus commodo viverra maecenas.' />
                         </div>
                     </div>
-
                 </main >
             </div >
         )

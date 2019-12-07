@@ -15,7 +15,6 @@
         font-size:35px;
         border:1px solid $white;
         background:$menu-nav-color;
-        border-radius:2px;
     }
 }
 
@@ -24,26 +23,32 @@
     transition:.5s ease-out;
     position:relative;
     transform:translateX(-100%);
-    padding:70px $contain-sides;
+    padding:70px 0;
     height:100vh;
     background:$sideDrawer-bg-color;
     position:fixed;
     z-index:500;
-    border-radius:0 $sideDrawer-brdr $sideDrawer-brdr 0;
     ul{
         list-style:none;
         padding-left:0;
         li{
             display:block;
             font-size:18px;
-            padding:10px;
+            font-weight:400;
+            transition:.2s linear;
+            a.Active{
+                color:$sideDrawer-bg-color;
+                background:white;
+            } 
+            &:hover{
+                background:#6EA89E;
+                color:white;
+            }
             a{
                display:block;
+               padding:20px $contain-sides;
             }
         }
-    }
-    .SideBrand{
-        font-weight:700;
     }
 }
 .Close{
@@ -59,7 +64,7 @@
     transform:translateX(0);
 }
 
-.AppImg{
+.ProfileImg{
     @include rounded(100px);
     display:block;
     margin:0 auto 40px;

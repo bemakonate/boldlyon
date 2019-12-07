@@ -1,21 +1,27 @@
 @import '../variables.scss';
 
-$header-bg-url:'https://images.unsplash.com/photo-1500468756762-a401b6f17b46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60';
+$header-bg-url:'https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60';
+$header-bg-url:'https://i2.wp.com/resources.practicebetter.io/wp-content/uploads/2019/09/Practice-Better-Feature-Highlight-Snippets.jpeg?fit=4000%2C2666&ssl=1';
 $header-btn-bg:$base-primary-color;
 $header-btn-color:$white;
 
-$about-video-bg:#B3B3B3;
-$about-video-border-color:#95E3D1;
+$about-video-bg:transparent;
+$about-video-border-color:black;
+$about-video-color:black;
 
 $featured-group-color:rgb(87, 87, 87);
+$featured-opacity: .9;
 
-$organized-bg: #373737;
+$organized-bg: rgba(#373737,$featured-opacity);
 $organized-keyword-color:$base-primary-color;
 
-$workout-bg: white;
+$workout-bg: rgba(white,$featured-opacity);
 $workout-keyword-color: $base-primary-color;
 $workout-color: black;
 
-$stories-bg:$base-primary-color ;
+$stories-bg:rgba($base-primary-color,$featured-opacity) ;
 $stories-keyword-color: black;
 $stories-color: white; 
+
+$overlay-color:rgba(#000,.6);
+$body-bg-overlay: $overlay-color,$overlay-color;

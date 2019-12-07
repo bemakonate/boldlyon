@@ -22,8 +22,8 @@ const sideNav = props => {
             {/*SideNav */}
             <nav className={sideDrawerClasses.join(' ')}>
                 <i onClick={props.closeSideNav} className={closeIconClasses}>close</i>
-                <img className={classes.AppImg} src={appImg} alt="The mountains" />
-                <NavigationItems click={props.closeSideNav} brandStyles={classes.SideBrand} />
+                {/* <img className={classes.ProfileImg} src={appImg} alt="The mountains" /> */}
+                <NavigationItems click={props.closeSideNav} activeClass={classes.Active} />
             </nav>
         </Fragment>
     );

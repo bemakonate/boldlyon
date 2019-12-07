@@ -1,5 +1,11 @@
 @import '../variables.scss';
 
+$overlay-color:rgba(#000,.5);
+$body-bg-overlay: $overlay-color,$overlay-color;
+
+$body-bg-url:'https://images.unsplash.com/photo-1520008457705-fbebb2fe6565?ixlib=rb-1.2.1&auto=format&fit=crop&w=2551&q=80';
+$body-bg-url:'https://images.unsplash.com/photo-1514496959998-c01c40915c5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80';
+
 $todo-header-color:rgb(92, 92, 92);
 $todo-edit-header-color:#51bd6a;
 $todo-overlay-color: rgba(128, 128, 128, 0.644);

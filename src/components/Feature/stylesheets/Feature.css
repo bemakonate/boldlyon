@@ -26,3 +26,9 @@
 
 .TextAlignLeft {
   text-align: left; }
+
+@media (min-width: 1000px) {
+  .TextLeft {
+    margin: 30% 10% 30% 0; }
+  .TextRight {
+    margin: 30% 0 30% 10%; } }

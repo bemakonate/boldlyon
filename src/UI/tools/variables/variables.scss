@@ -3,9 +3,6 @@ $breakpoints:(
     'med':650px,
     'large':1000px,
 );
-
-$body-bg-url:'https://images.unsplash.com/photo-1520008457705-fbebb2fe6565?ixlib=rb-1.2.1&auto=format&fit=crop&w=2551&q=80';
-$body-bg-url:'https://images.unsplash.com/photo-1514496959998-c01c40915c5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80';
 $contain-sides: 1em;
 
 
@@ -14,9 +11,6 @@ $white:white;
 $base-color:$white;
 $base-primary-color: #6EA89E;
 
-//Body
-$overlay-color:rgba(#000,.4);
-$body-bg-overlay: $overlay-color,$overlay-color;
 
 //Navbar
 $menu-nav-color:rgba(black,.3);

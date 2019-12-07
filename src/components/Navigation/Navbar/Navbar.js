@@ -12,6 +12,7 @@ class Navbar extends Component {
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
     }
+
     handleScroll = () => {
         let lastScrollY = window.scrollY;
         const nav = document.querySelector('#navbar');

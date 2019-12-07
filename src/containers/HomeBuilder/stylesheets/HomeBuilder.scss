@@ -28,10 +28,15 @@
    
     .AboutVideo{
         background-color:$about-video-bg;
+        h2{
+            color:$about-video-color;
+        }
         .VideoDescrip{
+            margin:50px 0;
             border-left:5px solid $about-video-border-color;
-            padding:5px 0 5px 10px;
+            padding:25px 0 10px 10px;
             font-weight:400;
+            color:$about-video-color;
         }
     }
 
@@ -67,10 +72,21 @@
         grid-template-columns: repeat(2, 1fr);
     }
     .Stories{
+        grid-column: 2/-1;
+        grid-row:1 / 2;
+    }
+    .Workout{
         grid-column:1/-1;
+    }
+    .HomeBuilder .AboutVideo{
+        position: relative;
+        box-shadow: 5px 3px 8px #d3d3d3;
+        z-index:50;
     }
     .HomeBuilder .header{
         height:60vh;
+        background-position:center center;
+        background-attachment:fixed;
     }
 
     .HomeBuilder .AboutVideo .VideoDescrip{
@@ -84,11 +100,14 @@
 }
 
 @include mq('large'){
+    .HomeBuilder .header{
+        height:70vh;
+    }
     .FeatureGroup{
         padding:30px 0;
         background:$featured-group-color;
+        background-attachment:fixed;
         section{
-            border-radius:3px;
             min-height:300px;
         }
     }
@@ -101,7 +120,8 @@
         width:90%;
         margin:0 auto;
     }
-    .Stories{
+    .Stories,
+    .Workout{
         grid-column:auto;
     }
     .AboutVideo{

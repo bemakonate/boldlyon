@@ -310,7 +310,7 @@ body {
   line-height: 1.1; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Permanent Marker',sans-serif,cursive; }
+  font-family: 'Staatliches',sans-serif,cursive; }
 
 h1 {
   font-size: 2.369em;
@@ -326,7 +326,9 @@ h3 {
 
 @media (min-width: 650px) {
   h1 {
-    font-size: 3.157em; } }
+    font-size: 3.157em; }
+  h2 {
+    font-size: 2.369em; } }
 
 .App {
   font-family: 'Lato',sans-serif;

@@ -6,22 +6,22 @@ const feature = props => {
     let iconClasses = [classes.Icon, props.iconClass];
     let headerClasses = [];
 
-    const contentLeftAlign = () => {
+    const headerRightAlign = () => {
         paragraphClasses.push(classes.TextLeft);
         iconClasses.push(classes.FloatLeft);
         headerClasses.push(classes.TextAlignRight);
     }
     switch (props.contentAlign) {
-        case 'left':
-            contentLeftAlign();
-            break;
         case 'right':
+            headerRightAlign();
+            break;
+        case 'left':
             paragraphClasses.push(classes.TextRight);
             iconClasses.push(classes.FloatRight)
             headerClasses.push(classes.TextAlignLeft);
             break;
         default:
-            contentLeftAlign();
+            headerRightAlign();
     }
 
     return (
