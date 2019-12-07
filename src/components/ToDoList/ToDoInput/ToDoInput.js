@@ -1,21 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import classes from './stylesheets/TodoInput.css';
-import PropTypes from 'prop-types';
+import * as actionCreators from '../../../store/actions';
 
 const todoListInput = props => (
     <div className={classes.TodoInput}>
         <input
-            onChange={(event) => props.changed(event)}
-            onKeyDown={(event) => props.submitted(event)}
+            onChange={(event) => props.onInputChanged(event)}
+            onKeyDown={(event) => props.onInputSubmitted(event)}
             placeholder='Enter a todo task'
             value={props.inputValue}
             ref={props.inputRef} />
     </div>
 )
 
-todoListInput.propTypes = {
-    changed: PropTypes.func,
-    submitted: PropTypes.func,
-    inputValue: PropTypes.string,
+const mapDispatchToProps = dispatch => {
+    return {
+        onInputSubmitted: (inputEl) => dispatch(actionCreators.submitInput(inputEl)),
+        onInputChanged: (inputEl) => dispatch(actionCreators.changeInput(inputEl)),
+    }
 }
-export default todoListInput;
+export default connect(null, mapDispatchToProps)(todoListInput);

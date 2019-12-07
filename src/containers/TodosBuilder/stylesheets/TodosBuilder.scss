@@ -1,10 +1,6 @@
 @import '../../../UI/tools/tools.scss';
-// .TodosBuilder{
-//     margin-top:40px;
-// }
 
-@include mq('med'){
-    .TodosBuilder{
-        margin-top:60px;
-    }
+.TodosBuilder{
+    background:linear-gradient($body-bg-overlay), url($body-bg-url) fixed no-repeat center/cover;
+    flex:1;
 }

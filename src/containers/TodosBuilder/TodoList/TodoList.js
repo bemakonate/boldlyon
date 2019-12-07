@@ -5,7 +5,7 @@ import classes from './stylesheets/TodoList.css';
 import TodoInput from '../../../components/TodoList/TodoInput/TodoInput';
 import Todos from '../../../components/TodoList/Todos/Todos';
 import TodoHeader from '../../../components/TodoList/TodoHeader/TodoHeader';
-import TodoContext from '../../../context/TodoContext';
+
 import axios from '../../../axios-todos';
 import WithErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
 import Spinner from '../../../UI/Spinner/Spinner';
@@ -13,7 +13,6 @@ import * as actionCreators from '../../../store/actions';
 
 class TodoList extends Component {
     state = {
-        error: false,
         loading: false,
         savedChanges: true,
     }
@@ -40,9 +39,6 @@ class TodoList extends Component {
             todoSection = (
                 <div className={classes.TodoList}>
                     <TodoHeader
-                        state={{ ...this.state }}
-                        cancelEdit={this.props.onCancelEditTodo}
-                        emptyMsgReceived={this.props.onEmptyMsgReceived}
                         saveChanges={this.props.onSaveTodos}
                         editingTodo={this.props.editingTodo}
                         editingTodoIndex={this.props.editingTodoIndex}
@@ -54,18 +50,11 @@ class TodoList extends Component {
                         submitted={this.props.onInputSubmitted}
                         inputRef={this.inputElementRef} />
 
-                    <TodoContext.Provider value={{
-                        delete: this.props.onDeleteTodo,
-                        edit: this.props.onEditTodo,
-                        complete: this.props.onTodoCheckClicked,
-                        editState: this.props.editingTodo,
-                    }}>
-                        <div className={classes.Todos}>
-                            <Todos
-                                todos={this.props.todos}
-                                clicked={this.props.onTodoClicked} />
-                        </div>
-                    </TodoContext.Provider>
+                    <div className={classes.Todos}>
+                        <Todos
+                            todos={this.props.todos}
+                            clicked={this.props.onTodoClicked} />
+                    </div>
                 </div>
             )
         }
@@ -93,14 +82,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onInputSubmitted: (inputEl) => dispatch(actionCreators.submitInput(inputEl)),
-        onInputChanged: (inputEl) => dispatch(actionCreators.changeInput(inputEl)),
-        onTodoCheckClicked: (index) => dispatch(actionCreators.changeTodoCheck(index)),
         onTodoClicked: (index) => dispatch(actionCreators.clickTodo(index)),
-        onEditTodo: (index) => dispatch(actionCreators.editTodo(index)),
-        onDeleteTodo: (index) => dispatch(actionCreators.deleteTodo(index)),
-        onEmptyMsgReceived: () => dispatch(actionCreators.emptyMsgReceived()),
-        onCancelEditTodo: () => dispatch(actionCreators.cancelEditTodo()),
         onLoadTodos: () => dispatch(actionCreators.loadTodos()),
         onSaveTodos: (todos) => dispatch(actionCreators.saveChangedTodos(todos)),
         onTodoSavedChanged: () => dispatch(actionCreators.todoSavedChanged())

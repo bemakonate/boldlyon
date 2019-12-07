@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import classes from './stylesheets/TodoHeader.css';
 import TodoMsg from '../../../UI/todoMsg/todoMsg';
+import * as actionCreators from '../../../store/actions';
 
 import PropTypes from 'prop-types';
 
@@ -15,7 +16,7 @@ const todoHeader = props => {
             <TodoMsg
                 styles={classes.EditHeader}
                 message={`Continue editing todo #${props.editingTodoIndex + 1}... `}
-                close={props.cancelEdit} />
+                close={props.onCancelEditTodo} />
         );
     }
     //If the todo sumbitted is empty
@@ -24,7 +25,7 @@ const todoHeader = props => {
             <TodoMsg
                 styles={classes.EmptyHeader}
                 message={!props.editingTodo ? 'Please enter something to submit' : 'Please replace the previous todo'}
-                close={props.emptyMsgReceived} />
+                close={props.onEmptyMsgReceived} />
         );
     }
     const saveButtonClasses = ["material-icons", classes.SaveButton];
@@ -74,4 +75,11 @@ const mapStateToProps = state => {
         savedChanges: state.savedChanges,
     }
 }
-export default connect(mapStateToProps)(todoHeader);
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onEmptyMsgReceived: () => dispatch(actionCreators.emptyMsgReceived()),
+        onCancelEditTodo: () => dispatch(actionCreators.cancelEditTodo()),
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(todoHeader);

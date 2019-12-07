@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from '../axios-todos';
+
 export const submitInput = (inputEl) => {
     inputEl.persist();
     return {

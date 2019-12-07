@@ -8,15 +8,6 @@ import { Route, withRouter, Switch } from 'react-router-dom';
 class App extends Component {
   render() {
     let appClasses = [classes.App];
-    switch (this.props.location.pathname) {
-      case '/todos':
-        appClasses.push(classes.TodosBuilder)
-        break;
-      default:
-        appClasses.push(classes.HomeBuilder);
-      //Set the default styling of app here
-    }
-
     return (
       <div className={appClasses.join(' ')}>
         <Layout>

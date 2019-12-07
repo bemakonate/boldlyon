@@ -9,7 +9,7 @@
 @media (min-width: 650px) {
   .TodoList {
     width: 60%;
-    margin: 40px auto 0; } }
+    margin: 120px auto 0; } }
 
 @media (min-width: 1000px) {
   .TodoList {

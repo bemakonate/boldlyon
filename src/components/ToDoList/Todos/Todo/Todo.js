@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import classes from './stylesheets/Todo.css';
-import PropTypes from 'prop-types';
-import TodoContext from '../../../../context/TodoContext';
+import * as actionCreators from '../../../../store/actions';
 import Checkbox from '../../../../UI/Checkbox/Checkbox';
 
 const todo = props => {
-    const todoContext = useContext(TodoContext);
     //Classes
     let todoClasses = [classes.Todo];
     let changeButtonsClasses = [classes.ChangeButtons];
@@ -16,10 +15,10 @@ const todo = props => {
     const isTodoClicked = props.todo.clicked;
 
     let todoOverlay = null;
-    let completedFunc = todoContext.complete.bind(this, props.index);
+    let completedFunc = props.onTodoCheckClicked.bind(this, props.index);
 
     // //If we are editing a todo
-    if (todoContext.editState) {
+    if (props.editState) {
         todoClasses.push(classes.DisabledTodo);
         completedFunc = null;
     }
@@ -30,12 +29,12 @@ const todo = props => {
     }
 
     function runEditButton() {
-        todoContext.edit(props.index);
+        props.onEditTodo(props.index);
         props.toggleChangeButtons();
     }
 
     function runDeleteButton() {
-        todoContext.delete(props.index);
+        props.onDeleteTodo(props.index);
     }
 
     return (
@@ -61,10 +60,17 @@ const todo = props => {
 
     );
 }
-
-todo.propTypes = {
-    todo: PropTypes.object,
-    index: PropTypes.number,
+const mapStateToProps = state => {
+    return {
+        editState: state.editing,
+    }
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        onTodoCheckClicked: (index) => dispatch(actionCreators.changeTodoCheck(index)),
+        onEditTodo: (index) => dispatch(actionCreators.editTodo(index)),
+        onDeleteTodo: (index) => dispatch(actionCreators.deleteTodo(index)),
+    }
 }
 
-export default todo;
+export default connect(mapStateToProps, mapDispatchToProps)(todo);

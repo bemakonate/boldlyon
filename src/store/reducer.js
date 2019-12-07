@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes';
+import { updatedObj } from './utility'
 const initialState = {
     todos: null,
     todoInput: '',
@@ -17,110 +18,86 @@ const reducer = (state = initialState, action) => {
                 return state;
             }
             if (action.inputEl.target.value.length <= 0) {
-                return {
-                    ...state,
-                    emptyInput: true,
-                }
+                return updatedObj(state, { emptyInput: true })
             }
             if (state.editing) {
                 const updatedTodos = [...state.todos];
                 updatedTodos[state.editingIndex].task = action.inputEl.target.value;
-                return {
-                    ...state,
+                return updatedObj(state, {
                     todos: updatedTodos,
                     editing: false,
                     editingIndex: null,
                     todoInput: '',
                     emptyInput: false,
-                }
+                })
             }
             const newTodo = { task: action.inputEl.target.value, isCompleted: false, clicked: false }
-            return {
-                ...state,
+            return updatedObj(state, {
                 todos: state.todos.concat(newTodo),
                 todoInput: '',
                 emptyInput: false,
-            }
+            })
+
         case (actionTypes.INPUT_CHANGED):
-            return {
-                ...state,
-                todoInput: action.inputEl.target.value,
-            }
+            return updatedObj(state, { todoInput: action.inputEl.target.value });
+
         case (actionTypes.TODO_CHECK_CLICKED):
             const updatedTodos = [...state.todos];
             updatedTodos[action.index].isCompleted = !updatedTodos[action.index].isCompleted;
-            return {
-                ...state,
-                todos: updatedTodos,
-            }
+            return updatedObj(state, { todos: updatedTodos })
+
         case (actionTypes.TODO_CLICKED):
             if (state.editing) {
                 const updatedTodosArray = [...state.todos].map(todo => {
                     return { ...todo, clicked: false }
                 })
-                return {
-                    ...state,
-                    todos: updatedTodosArray,
-                }
+                return updatedObj(state, { todos: updatedTodosArray })
             }
 
             const updatedTodosArray = [...state.todos].map(todo => {
                 return { ...todo, clicked: false }
             })
             updatedTodosArray[action.index].clicked = !state.todos[action.index].clicked;
-            return {
-                ...state,
-                todos: updatedTodosArray,
-            }
+            return updatedObj(state, { todos: updatedTodosArray })
+
         case (actionTypes.EDIT_TODO):
-            return {
-                ...state,
+            return updatedObj(state, {
                 editing: true,
                 todoInput: state.todos[action.index].task,
                 editingIndex: action.index,
-            }
+            })
         case (actionTypes.DELETE_TODO):
-            return {
-                ...state,
+            return updatedObj(state, {
                 todos: state.todos.filter((todo, index) => {
                     return action.index !== index;
                 })
-            }
+            })
         case (actionTypes.EMPTY_MSG_RECEIVED):
-            return {
-                ...state,
+            return updatedObj(state, {
                 emptyInput: false,
-            }
+            })
         case (actionTypes.CANCEL_EDIT_TODO):
-            return {
-                ...state,
+            return updatedObj(state, {
                 editingIndex: null,
                 editing: false,
                 todoInput: '',
                 emptyInput: false,
-            }
+            })
         case (actionTypes.FETCH_TODOS_PASSED):
-            return {
-                ...state,
+            return updatedObj(state, {
                 todos: action.todos,
                 lastSavedTodos: action.todos,
-            }
+            })
         case (actionTypes.FETCH_TODOS_FAILED):
-            return {
-                ...state,
-                error: true,
-            }
+            return updatedObj(state, { error: true })
+
         case (actionTypes.SAVED_CHANGES_SUCCESS):
-            return {
-                ...state,
+            return updatedObj(state, {
                 savedChanges: true,
                 lastSavedTodos: state.todos,
-            }
+            })
         case (actionTypes.TODO_SAVED_CHANGED):
-            return {
-                ...state,
-                savedChanges: false,
-            }
+            return updatedObj(state, { savedChanges: false })
         default:
             return state
     }
