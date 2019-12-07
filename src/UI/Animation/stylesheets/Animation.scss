@@ -1,0 +1,36 @@
+@import '../../tools/tools.scss';
+@include mq('med'){
+    .anim{
+        opacity:0;
+    }
+    .slideDown{
+        animation: slideDown 2s forwards ease-out;
+    }
+    .slideUp{
+        animation: slideUp 2s forwards ease-out;
+    }
+    
+    @keyframes slideDown {
+        from {
+          transform: translateY(-100px);
+          opacity: 0;
+        }
+        to  {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    
+      @keyframes slideUp{
+        from {
+          transform: translateY(100px);
+          opacity: 0;
+        }
+        to  {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    
+    
+}

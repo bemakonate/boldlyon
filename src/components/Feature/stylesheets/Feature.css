@@ -4,7 +4,9 @@
   clear: both; }
 
 .Feature {
-  padding: 1px 2rem 40px; }
+  padding: 1px 2rem 40px;
+  height: 100%;
+  width: 100%; }
 
 .Icon {
   width: 100px; }

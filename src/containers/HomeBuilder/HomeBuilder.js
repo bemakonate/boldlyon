@@ -5,7 +5,7 @@ import workoutSvg from '../../assets/workout.svg';
 import booksSvg from '../../assets/books.svg';
 import Feature from '../../components/Feature/Feature';
 import Iframe from '../../UI/Iframe/Iframe';
-
+import Animation from '../../UI/Animation/Animation';
 
 class HomeBuilder extends Component {
     render() {
@@ -39,37 +39,43 @@ class HomeBuilder extends Component {
                                 sectionClass={classes.Organized}
                                 imgSrc={calendarSvg}
                                 contentAlign='left'
+                                featureText='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Iaculis nunc sed augue lacus. Morbi enim nunc faucibus a pellentesque sit amet porttitor. '
                                 header={
                                     <React.Fragment>
                                         Stay <br /><span className={classes.Highlight}>Organized</span>
                                     </React.Fragment>
-                                }
-                                featureText='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Iaculis nunc sed augue lacus. Morbi enim nunc faucibus a pellentesque sit amet porttitor. ' />
+                                } />
 
-                            {/* Workout */}
                             <Feature
                                 sectionClass={classes.Workout}
                                 imgSrc={workoutSvg}
                                 iconClass={classes.WorkoutIcon}
+                                featureText='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Euismod in pellentesque massa placerat duis ultricies lacus sed. Leo integer malesuada nunc vel risus commodo viverra maecenas'
                                 header={
                                     <React.Fragment>
                                         Train Like <br />a <span className={classes.Highlight}>Bold Lion</span>
                                     </React.Fragment>
                                 }
-                                featureText='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Euismod in pellentesque massa placerat duis ultricies lacus sed. Leo integer malesuada nunc vel risus commodo viverra maecenas' />
+                                anim={{
+                                    class: classes.WorkoutContainer
+                                }} />
 
-
-                            {/* Stories */}
                             <Feature
                                 sectionClass={classes.Stories}
                                 imgSrc={booksSvg}
                                 contentAlign='left'
+                                featureText='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Euismod in pellentesque massa placerat duis ultricies lacus sed. Leo integer malesuada nunc vel risus commodo viverra maecenas.'
                                 header={
                                     <React.Fragment>
                                         Motivational <br /><span className={classes.Highlight}>Stories</span>
                                     </React.Fragment>
                                 }
-                                featureText='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Euismod in pellentesque massa placerat duis ultricies lacus sed. Leo integer malesuada nunc vel risus commodo viverra maecenas.' />
+                                anim={{
+                                    class: classes.StoriesContainer,
+                                    delay: '3s',
+                                    type: 'slideUp'
+                                }} />
+
                         </div>
                     </div>
                 </main >

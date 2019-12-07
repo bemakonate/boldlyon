@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './stylesheets/Feature.css';
+import Animation from '../../UI/Animation/Animation';
 
 const feature = props => {
     let paragraphClasses = [];
@@ -23,13 +24,15 @@ const feature = props => {
         default:
             headerRightAlign();
     }
-
+    const animProps = { ...props.anim };
     return (
-        <section className={[props.sectionClass, classes.Feature].join(' ')}>
-            <h2 className={headerClasses.join(' ')}>{props.header}</h2>
-            <p className={paragraphClasses.join(' ')}>{props.featureText}</p>
-            <img className={iconClasses.join(' ')} src={props.imgSrc} alt="Icon" />
-        </section>
+        <Animation className={animProps.class} delay={animProps.delay} type={animProps.type}>
+            <section className={[props.sectionClass, classes.Feature].join(' ')}>
+                <h2 className={headerClasses.join(' ')}>{props.header}</h2>
+                <p className={paragraphClasses.join(' ')}>{props.featureText}</p>
+                <img className={iconClasses.join(' ')} src={props.imgSrc} alt="Icon" />
+            </section>
+        </Animation>
     )
 }
 

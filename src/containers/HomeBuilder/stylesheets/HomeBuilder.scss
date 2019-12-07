@@ -71,11 +71,11 @@
         display:grid;
         grid-template-columns: repeat(2, 1fr);
     }
-    .Stories{
+    .StoriesContainer{
         grid-column: 2/-1;
         grid-row:1 / 2;
     }
-    .Workout{
+    .WorkoutContainer{
         grid-column:1/-1;
     }
     .HomeBuilder .AboutVideo{
@@ -120,8 +120,8 @@
         width:90%;
         margin:0 auto;
     }
-    .Stories,
-    .Workout{
+    .StoriesContainer,
+    .WorkoutContainer{
         grid-column:auto;
     }
     .AboutVideo{
