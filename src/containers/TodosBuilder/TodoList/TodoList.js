@@ -17,11 +17,6 @@ class TodoList extends Component {
         savedChanges: true,
     }
 
-    constructor(props) {
-        super(props);
-        this.inputElementRef = React.createRef();
-    }
-
     componentDidMount() {
         this.props.onLoadTodos()
     }

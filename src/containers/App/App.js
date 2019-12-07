@@ -7,9 +7,8 @@ import { Route, withRouter, Switch } from 'react-router-dom';
 
 class App extends Component {
   render() {
-    let appClasses = [classes.App];
     return (
-      <div className={appClasses.join(' ')}>
+      <div className={classes.App}>
         <Layout>
           <Switch>
             <Route path="/todos" exact component={TodosBuilder} />
