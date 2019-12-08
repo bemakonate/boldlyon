@@ -1,0 +1,44 @@
+@import '../../../../UI/tools/tools.scss';
+
+.Feature{
+    padding:1px 2rem 40px;
+    @extend %clearfix;
+    height:100%;
+    width:100%;
+}
+.Icon{
+    width:100px;
+}
+
+.TextLeft{
+    margin:50px 10% 50px 0;
+}
+
+.TextRight{
+    margin:50px 0 50px 10%;
+}
+
+.FloatRight{
+    float:right;
+}
+
+.FloatLeft{
+    float:left;
+}
+
+.TextAlignRight{
+    text-align:right;
+}
+.TextAlignLeft{
+    text-align:left;
+}
+
+@include mq('large'){
+    .TextLeft{
+        margin:30% 10% 30% 0;
+    }
+    
+    .TextRight{
+        margin:30% 0 30% 10%;
+    }
+}

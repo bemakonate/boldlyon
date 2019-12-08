@@ -1,0 +1,29 @@
+@import '../../../../../../UI/tools/tools.scss';
+@import '../../../../../../UI/tools/variables/todoVars/todoVars.scss';
+.TodoHeader{
+    background:$todo-header-color;
+    padding:10px $contain-sides;
+    @include flex($just:space-between,$align:center);
+    border-radius: 6px 6px 0 0;
+    .TodoTitle{
+        margin:0;
+        margin-bottom:6px;
+    }
+    .Tracker{
+        margin:0;
+    }
+}
+
+.SaveButton{
+    font-size:40px;
+    color: rgba(255, 255, 255, 0.3);
+}
+.ShowToSave{
+    color:$todo-save-color;
+}
+.EditHeader{
+    background-color:$todo-edit-header-color;
+}
+.EmptyHeader{
+    background-color:#bd5151;
+}

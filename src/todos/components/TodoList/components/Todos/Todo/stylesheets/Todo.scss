@@ -1,0 +1,77 @@
+@import '../../../../../../../UI/tools/tools.scss';
+@import '../../../../../../../UI/tools/variables/todoVars/todoVars.scss';
+
+.Todo{
+    @include flex($center:center);
+    position:relative;
+    padding:0 0 0 $contain-sides;
+    flex:0 0 auto;
+    width:100%;
+    overflow:hidden;
+    &:nth-of-type(even){
+        background:$todo-even-bg-color;
+        color:$todo-even-color;
+    }
+    &:nth-of-type(odd){
+        background:$todo-odd-bg-color;
+        color:$todo-odd-color;
+    }
+
+    .Index{
+        margin-right:10px;
+    }
+    .Overlay{
+        position:absolute;
+        width:100%;
+        height:100%;
+        top:0;
+        left:0;
+        z-index:200;
+        background-color:$todo-overlay-color;
+    }
+    .ChangeButtons{
+        @include flex();
+        align-self:stretch;
+        width:0;
+        z-index:250;
+        transition:all .3s linear;
+    }
+
+    .SlideChangeButtons{
+        width:88px;
+    }
+    span{
+        margin-left:auto;
+        &.DeleteIcon{
+            color:$white;
+            height:100%;
+            padding:0 10px;
+            background:$todo-delete-color;
+            @include flex($center:center);
+        }
+        
+        &.EditIcon{
+            color:$todo-edit-color;
+            height:100%;
+            padding:0 10px;
+            background:#51bd6a;
+            @include flex($center:center);
+        }
+    }
+}
+.DisabledTodo{
+    opacity:.6;
+}
+
+label{
+    @include flex($align:center);
+    align-self:stretch;
+}
+
+.TodoText{
+    flex: 1;
+    height:100%;
+    word-break: break-all;
+    padding-right:10px;
+}
+

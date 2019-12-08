@@ -1,0 +1,14 @@
+@import '../../../../../../UI/tools/tools.scss';
+
+.TodoInput{
+    display:flex;
+    width:100%;
+    input{
+        flex:1;
+        outline:none;
+        border:0px;
+        font-weight:300;
+        padding:6px $contain-sides;
+        border-radius:0;
+    }
+}

@@ -6,9 +6,9 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
 import './index.css';
-import App from './containers/App/App';
+import App from './app/App';
 import registerServiceWorker from './registerServiceWorker';
-import reducer from './store/reducer';
+import reducer from './todos/store/reducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, composeEnhancers(

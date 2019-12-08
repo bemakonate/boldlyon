@@ -1,0 +1,152 @@
+@import '../../../../UI/tools/tools.scss';
+@import '../../../../UI/tools/variables/homeVars/homeVars.scss';
+
+.Container{
+    padding: 2px $contain-sides-home-mb;
+}
+
+.HomeBuilder{
+    .header{
+        background:linear-gradient($body-bg-overlay), url($header-bg-url)no-repeat center top/cover;
+        padding-top:40px;
+        padding:1px;
+        height:50vh;
+        @include flex($center: center);
+    }
+    .HeaderContent{
+        text-align:center;
+        button{
+            outline:none;
+            border: none;
+            padding:8px 40px;
+            border-radius:6px;
+            font-size:20px;
+            background:$header-btn-bg;
+            color:$header-btn-color;
+        }
+    }
+   
+    .AboutVideo{
+        background-color:$about-video-bg;
+        h2{
+            color:$about-video-color;
+        }
+        .VideoDescrip{
+            margin:50px 0;
+            border-left:5px solid $about-video-border-color;
+            padding:25px 0 10px 10px;
+            font-weight:400;
+            color:$about-video-color;
+        }
+    }
+
+    .Organized{
+        background:$organized-bg;
+        .Highlight{
+            color: $organized-keyword-color;
+        }
+    }
+
+    .Workout{
+        color:$workout-color;
+        background:$workout-bg;
+        .Highlight{
+            color:$workout-keyword-color;
+        }
+        .WorkoutIcon{
+            transform:rotate(135deg);
+        }
+    }
+
+    .Stories{
+        background:$stories-bg;
+        .Highlight{
+            color:$stories-keyword-color;
+        }
+    }
+}
+
+@include mq('med'){
+    .FeatureContainer{
+        display:grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .Organized{
+        grid-column:1 / 2;
+        grid-row:1 / 2;
+    }
+    .Stories{
+        grid-column: 2/-1;
+        grid-row:1 / 2;
+    }
+    .Workout{
+        grid-column:1/-1;
+    }
+    .HomeBuilder .AboutVideo{
+        position: relative;
+        box-shadow: 5px 3px 8px #d3d3d3;
+        z-index:50;
+    }
+    .HomeBuilder .header{
+        height:60vh;
+        background-position:center center;
+        background-attachment:fixed;
+    }
+
+    .HomeBuilder .AboutVideo .VideoDescrip{
+        padding:20px 0 20px 20px;
+        margin:20px 0;
+    }
+    .Container{
+        width:90%;
+        margin:0 auto;
+    }
+}
+
+@include mq('large'){
+    .HomeBuilder .header{
+        height:70vh;
+    }
+    .FeatureGroup{
+        padding:30px 0;
+        background:$featured-group-color;
+        background-attachment:fixed;
+        section{
+            min-height:300px;
+        }
+    }
+    .FeatureContainer{
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap:20px;
+    }
+    .FeatureContainer,
+    .Container{
+        width:90%;
+        margin:0 auto;
+    }
+    .Stories{
+        grid-column:1/ 2;
+    }
+    .Organized{
+        grid-column: 2/ 3;
+    }
+    .Workout{
+        grid-column: 3/ 4;
+    }
+    .AboutVideo{
+        padding:0 0 40px 0;
+    }
+    .AboutVideo .AboutContent{
+        display:grid;
+        grid-template-columns:70% 30%;
+        grid-gap:30px;
+        .VideoDescripContainer{
+            @include flex($align:center);
+            margin-bottom:40px;
+        }
+        .VideoDescrip{
+           @include flex($align:center);
+           padding:20px 0 20px 10px;
+        }
+    }
+}
