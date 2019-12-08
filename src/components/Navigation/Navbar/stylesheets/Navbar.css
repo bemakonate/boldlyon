@@ -41,7 +41,7 @@
     padding: 0;
     color: white;
     height: 55px; }
-    .Sticky .NavbarBrand {
+    .Sticky .active {
       color: #6EA89E; } }
 
 @media (min-width: 1000px) {
