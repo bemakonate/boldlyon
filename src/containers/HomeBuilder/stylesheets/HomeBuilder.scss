@@ -71,11 +71,15 @@
         display:grid;
         grid-template-columns: repeat(2, 1fr);
     }
-    .StoriesContainer{
+    .Organized{
+        grid-column:1 / 2;
+        grid-row:1 / 2;
+    }
+    .Stories{
         grid-column: 2/-1;
         grid-row:1 / 2;
     }
-    .WorkoutContainer{
+    .Workout{
         grid-column:1/-1;
     }
     .HomeBuilder .AboutVideo{
@@ -120,9 +124,14 @@
         width:90%;
         margin:0 auto;
     }
-    .StoriesContainer,
-    .WorkoutContainer{
-        grid-column:auto;
+    .Stories{
+        grid-column:1/ 2;
+    }
+    .Organized{
+        grid-column: 2/ 3;
+    }
+    .Workout{
+        grid-column: 3/ 4;
     }
     .AboutVideo{
         padding:0 0 40px 0;

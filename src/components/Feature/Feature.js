@@ -26,13 +26,13 @@ const feature = props => {
     }
     const animProps = { ...props.anim };
     return (
-        <Animation className={animProps.class} delay={animProps.delay} type={animProps.type}>
-            <section className={[props.sectionClass, classes.Feature].join(' ')}>
+        <section className={[props.sectionClass, classes.Feature].join(' ')}>
+            <Animation className={animProps.class} delay={animProps.delay} type={animProps.type}>
                 <h2 className={headerClasses.join(' ')}>{props.header}</h2>
                 <p className={paragraphClasses.join(' ')}>{props.featureText}</p>
                 <img className={iconClasses.join(' ')} src={props.imgSrc} alt="Icon" />
-            </section>
-        </Animation>
+            </Animation>
+        </section >
     )
 }
 

@@ -16,20 +16,25 @@
     .Navbar ul {
       display: flex;
       height: 100%;
-      width: 56%;
+      width: 25%;
       list-style: none;
       padding-left: 0;
       margin: 0; }
     .Navbar li {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex: 18px;
-      font-size: 18px;
-      font-weight: 300; }
+      flex: 1;
+      font-size: 18px; }
+      .Navbar li .Link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%; }
+        .Navbar li .Link:hover {
+          color: #fcba03; }
+    .Navbar li:first-child {
+      max-width: 100px; }
     .Navbar .NavbarBrand {
+      flex: 20px;
       font-size: 22px;
-      text-decoration-color: transparent;
       font-family: 'Staatliches'; }
   .Sticky {
     background: #1f1e1e;
@@ -41,4 +46,4 @@
 
 @media (min-width: 1000px) {
   .Navbar ul {
-    width: 40%; } }
+    width: 20%; } }

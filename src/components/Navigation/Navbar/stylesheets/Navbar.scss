@@ -18,22 +18,32 @@
         ul{
             display:flex;
             height:100%;
-            width:56%;
+            width:25%;
             list-style:none;
             padding-left:0;
             margin:0;
         }
         li{
-            @include flex($center:center);
-            flex:18px;
+            flex:1;
             font-size:18px;
-            font-weight:300;
+            .Link{
+                @include flex($center:center);
+                height:100%;
+                &:hover{
+                    color:#fcba03;
+                }
+            }
         }
+        li:first-child{
+            max-width:100px;
+        }
+
         .NavbarBrand{
+            flex:20px;
             font-size:22px;
-            text-decoration-color:transparent;
             font-family:'Staatliches';
         }
+        
     }
 
     .Sticky{
@@ -50,7 +60,7 @@
 @include mq('large'){
     .Navbar{
         ul{
-            width:40%;
+            width:20%;
         }
     }
 }

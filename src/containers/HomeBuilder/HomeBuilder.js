@@ -26,7 +26,9 @@ class HomeBuilder extends Component {
                             <div className={classes.AboutContent}>
                                 <Iframe src="https://www.youtube.com/embed/v52Xt7ODNSY" />
                                 <div className={classes.VideoDescripContainer}>
-                                    <p className={classes.VideoDescrip} data-sal="slide-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</p>
+                                    <Animation type='slideLeft'>
+                                        <p className={classes.VideoDescrip}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</p>
+                                    </Animation>
                                 </div>
                             </div>
                         </div>
@@ -44,7 +46,8 @@ class HomeBuilder extends Component {
                                     <React.Fragment>
                                         Stay <br /><span className={classes.Highlight}>Organized</span>
                                     </React.Fragment>
-                                } />
+                                }
+                                anim={{ delay: '.5s', type: 'slideUp' }} />
 
                             <Feature
                                 sectionClass={classes.Workout}
@@ -56,9 +59,7 @@ class HomeBuilder extends Component {
                                         Train Like <br />a <span className={classes.Highlight}>Bold Lion</span>
                                     </React.Fragment>
                                 }
-                                anim={{
-                                    class: classes.WorkoutContainer
-                                }} />
+                                anim={{ delay: '1s', type: 'slideUp' }} />
 
                             <Feature
                                 sectionClass={classes.Stories}
@@ -70,11 +71,7 @@ class HomeBuilder extends Component {
                                         Motivational <br /><span className={classes.Highlight}>Stories</span>
                                     </React.Fragment>
                                 }
-                                anim={{
-                                    class: classes.StoriesContainer,
-                                    delay: '3s',
-                                    type: 'slideUp'
-                                }} />
+                                anim={{ type: 'slideUp' }} />
 
                         </div>
                     </div>
