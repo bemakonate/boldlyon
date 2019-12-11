@@ -21,7 +21,10 @@ const sideNav = props => {
             {/*SideNav */}
             <nav className={sideDrawerClasses.join(' ')}>
                 <i onClick={props.closeSideNav} className={closeIconClasses}>close</i>
-                <NavigationItems click={props.closeSideNav} activeClass={classes.Active} />
+                <NavigationItems
+                    click={props.closeSideNav}
+                    activeClass={classes.Active}
+                    authContainerStyles={classes.AuthButtons} />
             </nav>
         </Fragment>
     );

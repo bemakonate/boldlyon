@@ -65,13 +65,13 @@ class TodoList extends Component {
 
 const mapStateToProps = state => {
     return {
-        todos: state.todos,
-        todoInput: state.todoInput,
-        editingTodo: state.editing,
-        editingTodoIndex: state.editingIndex,
-        emptyInput: state.emptyInput,
-        error: state.error,
-        lastSavedTodos: state.lastSavedTodos,
+        todos: state.todos.todos,
+        todoInput: state.todos.todoInput,
+        editingTodo: state.todos.editing,
+        editingTodoIndex: state.todos.editingIndex,
+        emptyInput: state.todos.emptyInput,
+        error: state.todos.error,
+        lastSavedTodos: state.todos.lastSavedTodos,
     }
 }
 

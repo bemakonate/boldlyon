@@ -3,7 +3,8 @@
 
 @media (min-width: 650px) {
   .Navbar {
-    display: block;
+    display: flex;
+    justify-content: space-between;
     padding: 0 1em;
     height: 60px;
     background: transparent;
@@ -16,19 +17,28 @@
     .Navbar ul {
       display: flex;
       height: 100%;
-      width: 25%;
       list-style: none;
       padding-left: 0;
       margin: 0; }
     .Navbar li {
       flex: 1;
       font-size: 18px; }
-      .Navbar li .Link {
+      .Navbar li:hover {
+        color: #fcba03; }
+    .Navbar .MainLinks {
+      width: 25%; }
+      .Navbar .MainLinks .Link {
         display: flex;
         align-items: center;
         justify-content: center;
         height: 100%; }
-        .Navbar li .Link:hover {
+    .Navbar .AuthButtons {
+      width: 20%; }
+      .Navbar .AuthButtons li {
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        .Navbar .AuthButtons li:hover {
           color: #fcba03; }
     .Navbar li:first-child {
       max-width: 100px; }

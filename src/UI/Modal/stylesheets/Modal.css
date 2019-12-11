@@ -1,28 +1,25 @@
 .Backdrop {
-  display: flex; }
+  display: flex;
+  align-items: flex-start; }
+
+.ModalOpen {
+  overflow: hidden; }
 
 .Modal {
   display: flex;
   flex-direction: column;
   width: 80%;
-  max-height: 300px;
-  overflow: scroll;
-  align-self: center;
-  margin: 0 auto 20vh;
+  max-width: 400px;
+  margin: 10vh auto 0;
   background: #353434;
   border-radius: 10px;
   z-index: 600;
   padding: 10px; }
   .Modal .Close {
-    margin-left: auto;
-    font-size: 28px; }
+    align-self: flex-end;
+    display: inline-block;
+    font-size: 25px; }
 
 .ModalHeader {
-  border-bottom: 1px solid white;
-  margin-bottom: 12px; }
-  .ModalHeader h3 {
-    margin: 10px 0 4px; }
-
-@media (min-width: 650px) {
-  .Modal {
-    margin: 0 auto 40vh; } }
+  margin: -3px 0 12px 0;
+  align-self: flex-start; }

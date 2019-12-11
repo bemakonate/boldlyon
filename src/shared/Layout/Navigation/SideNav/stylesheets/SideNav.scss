@@ -17,12 +17,22 @@
         background:$menu-nav-color;
     }
 }
-
+.AuthButtons{
+    margin-top:auto;
+    li{
+        padding:20px $contain-sides;
+        color:#fcba03;
+        &:not(:last-child){
+            border-bottom:1px solid gray;
+        }
+    }
+}
 .SideDrawer{
     width:60vw;
     transition:.5s ease-out;
+    @include flex($dir:column);
     position:relative;
-    transform:translateX(-100%);
+    transform:translateX(-110%);
     padding:70px 0;
     height:100vh;
     background:$sideDrawer-bg-color;
@@ -36,13 +46,13 @@
             font-size:18px;
             font-weight:400;
             transition:.2s linear;
-            a.Active{
-                color:$sideDrawer-bg-color;
-                background:white;
-            } 
             &:hover{
                 background:#6EA89E;
                 color:white;
+            }
+            a.Active{
+                color:$sideDrawer-bg-color;
+                background:white;
             }
             a{
                display:block;
@@ -62,12 +72,6 @@
 }
 .ShowSideDrawer{
     transform:translateX(0);
-}
-
-.ProfileImg{
-    @include rounded(100px);
-    display:block;
-    margin:0 auto 40px;
 }
 
 @include mq('med'){

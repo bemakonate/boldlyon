@@ -1,0 +1,2 @@
+export const SHOW_AUTH_MODAL = 'SHOW_AUTH_MODAL';
+export const CLOSE_AUTH_MODAL = 'CLOSE_AUTH_MODAL';

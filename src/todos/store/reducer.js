@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import { updatedObj } from './utility'
+import { updatedObj } from '../../shared/redux/utility'
 const initialState = {
     todos: null,
     todoInput: '',

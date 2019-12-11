@@ -14,11 +14,21 @@
     border: 1px solid white;
     background: rgba(0, 0, 0, 0.3); }
 
+.AuthButtons {
+  margin-top: auto; }
+  .AuthButtons li {
+    padding: 20px 1em;
+    color: #fcba03; }
+    .AuthButtons li:not(:last-child) {
+      border-bottom: 1px solid gray; }
+
 .SideDrawer {
   width: 60vw;
   transition: .5s ease-out;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  transform: translateX(-100%);
+  transform: translateX(-110%);
   padding: 70px 0;
   height: 100vh;
   background: #1C1C1C;
@@ -32,12 +42,12 @@
       font-size: 18px;
       font-weight: 400;
       transition: .2s linear; }
-      .SideDrawer ul li a.Active {
-        color: #1C1C1C;
-        background: white; }
       .SideDrawer ul li:hover {
         background: #6EA89E;
         color: white; }
+      .SideDrawer ul li a.Active {
+        color: #1C1C1C;
+        background: white; }
       .SideDrawer ul li a {
         display: block;
         padding: 20px 1em; }
@@ -53,13 +63,6 @@
 
 .ShowSideDrawer {
   transform: translateX(0); }
-
-.ProfileImg {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto 40px; }
 
 @media (min-width: 650px) {
   .MenuContainer,

@@ -71,8 +71,8 @@ todoHeader.propTypes = {
 
 const mapStateToProps = state => {
     return {
-        todos: state.todos,
-        savedChanges: state.savedChanges,
+        todos: state.todos.todos,
+        savedChanges: state.todos.savedChanges,
     }
 }
 

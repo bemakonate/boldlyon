@@ -62,7 +62,7 @@ const todo = props => {
 }
 const mapStateToProps = state => {
     return {
-        editState: state.editing,
+        editState: state.todos.editing,
     }
 }
 const mapDispatchToProps = dispatch => {

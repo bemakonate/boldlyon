@@ -1,0 +1,47 @@
+.Input {
+  -webkit-appearance: none;
+  padding: 7px;
+  height: 43px;
+  border-radius: 4px;
+  width: 100%;
+  transition: all .3s linear;
+  font-size: 16px;
+  font-weight: 300;
+  outline: 0;
+  border: 1px solid #8f929e; }
+  .Input:focus {
+    box-shadow: 0px 0px 6px 0px #017f70;
+    border: 1px solid #02a793; }
+
+.InputField {
+  margin-bottom: 16px; }
+
+.ValidationError {
+  margin: 5px 0;
+  font-size: 14px;
+  color: red; }
+
+.base-invalid, .Invalid, .Invalid:focus {
+  box-shadow: 0px 0px 6px 0px red;
+  border: 1px solid red; }
+
+.InputGroup {
+  position: relative;
+  margin-bottom: 10px;
+  color: black; }
+  .InputGroup input[type=password] {
+    font-family: 'Lato';
+    font-size: 16px;
+    font-weight: 300; }
+  .InputGroup label {
+    font-size: 12.5px;
+    position: absolute;
+    left: 8px;
+    top: calc(50% - 5px);
+    opacity: 0;
+    transition: all .3s ease; }
+  .InputGroup input:not(:placeholder-shown) {
+    padding: 28px 7px 12px; }
+  .InputGroup input:not(:placeholder-shown) + label {
+    transform: translateY(-10px);
+    opacity: .7; }

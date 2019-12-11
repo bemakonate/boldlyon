@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import classes from './stylesheets/homeBuilder.css';
+import * as userActions from '../../../user/store/actions';
 import calendarSvg from '../../assets/calendar.svg';
 import workoutSvg from '../../assets/workout.svg';
 import booksSvg from '../../assets/books.svg';
@@ -14,7 +17,7 @@ class HomeBuilder extends Component {
                 <header className={classes.header}>
                     <div className={classes.HeaderContent}>
                         <h1>Bold Lyon</h1>
-                        <button>Sign Up</button>
+                        <button onClick={() => this.props.onShowAuthModal('signup')}>Sign Up</button>
                     </div>
                 </header>
 
@@ -81,4 +84,9 @@ class HomeBuilder extends Component {
     }
 }
 
-export default HomeBuilder;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onShowAuthModal: (authType) => dispatch(userActions.showAuthModal(authType))
+    }
+}
+export default connect(null, mapDispatchToProps)(HomeBuilder);
