@@ -7,10 +7,14 @@ const modal = props => {
         const body = document.querySelector('body');
         if (props.show) {
             body.classList.add(classes.ModalOpen)
-        } else {
-            body.classList.remove(classes.ModalOpen)
         }
     })
+    useEffect(() => {
+        const body = document.querySelector('body');
+        return () => {
+            body.classList.remove(classes.ModalOpen)
+        }
+    }, []);
     let modalClasses = [classes.Modal, props.modalStyles]
     let closeClasses = ["material-icons", classes.Close]
     if (props.show) {

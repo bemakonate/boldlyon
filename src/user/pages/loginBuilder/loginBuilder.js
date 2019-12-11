@@ -55,7 +55,6 @@ class LoginBuilder extends Component {
         event.preventDefault();
     }
     render() {
-        const showModal = this.props.currentModal === 'login';
         const loginForm = { ...this.state.loginForm };
         const formElementsArray = [];
 
@@ -85,7 +84,7 @@ class LoginBuilder extends Component {
         )
         return (
             <Modal
-                show={showModal}
+                show
                 title="login"
                 click={this.props.onCloseAuthModal}
                 onlyModalClick
@@ -95,16 +94,10 @@ class LoginBuilder extends Component {
         )
     }
 }
-
-const mapStateToProps = state => {
-    return {
-        currentModal: state.auth.currentModal,
-    }
-}
 const mapDispatchToProps = dispatch => {
     return {
         onCloseAuthModal: () => dispatch(userActions.closeAuthModal()),
         onShowAuthModal: (authType) => dispatch(userActions.showAuthModal(authType)),
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(LoginBuilder);
+export default connect(null, mapDispatchToProps)(LoginBuilder);

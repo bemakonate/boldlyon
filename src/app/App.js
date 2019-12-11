@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import classes from './stylesheets/App.css';
 import Layout from '../shared/Layout/Layout';
@@ -13,8 +14,8 @@ class App extends Component {
     return (
       <div className={classes.App}>
         <Layout>
-          <SignupBuilder />
-          <LoginBuilder />
+          {this.props.currentModal === 'signup' ? <SignupBuilder /> : null}
+          {this.props.currentModal === 'login' ? <LoginBuilder /> : null}
           <Switch>
             <Route path="/todos" exact component={TodosBuilder} />
             <Route path="/" component={HomeBuilder} />
@@ -24,5 +25,9 @@ class App extends Component {
     );
   }
 }
-
-export default withRouter(App);
+const mapStateToProps = state => {
+  return {
+    currentModal: state.auth.currentModal,
+  }
+}
+export default connect(mapStateToProps)(withRouter(App));

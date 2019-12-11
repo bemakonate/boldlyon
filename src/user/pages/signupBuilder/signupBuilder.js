@@ -36,9 +36,6 @@ class SignupBuilder extends Component {
         },
         formIsValid: false,
     }
-    componentWillUnmount() {
-        console.log('[signup] Componet unmounted')
-    }
     runInputChangedHandler = (inputIdentifier) => {
         return this.inputChangedHandler(this.state.signupForm[inputIdentifier].value, inputIdentifier)
     }
@@ -73,7 +70,6 @@ class SignupBuilder extends Component {
         }
     }
     render() {
-        const showModal = this.props.currentModal === 'signup';
         const signupForm = { ...this.state.signupForm };
         const formElementsArray = [];
 
@@ -103,7 +99,7 @@ class SignupBuilder extends Component {
         )
         return (
             <Modal
-                show={showModal}
+                show
                 title="signup"
                 click={this.props.onCloseAuthModal}
                 onlyModalClick
@@ -115,15 +111,11 @@ class SignupBuilder extends Component {
 }
 
 
-const mapStateToProps = state => {
-    return {
-        currentModal: state.auth.currentModal,
-    }
-}
+
 const mapDispatchToProps = dispatch => {
     return {
         onCloseAuthModal: () => dispatch(userActions.closeAuthModal()),
         onShowAuthModal: (authType) => dispatch(userActions.showAuthModal(authType)),
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(SignupBuilder);
+export default connect(null, mapDispatchToProps)(SignupBuilder);
