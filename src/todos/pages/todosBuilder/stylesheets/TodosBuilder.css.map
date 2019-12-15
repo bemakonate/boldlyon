@@ -1,0 +1,16 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,aAAa,CAAA;EACT,UAAU,EAAC,uDAAiC,EAAE,6IAAiB,CAAC,KAAK,CAAC,SAAS,CAAC,YAAY;EAC5F,IAAI,EAAC,CAAC;CACT",
+    "sources": [
+        "TodosBuilder.scss",
+        "../../../../UI/tools/tools.scss",
+        "../../../../UI/tools/variables/variables.scss",
+        "../../../../UI/tools/extends/extends.scss",
+        "../../../../UI/tools/mixins/mixins.scss",
+        "../../../../UI/tools/functions/functions.scss",
+        "../../../../UI/tools/variables/todoVars/todoVars.scss",
+        "../../../../UI/tools/variables/variables.scss"
+    ],
+    "names": [],
+    "file": "TodosBuilder.css"
+}

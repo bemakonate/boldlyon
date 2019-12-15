@@ -1,0 +1,14 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,OAAO,CAAA;EACH,OAAO,EAAC,CAAC,CEGG,GAAG;EFFf,UAAU,EAAC,IAAI;EACf,UAAU,EAAC,IAAI;CAClB",
+    "sources": [
+        "Footer.scss",
+        "../../../../UI/tools/tools.scss",
+        "../../../../UI/tools/variables/variables.scss",
+        "../../../../UI/tools/extends/extends.scss",
+        "../../../../UI/tools/mixins/mixins.scss",
+        "../../../../UI/tools/functions/functions.scss"
+    ],
+    "names": [],
+    "file": "Footer.css"
+}

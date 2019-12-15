@@ -1,9 +1,3 @@
-// .Modal{
-//     background:white;
-//     color:black;
-//     border-radius:3px;
-// }
-
 .SignupButton{
     border:none;
     display:block;
@@ -28,4 +22,11 @@
     &:hover{
         color:lighten(#53a4da,10%)
     }
+}
+
+.ErrorMsg{
+    background:rgb(212, 85, 85);
+    color:white;
+    padding: 10px 8px;
+    border-radius: 3px;
 }

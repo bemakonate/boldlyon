@@ -54,7 +54,7 @@ const todoHeader = props => {
                 </div>
 
                 {/* <button className={classes.SaveButton}>Save Changes</button> */}
-                <i onClick={() => props.saveChanges(props.todos)} className={saveButtonClasses.join(' ')}>
+                <i onClick={props.saveChanges} className={saveButtonClasses.join(' ')}>
                     save
                 </i>
             </div>

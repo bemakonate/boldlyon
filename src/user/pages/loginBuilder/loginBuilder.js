@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import classes from './stylesheets/loginBuilder.css';
 import * as userActions from '../../store/actions';
 import { createInputConfig, checkValidity } from '../../../shared/redux/utility';
 import Input from '../../../UI/Input/Input';
-import classes from './stylesheets/loginBuilder.css';
 import Modal from '../../../UI/Modal/Modal';
+import Spinner from '../../../UI/Spinner/Spinner';;
 
 class LoginBuilder extends Component {
     state = {
@@ -53,6 +54,12 @@ class LoginBuilder extends Component {
     }
     submitFormHandler = (event) => {
         event.preventDefault();
+        this.props.onAuth(
+            false,
+            this.state.loginForm.email.value,
+            this.state.loginForm.password.value,
+            null
+        )
     }
     render() {
         const loginForm = { ...this.state.loginForm };
@@ -82,6 +89,9 @@ class LoginBuilder extends Component {
                 <p className={classes.SwitchAuth} onClick={() => this.props.onShowAuthModal('signup')}>Switch to signup</p>
             </form>
         )
+        if (this.props.loading) {
+            form = <Spinner />;
+        }
         return (
             <Modal
                 show
@@ -89,15 +99,25 @@ class LoginBuilder extends Component {
                 click={this.props.onCloseAuthModal}
                 onlyModalClick
                 modalStyles={classes.Modal}>
+                {this.props.error && this.props.error.message ?
+                    <p className={classes.ErrorMsg}>{this.props.error.message}</p> : null}
                 {form}
             </Modal>
         )
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        loading: state.auth.loading,
+        error: state.auth.error,
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
         onCloseAuthModal: () => dispatch(userActions.closeAuthModal()),
         onShowAuthModal: (authType) => dispatch(userActions.showAuthModal(authType)),
+        onAuth: (isSignup, email, password, confirmPassword) => dispatch(userActions.auth(isSignup, email, password, confirmPassword))
     }
 }
-export default connect(null, mapDispatchToProps)(LoginBuilder);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginBuilder);

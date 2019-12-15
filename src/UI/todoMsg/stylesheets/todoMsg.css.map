@@ -1,0 +1,14 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,QAAQ,CAAA;EAEJ,OAAO,EAAC,GAAG,CECC,GAAG;EFAf,WAAW,EAAC,GAAG;EACf,OAAO,EAAC,IAAI;EACZ,WAAW,EAAC,MAAM;CAOrB;;AAZD,AAMI,QANI,CAMJ,CAAC,CAAA;EACG,MAAM,EAAC,CAAC;CACX;;AARL,AASI,QATI,CASJ,UAAU,CAAA;EACN,WAAW,EAAC,IAAI;CACnB",
+    "sources": [
+        "todoMsg.scss",
+        "../../tools/tools.scss",
+        "../../tools/variables/variables.scss",
+        "../../tools/extends/extends.scss",
+        "../../tools/mixins/mixins.scss",
+        "../../tools/functions/functions.scss"
+    ],
+    "names": [],
+    "file": "todoMsg.css"
+}

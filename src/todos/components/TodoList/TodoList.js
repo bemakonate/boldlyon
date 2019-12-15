@@ -18,7 +18,7 @@ class TodoList extends Component {
     }
 
     componentDidMount() {
-        this.props.onLoadTodos()
+        this.props.onLoadTodos(this.props.userId, this.props.token)
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -34,7 +34,7 @@ class TodoList extends Component {
             todoSection = (
                 <div className={classes.TodoList}>
                     <TodoHeader
-                        saveChanges={this.props.onSaveTodos}
+                        saveChanges={() => this.props.onSaveTodos(this.props.userId, this.props.token, this.props.todos)}
                         editingTodo={this.props.editingTodo}
                         editingTodoIndex={this.props.editingTodoIndex}
                         isInputEmpty={this.props.emptyInput} />
@@ -45,11 +45,12 @@ class TodoList extends Component {
                         submitted={this.props.onInputSubmitted}
                         inputRef={this.inputElementRef} />
 
-                    <div className={classes.Todos}>
-                        <Todos
-                            todos={this.props.todos}
-                            clicked={this.props.onTodoClicked} />
-                    </div>
+                    {this.props.todos.length > 0 ?
+                        <div className={classes.Todos}>
+                            <Todos
+                                todos={this.props.todos}
+                                clicked={this.props.onTodoClicked} />
+                        </div> : <p className={classes.AddNewTodo}>Enter a new todo!!</p>}
                 </div>
             )
         }
@@ -72,14 +73,17 @@ const mapStateToProps = state => {
         emptyInput: state.todos.emptyInput,
         error: state.todos.error,
         lastSavedTodos: state.todos.lastSavedTodos,
+        isAuth: state.auth.token !== null,
+        userId: state.auth.userId,
+        token: state.auth.token,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         onTodoClicked: (index) => dispatch(actionCreators.clickTodo(index)),
-        onLoadTodos: () => dispatch(actionCreators.loadTodos()),
-        onSaveTodos: (todos) => dispatch(actionCreators.saveChangedTodos(todos)),
+        onLoadTodos: (userId, token) => dispatch(actionCreators.loadTodos(userId, token)),
+        onSaveTodos: (userId, token, todos) => dispatch(actionCreators.saveChangedTodos(userId, token, todos)),
         onTodoSavedChanged: () => dispatch(actionCreators.todoSavedChanged())
     }
 }

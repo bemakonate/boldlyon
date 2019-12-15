@@ -17,7 +17,8 @@ class HomeBuilder extends Component {
                 <header className={classes.header}>
                     <div className={classes.HeaderContent}>
                         <h1>Bold Lyon</h1>
-                        <button onClick={() => this.props.onShowAuthModal('signup')}>Sign Up</button>
+                        {!this.props.isAuth ?
+                            <button onClick={() => this.props.onShowAuthModal('signup')}>Sign Up</button> : null}
                     </div>
                 </header>
 
@@ -83,10 +84,14 @@ class HomeBuilder extends Component {
         )
     }
 }
-
+const mapStateToProps = state => {
+    return {
+        isAuth: state.auth.token !== null,
+    }
+}
 const mapDispatchToProps = (dispatch) => {
     return {
         onShowAuthModal: (authType) => dispatch(userActions.showAuthModal(authType))
     }
 }
-export default connect(null, mapDispatchToProps)(HomeBuilder);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeBuilder);

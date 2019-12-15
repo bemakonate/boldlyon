@@ -8,6 +8,15 @@
 .Todos{
     width:100%;
 }
+.AddNewTodo{
+    @include flex($center:center);
+    flex:1;
+    font-weight:400;
+    font-size:20px;
+    height:50vh;
+    margin:0;
+    background:rgba(black,.3)
+}
 @include mq('med'){
     .TodoList{
         width:60%;

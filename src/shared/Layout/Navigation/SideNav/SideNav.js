@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import classes from './stylesheets/SideNav.css';
 import Backdrop from '../../../../UI/Backdrop/Backdrop'
-import PropTypes from 'prop-types';
 import NavigationItems from '../NavigationItems/NavigationItems';
 
 const sideNav = props => {
@@ -24,16 +23,11 @@ const sideNav = props => {
                 <NavigationItems
                     click={props.closeSideNav}
                     activeClass={classes.Active}
-                    authContainerStyles={classes.AuthButtons} />
+                    sideLinkStyles={classes.AuthButtons}
+                    isAuthSideStyles={classes.IsAuthSideStyles} />
             </nav>
         </Fragment>
     );
 
-}
-
-sideNav.propTypes = {
-    showSideNav: PropTypes.bool,
-    openSideNav: PropTypes.func,
-    closeSideNav: PropTypes.func,
 }
 export default sideNav;

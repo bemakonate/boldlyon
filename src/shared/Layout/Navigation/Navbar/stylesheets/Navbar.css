@@ -18,7 +18,7 @@
       display: flex;
       height: 100%;
       list-style: none;
-      padding-left: 0;
+      padding: 0;
       margin: 0; }
     .Navbar li {
       flex: 1;
@@ -37,15 +37,24 @@
       .Navbar .AuthButtons li {
         display: flex;
         align-items: center;
-        justify-content: center; }
+        justify-content: center;
+        flex: 1; }
         .Navbar .AuthButtons li:hover {
           color: #fcba03; }
-    .Navbar li:first-child {
-      max-width: 100px; }
+    .Navbar .isAuthSideLinks {
+      width: 15%; }
+      .Navbar .isAuthSideLinks a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        height: 100%; }
+    .Navbar .isAuthMainLinks {
+      width: 25%; }
     .Navbar .NavbarBrand {
-      flex: 20px;
       font-size: 22px;
-      font-family: 'Staatliches'; }
+      font-family: 'Staatliches';
+      max-width: 100px; }
   .Sticky {
     background: #1f1e1e;
     padding: 0;

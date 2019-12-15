@@ -1,0 +1,14 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,SAAS,CAAA;EACL,KAAK,EAAC,IAAI;EACV,UAAU,EAAC,IAAI;EACf,aAAa,EAAC,IAAI;CACrB;;AACD,AAAA,MAAM,CAAA;EACF,KAAK,EAAC,IAAI;CACb;;AICO,MAAM,EAAC,SAAS,EAAE,KAAK;EJC3B,AAAA,SAAS,CAAA;IACL,KAAK,EAAC,GAAG;IACT,MAAM,EAAC,YAAY;GACtB;;;AIJG,MAAM,EAAC,SAAS,EAAE,MAAM;EJO5B,AAAA,SAAS,CAAA;IACL,KAAK,EAAC,GAAG;IACT,SAAS,EAAC,KAAK;GAClB",
+    "sources": [
+        "TodoList.scss",
+        "../../../../UI/tools/tools.scss",
+        "../../../../UI/tools/variables/variables.scss",
+        "../../../../UI/tools/extends/extends.scss",
+        "../../../../UI/tools/mixins/mixins.scss",
+        "../../../../UI/tools/functions/functions.scss"
+    ],
+    "names": [],
+    "file": "TodoList.css"
+}

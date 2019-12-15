@@ -6,6 +6,17 @@
 .Todos {
   width: 100%; }
 
+.AddNewTodo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  font-weight: 400;
+  font-size: 20px;
+  height: 50vh;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.3); }
+
 @media (min-width: 650px) {
   .TodoList {
     width: 60%;

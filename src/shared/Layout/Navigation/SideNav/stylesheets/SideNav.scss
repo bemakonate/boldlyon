@@ -17,16 +17,7 @@
         background:$menu-nav-color;
     }
 }
-.AuthButtons{
-    margin-top:auto;
-    li{
-        padding:20px $contain-sides;
-        color:#fcba03;
-        &:not(:last-child){
-            border-bottom:1px solid gray;
-        }
-    }
-}
+
 .SideDrawer{
     width:60vw;
     transition:.5s ease-out;
@@ -58,6 +49,22 @@
                display:block;
                padding:20px $contain-sides;
             }
+        }
+    }
+    .AuthButtons{
+        margin-top:auto;
+        li{
+            padding:20px $contain-sides;
+            color:#fcba03;
+            &:hover{
+                background: #fcba03;
+                color:$sideDrawer-bg-color;
+            }
+        }
+    }
+    .IsAuthSideStyles{
+        li{
+            padding: 0;
         }
     }
 }

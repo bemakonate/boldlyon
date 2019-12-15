@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import axios from '../../axios-todos';
+import axios from 'axios';
 
 export const submitInput = (inputEl) => {
     inputEl.persist();
@@ -70,12 +70,14 @@ export const fetchTodosFailed = (err) => {
     }
 }
 
-export const loadTodos = () => {
+export const loadTodos = (userId, token) => {
     return dispatch => {
-        axios.get('/5dbed690b47c9423c8865727')
+        axios.get(`http://localhost:8080/users/${userId}/todos`, {
+            headers: { 'Authorization': `Bearer ${token}` },
+        })
             .then(res => {
                 //Transform the data into the format needed for the app
-                const todos = res.data.tasks.map(task => {
+                const todos = res.data.map(task => {
                     return { task: task.title, isCompleted: task.isCompleted, clicked: false }
                 })
                 dispatch(fetchTodosPassed(todos))
@@ -93,15 +95,17 @@ export const savedChangesSuccess = () => {
 }
 
 
-export const saveChangedTodos = (todos) => {
+export const saveChangedTodos = (userId, token, todos) => {
     return dispatch => {
         const todosState = [...todos];
         const updatedTodos = todosState.map(todo => {
             return { title: todo.task, isCompleted: todo.isCompleted }
         })
-        const data = { tasks: updatedTodos };
+        const data = { todos: updatedTodos };
 
-        axios.put('/5dbed690b47c9423c8865727', data)
+        axios.patch(`http://localhost:8080/users/${userId}/todos`, data, {
+            headers: { 'Authorization': `Bearer ${token}` },
+        })
             .then(res => {
                 dispatch(savedChangesSuccess())
             })

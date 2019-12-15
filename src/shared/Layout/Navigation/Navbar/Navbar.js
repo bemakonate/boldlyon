@@ -36,8 +36,10 @@ class Navbar extends Component {
                         linkStyles={classes.Link}
                         brandStyles={classes.NavbarBrand}
                         activeClass={classes.active}
-                        containerStyles={classes.MainLinks}
-                        authContainerStyles={classes.AuthButtons} />
+                        mainLinkStyles={classes.MainLinks}
+                        sideLinkStyles={classes.AuthButtons}
+                        isAuthSideStyles={classes.isAuthSideLinks}
+                        isAuthMainStyles={classes.isAuthMainLinks} />
                 </nav>
 
             </React.Fragment>
