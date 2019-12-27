@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import classes from './stylesheets/loginBuilder.css';
 import * as userActions from '../../store/actions';
@@ -28,7 +29,6 @@ class LoginBuilder extends Component {
         },
         formIsValid: false,
     }
-
     inputChangedHandler = async (value, inputIdentifier) => {
         const checkValueValidity = checkValidity(value,
             this.state.loginForm[inputIdentifier].validation,
@@ -54,12 +54,13 @@ class LoginBuilder extends Component {
     }
     submitFormHandler = (event) => {
         event.preventDefault();
-        this.props.onAuth(
-            false,
-            this.state.loginForm.email.value,
-            this.state.loginForm.password.value,
-            null
-        )
+        const email = this.state.loginForm.email.value;
+        const login = this.state.loginForm.password.value;
+        this.props.onAuth(false, email, login, null)
+    }
+
+    componentWillUnmount() {
+        this.props.history.push('/todos');
     }
     render() {
         const loginForm = { ...this.state.loginForm };
@@ -111,6 +112,7 @@ const mapStateToProps = state => {
     return {
         loading: state.auth.loading,
         error: state.auth.error,
+        isAuth: state.auth.token != null,
     }
 }
 const mapDispatchToProps = dispatch => {
@@ -120,4 +122,4 @@ const mapDispatchToProps = dispatch => {
         onAuth: (isSignup, email, password, confirmPassword) => dispatch(userActions.auth(isSignup, email, password, confirmPassword))
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(LoginBuilder);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(LoginBuilder));

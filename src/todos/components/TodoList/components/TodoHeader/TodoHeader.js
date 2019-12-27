@@ -1,9 +1,7 @@
 import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
 
 import classes from './stylesheets/TodoHeader.css';
 import TodoMsg from '../../../../../UI/todoMsg/todoMsg';
-import * as actionCreators from '../../../../store/actions';
 
 import PropTypes from 'prop-types';
 
@@ -16,7 +14,7 @@ const todoHeader = props => {
             <TodoMsg
                 styles={classes.EditHeader}
                 message={`Continue editing todo #${props.editingTodoIndex + 1}... `}
-                close={props.onCancelEditTodo} />
+                close={props.onCancelEditMode} />
         );
     }
     //If the todo sumbitted is empty
@@ -29,7 +27,7 @@ const todoHeader = props => {
         );
     }
     const saveButtonClasses = ["material-icons", classes.SaveButton];
-    if (!props.savedChanges) {
+    if (!props.changesSaved) {
         saveButtonClasses.push(classes.ShowToSave);
     }
 
@@ -69,17 +67,5 @@ todoHeader.propTypes = {
     totalTasks: PropTypes.number,
 }
 
-const mapStateToProps = state => {
-    return {
-        todos: state.todos.todos,
-        savedChanges: state.todos.savedChanges,
-    }
-}
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onEmptyMsgReceived: () => dispatch(actionCreators.emptyMsgReceived()),
-        onCancelEditTodo: () => dispatch(actionCreators.cancelEditTodo()),
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(todoHeader);
+export default todoHeader;

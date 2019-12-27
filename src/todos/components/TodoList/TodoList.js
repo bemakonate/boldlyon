@@ -29,15 +29,30 @@ class TodoList extends Component {
         }
     }
     render() {
-        let todoSection = this.props.error ? <p>Resource can't be loaded</p> : <Spinner />;
+        let todoSection;
+        if (this.props.error) {
+            todoSection = (
+                <React.Fragment>
+                    <p className={classes.Error}>There was an error, sorry :( </p>
+                </React.Fragment>
+            )
+        } else {
+            todoSection = <Spinner />;
+        }
+
         if (this.props.todos) {
             todoSection = (
                 <div className={classes.TodoList}>
                     <TodoHeader
                         saveChanges={() => this.props.onSaveTodos(this.props.userId, this.props.token, this.props.todos)}
                         editingTodo={this.props.editingTodo}
-                        editingTodoIndex={this.props.editingTodoIndex}
-                        isInputEmpty={this.props.emptyInput} />
+                        editingTodoIndex={this.props.editingIndex}
+                        isInputEmpty={this.props.emptyInput}
+                        changesSaved={this.props.changesSaved}
+                        onEmptyMsgReceived={this.props.onEmptyMsgReceived}
+                        onCancelEditMode={this.props.onCancelEditTodo}
+                        todos={this.props.todos}
+                    />
 
                     <TodoInput
                         changed={this.props.onInputChanged}
@@ -69,13 +84,14 @@ const mapStateToProps = state => {
         todos: state.todos.todos,
         todoInput: state.todos.todoInput,
         editingTodo: state.todos.editing,
-        editingTodoIndex: state.todos.editingIndex,
+        editingIndex: state.todos.editingIndex,
         emptyInput: state.todos.emptyInput,
         error: state.todos.error,
         lastSavedTodos: state.todos.lastSavedTodos,
         isAuth: state.auth.token !== null,
         userId: state.auth.userId,
         token: state.auth.token,
+        changesSaved: state.todos.savedChanges
     }
 }
 
@@ -84,7 +100,9 @@ const mapDispatchToProps = dispatch => {
         onTodoClicked: (index) => dispatch(actionCreators.clickTodo(index)),
         onLoadTodos: (userId, token) => dispatch(actionCreators.loadTodos(userId, token)),
         onSaveTodos: (userId, token, todos) => dispatch(actionCreators.saveChangedTodos(userId, token, todos)),
-        onTodoSavedChanged: () => dispatch(actionCreators.todoSavedChanged())
+        onTodoSavedChanged: () => dispatch(actionCreators.todoSavedChanged()),
+        onEmptyMsgReceived: () => dispatch(actionCreators.emptyMsgReceived()),
+        onCancelEditTodo: () => dispatch(actionCreators.cancelEditTodo()),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(WithErrorHandler(TodoList, axios));

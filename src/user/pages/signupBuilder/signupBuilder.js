@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import classes from './stylesheets/signupBuilder.css';
 import Modal from '../../../UI/Modal/Modal';
@@ -37,6 +38,11 @@ class SignupBuilder extends Component {
         },
         formIsValid: false,
     }
+
+    componentWillUnmount() {
+        this.props.history.push('/todos');
+    }
+
     runInputChangedHandler = (inputIdentifier) => {
         return this.inputChangedHandler(this.state.signupForm[inputIdentifier].value, inputIdentifier)
     }
@@ -138,4 +144,4 @@ const mapDispatchToProps = dispatch => {
         onAuth: (isSignup, email, password, confirmPassword) => dispatch(userActions.auth(isSignup, email, password, confirmPassword))
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(SignupBuilder);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SignupBuilder));

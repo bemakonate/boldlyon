@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import axios from 'axios';
+import axios from '../../axios-auth';
 
 export const showAuthModal = (authType) => {
     return {
@@ -25,24 +25,23 @@ export const authSuccess = (token, userId) => {
 }
 
 export const authFail = (error) => {
-    console.log(error)
     return {
         type: actionTypes.AUTH_FAIL,
         error: error,
     }
 }
 
-export const auth = (isSignup, email, password, confirmPassword) => {
+export const auth = (isSignup, email, password, confirmPassword, redirect) => {
     return dispatch => {
         dispatch(authStart());
         const authData = {
             email: email,
             password: password,
         }
-        let url = 'http://localhost:8080/auth/login';
+        let url = '/login';
         if (isSignup) {
             authData.confirmPassword = confirmPassword;
-            url = 'http://localhost:8080/auth/signup'
+            url = '/signup'
         }
 
         axios.post(url, authData)
@@ -52,7 +51,7 @@ export const auth = (isSignup, email, password, confirmPassword) => {
                 localStorage.setItem("expirationDate", expirationDate);
                 localStorage.setItem("userId", res.data.userId);
 
-                dispatch(authSuccess(res.data.token, res.data.userId))
+                dispatch(authSuccess(res.data.token, res.data.userId, redirect))
                 dispatch(checkAuthTimeout(res.data.expiresIn))
 
             })

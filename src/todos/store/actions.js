@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import axios from 'axios';
+import axios from '../../axios-todos';
 
 export const submitInput = (inputEl) => {
     inputEl.persist();
@@ -72,7 +72,7 @@ export const fetchTodosFailed = (err) => {
 
 export const loadTodos = (userId, token) => {
     return dispatch => {
-        axios.get(`http://localhost:8080/users/${userId}/todos`, {
+        axios.get(`/${userId}/todos`, {
             headers: { 'Authorization': `Bearer ${token}` },
         })
             .then(res => {
@@ -103,7 +103,7 @@ export const saveChangedTodos = (userId, token, todos) => {
         })
         const data = { todos: updatedTodos };
 
-        axios.patch(`http://localhost:8080/users/${userId}/todos`, data, {
+        axios.patch(`/${userId}/todos`, data, {
             headers: { 'Authorization': `Bearer ${token}` },
         })
             .then(res => {

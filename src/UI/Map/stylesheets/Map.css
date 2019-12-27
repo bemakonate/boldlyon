@@ -1,0 +1,30 @@
+@import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
+.NavControlContainer {
+  position: absolute;
+  right: 10px;
+  top: 20px; }
+  .NavControlContainer div button:nth-child(1):after {
+    font-family: 'Font Awesome\ 5 Free';
+    content: '\f067';
+    font-weight: 900; }
+  .NavControlContainer div button:nth-child(2):after {
+    font-family: 'Font Awesome\ 5 Free';
+    content: '\f068';
+    font-weight: 900; }
+  .NavControlContainer div button:nth-child(3):after {
+    font-family: 'Font Awesome\ 5 Free';
+    content: '\f124';
+    font-weight: 900; }
+
+.Marker:after {
+  font-family: 'Font Awesome\ 5 Free';
+  content: '\f276';
+  font-weight: 900;
+  font-size: 20px; }
+
+.mapboxgl-popup .mapboxgl-popup-content {
+  border-radius: 8px; }
+
+.mapboxgl-popup-close-button {
+  font-size: 20px;
+  padding: 2px 10px; }

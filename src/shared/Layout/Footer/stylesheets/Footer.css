@@ -1,4 +1,28 @@
 .Footer {
-  padding: 0 1em;
   margin-top: auto;
   background: grey; }
+
+.FooterContainer {
+  padding: 0 1em;
+  margin-top: 30px; }
+  @media (min-width: 650px) {
+    .FooterContainer {
+      padding: 0;
+      width: 90%;
+      margin: 0 auto; } }
+  @media (min-width: 1000px) {
+    .FooterContainer {
+      width: 80%; } }
+
+.Location button {
+  outline: none;
+  border: 1px solid #7ee7d6;
+  background: transparent;
+  color: #7ee7d6;
+  padding: 10px 20px; }
+
+@media (min-width: 650px) {
+  .FooterContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px; } }

@@ -17,6 +17,11 @@
   margin: 0;
   background: rgba(0, 0, 0, 0.3); }
 
+.Error {
+  text-align: center;
+  margin-top: 100px;
+  padding: 40px; }
+
 @media (min-width: 650px) {
   .TodoList {
     width: 60%;

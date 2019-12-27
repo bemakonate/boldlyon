@@ -17,6 +17,11 @@
     margin:0;
     background:rgba(black,.3)
 }
+.Error{
+    text-align:center;
+    margin-top:100px;
+    padding:40px;
+}
 @include mq('med'){
     .TodoList{
         width:60%;

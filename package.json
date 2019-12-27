@@ -39,6 +39,7 @@
     "react": "^16.12.0",
     "react-dev-utils": "^5.0.2",
     "react-dom": "^16.12.0",
+    "react-map-gl": "^5.1.5",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.4",
@@ -48,7 +49,7 @@
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.6.2",
     "webpack": "3.8.1",
-    "webpack-dev-server": "2.11.3",
+    "webpack-dev-server": "^2.11.3",
     "webpack-manifest-plugin": "1.3.2",
     "whatwg-fetch": "2.0.3"
   },

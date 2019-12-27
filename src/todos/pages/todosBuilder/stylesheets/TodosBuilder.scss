@@ -2,5 +2,5 @@
 @import '../../../../UI/tools/variables/todoVars/todoVars.scss';
 .TodosBuilder{
     background:linear-gradient($body-bg-overlay), url($body-bg-url) fixed no-repeat center/cover;
-    flex:1;
+    height:98vh;
 }

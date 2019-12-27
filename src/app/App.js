@@ -16,6 +16,7 @@ class App extends Component {
   componentDidMount() {
     this.props.onTryAutoSignup();
   }
+
   render() {
     let routes = (
       <React.Fragment>
