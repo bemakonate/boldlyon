@@ -4,7 +4,7 @@ import ReactMapGL, { Marker, Popup, NavigationControl } from 'react-map-gl';
 import classes from './stylesheets/Map.css';
 
 const map = props => {
-    const apiKey = props.apiKey || "pk.eyJ1IjoiYmVtYWsiLCJhIjoiY2s0bTRkNGdqMm81dzNvbmF5M2lsNXJzcyJ9.cMwiOShu_SuzouNGWDkkCw";
+    const apiKey = props.apiKey || process.env.MAP_API_KEY;
     const mapStyleURL = props.mapStyle || "mapbox://styles/bemak/ck4m4s7c715g01csaidvkr95i";
     const pinColorObj = props.pinColor ? { style: { color: `${props.pinColor}` } } : null;
     const lat = parseFloat(props.lat) || 0;
