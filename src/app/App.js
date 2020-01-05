@@ -1,27 +1,28 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense, lazy } from 'react';
 import { Route, withRouter, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import classes from './stylesheets/App.css';
 import Layout from '../shared/Layout/Layout';
 import * as userActions from '../user/store/actions';
-import TodosBuilder from '../todos/pages/todosBuilder/todosBuilder';
 import HomeBuilder from '../extras/pages/homeBuilder/homeBuilder';
-import SignupBuilder from '../user/pages/signupBuilder/signupBuilder';
-import LoginBuilder from '../user/pages/loginBuilder/loginBuilder';
-import LogoutBuilder from '../user/pages/logoutBuilder/logoutBuilder';
+
+
+const TodosBuilder = lazy(() => import('../todos/pages/todosBuilder/todosBuilder'));
+const SignupBuilder = lazy(() => import('../user/pages/signupBuilder/signupBuilder'));
+const LoginBuilder = lazy(() => import('../user/pages/loginBuilder/loginBuilder'));
+const LogoutBuilder = lazy(() => import('../user/pages/logoutBuilder/logoutBuilder'))
 
 class App extends Component {
 
   componentDidMount() {
     this.props.onTryAutoSignup();
   }
-
   render() {
     let routes = (
       <React.Fragment>
-        {this.props.currentModal === 'signup' ? <SignupBuilder /> : null}
-        {this.props.currentModal === 'login' ? <LoginBuilder /> : null}
+        {this.props.currentModal === 'signup' ? <Suspense fallback={<div />}><SignupBuilder /></Suspense> : null}
+        {this.props.currentModal === 'login' ? <Suspense fallback={<div />}><LoginBuilder /></Suspense> : null}
         <Switch>
           <Route path="/" exact component={HomeBuilder} />
           <Redirect to="/" />
@@ -30,13 +31,16 @@ class App extends Component {
 
     )
     if (this.props.isAuth) {
+
       routes = (
-        <Switch>
-          <Route path="/todos" component={TodosBuilder} />
-          <Route path='/logout' component={LogoutBuilder} />
-          <Route path="/" exact component={HomeBuilder} />
-          <Redirect to="/" />
-        </Switch>
+        <React.Fragment>
+          <Switch>
+            <Route path='/todos' render={() => <Suspense fallback={<div />}><TodosBuilder /></Suspense>} />
+            <Route path='/logout' render={() => <Suspense fallback={<div />}><LogoutBuilder /></Suspense>} />
+            <Route path="/" exact component={HomeBuilder} />
+            <Redirect to="/" />
+          </Switch>
+        </React.Fragment>
       )
     }
     return (
